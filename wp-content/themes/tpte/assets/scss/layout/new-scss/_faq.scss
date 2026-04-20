@@ -1,0 +1,141 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2  faq
+---------------------------------*/
+
+.#{$theme-prifix}-faq {
+    &-yoga{
+        &-shape{
+            bottom: 220px;
+            left: 0;
+        }
+        &-wrap{
+            margin-top: -24px;
+            @media #{$md,$sm,$xs}{
+                margin-top: 0;
+                margin-left: 0;
+            }
+            & .tpd-accordion {
+                padding-right: 0;
+            }
+            & .tpd-accordion .accordion-button.collapsed {
+                background: none;
+                box-shadow: none;
+                border: none;
+                padding: 0;
+                padding-right: 50px;
+            }
+            & .accordion-item {
+                padding: 23px 0px;
+                background: none;
+            }
+            & .tpd-accordion .accordion-button:not(.collapsed) {
+                background-color: inherit;
+                border: none;
+                padding: 0;
+                color: var(--tp-red-4);
+                & .accordion-btn {
+                    background: none;
+                    border: none;
+                    &::before{
+                        background: var(--tp-red-4);
+                    }
+                    &::after{
+                        background: var(--tp-red-4);
+                    }
+                }
+            }
+            & .tpd-accordion .accordion-item.expand {
+                box-shadow: inherit;
+                border-radius: 1px!important;
+            }
+            & .tpd-accordion .accordion-body {
+                border: none;
+                padding: 0;
+                font-size: 18px;
+                line-height: 26px;
+                color: var(--tp-grey-8);
+                padding-top: 17px;
+                padding-right: 30px;
+                font-weight: 400;
+            }
+            & .tpd-accordion .accordion-item {
+                border-bottom: 1px solid rgba(45, 42, 41, 0.1);
+                border-radius: 1px!important;
+                margin-bottom: 0;
+            }
+            & .tpd-accordion .accordion-button .accordion-btn {
+                background: none;
+                border: none;
+                right: 0;
+                &::before{
+                    width: 14px;
+                    background: var(--tp-heading-5);
+                }
+                &::after{
+                    width: 14px;
+                    background: var(--tp-heading-5);
+                }
+            }
+            & .tpd-accordion .accordion-button{
+                font-family: var(--tp-ff-rufina);
+                font-weight: 400;
+                font-size: 24px;
+                letter-spacing: -0.02em;
+                color: var(--tp-heading-5);
+            }
+        }
+    }
+    &-quran{
+        &-thumb{
+            @media #{$xs}{
+                & img{
+                    width: 100%;
+                }
+            }
+            &-2{
+                right: 0;
+                bottom: -30px;
+                @media #{$lg,$md,$sm,$xs}{
+                    margin-right: 0;
+                }
+            }
+        }
+        &-box{
+            & .tpd-accordion {
+                padding-right: 0;
+            }
+            & .tpd-accordion .accordion-button {
+                border-radius: 0 !important;
+            }
+            & .tpd-accordion .accordion-body {
+                border-radius: 0;
+            }
+            & .tpd-accordion .accordion-item.expand {
+                border-radius: 0!important;
+            }
+            & .tpd-accordion .accordion-button:not(.collapsed) {
+                border-radius: 0!important;
+                border: none;
+                color: var(--tp-theme-11);
+            }
+            & .tpd-accordion .accordion-item.expand {
+                box-shadow: 0 6px 10px 0 rgba(22, 18, 3, 0.1);
+                border: none!important;
+            }
+            & .tpd-accordion .accordion-item {
+                border: none;
+                box-shadow: 0 1px 2px 0 rgba(20, 24, 32, 0.1);
+            }
+            & .tpd-accordion .accordion-button.collapsed {
+                border: none!important;
+            }
+            & .tpd-accordion .accordion-body {
+                border: none!important;
+            }
+            & .tpd-accordion .accordion-button:not(.collapsed) .accordion-btn::after {
+                background-color: var(--tp-theme-11);
+            }
+        }
+    }
+}

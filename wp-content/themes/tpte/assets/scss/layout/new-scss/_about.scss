@@ -1,0 +1,133 @@
+
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 about Classes
+---------------------------------*/
+
+.#{$theme-prifix}-about {
+    &-yoga{
+        &-content{
+            & p{
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 156%;
+                color: var(--tp-grey-8);
+            }
+            & .about-btn{
+                font-weight: 600;
+                font-size: 16px;
+                letter-spacing: 0.02em;
+                color: var(--tp-red-4);
+                border-bottom: 1px solid var(--tp-red-4);
+                &:hover{
+                    color: var(--tp-red-5);
+                    border-color: var(--tp-red-5);
+                }
+            }
+        }
+        &-title{
+            font-family: var(--tp-ff-rufina);
+            font-weight: 400;
+            font-size: 60px;
+            line-height: 1;
+            letter-spacing: -0.02em;
+            text-transform: uppercase;
+            color: var(--tp-red-4);
+            @media #{$sm,$xs}{
+                font-size: 40px;
+            }
+        }
+        &-shape{
+            top: 187px;
+            left: 0;
+            &-2{
+                top: 187px;
+                right: 0;   
+            }
+        }
+    }
+    &-quran{
+        &-thumb{
+            margin-right: 270px;
+            @media #{$xl}{
+                margin-right: 200px;
+            }
+            @media #{$lg,$md,$sm,$xs}{
+                margin-right: 150px;
+            }
+            @media #{$xs}{
+                margin-right: 0;
+            }
+            &-2{
+                margin-right: 14px;
+                margin-left: 233px;
+                margin-top: -330px;
+                @media #{$xs}{
+                    margin-top: 0;
+                    margin-left: 0;
+                    margin-right: 0;
+                }
+                & img{
+                    border: 10px solid var(--tp-common-white);
+                }
+            }
+        }
+        &-shape{
+            position: absolute;
+            bottom: 50px;
+            left: -54px;
+            z-index: -1;
+            animation: hero-dot-2 4s linear 0s infinite alternate;
+            &-2{
+                position: absolute;
+                left: -50px;
+                top: 60px;
+                animation: hero-dot-1 5s linear 0s infinite alternate;
+                @media #{$xl,$lg,$md,$sm,$xs}{
+                    left: 0;
+                }
+            }
+        }
+        &-counter{
+            backdrop-filter: blur(20px);
+            background: var(--tp-theme-11);
+            width: 210px;
+            padding-left: 24px;
+            position: absolute;
+            top: 45px;
+            right: 24px;
+            & h2{
+                font-weight: 700;
+                font-size: 70px;
+                letter-spacing: -0.03em;
+                color: var(--tp-common-white);
+                margin-bottom: 0;
+            }
+            & span{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 20px;
+                color: var(--tp-common-white);
+            }
+        }
+        &-wrapper{
+            margin-left: 80px;
+            @media #{$lg,$md,$sm,$xs}{
+                margin-left: 0;
+            }
+            & .tp-section p {
+                margin-left: 0;
+                color: #57595f;
+            }
+            & .tp-section p::before {
+                background-color: var(--tp-theme-11);
+            }
+            & .tp-about-list {
+                margin-left: 26px;
+            }
+            & .tp-about-list-title {
+                margin-bottom: 7px;
+            }
+        }
+    }
+}

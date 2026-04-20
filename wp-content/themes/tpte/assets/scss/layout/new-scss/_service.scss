@@ -1,0 +1,56 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 courses Classes
+---------------------------------*/
+
+.#{$theme-prifix}-service {
+    &-chef{
+        &-title{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 700;
+            font-size: 22px;
+            text-align: center;
+            color: #212120;
+        }
+        &-icon{
+            transition: all 0.4sease;
+        }
+        &-wrap{
+            padding: 0 17px;
+            padding-top: 24px;
+            @media #{$lg,$md,$sm,$xs}{
+               padding: 0; 
+            }
+            &:hover{
+                & .tp-service-chef-icon{
+                    animation-name: tpshake;
+                    animation-timing-function: ease-in-out;
+                    animation-duration: 0.4s;
+                    animation-iteration-count: 1;
+                }
+            }
+            & p{
+                font-weight: 300;
+                font-size: 16px;
+                color: var(--tp-text-body);
+                line-height: 24px;
+                @media #{$xl,$lg,$md,$sm,$xs}{
+                    & br{
+                        display: none;
+                    }
+                }
+            }
+        }
+        &-border{
+            & > div{
+                &:not(:last-child){
+                    border-right: 1px solid rgba(87, 89, 95, 0.1);
+                    @media #{$md,$sm,$xs}{
+                        border-right: none;
+                        margin-bottom: 25px;
+                    }
+                }
+            }
+        }
+    }
+}

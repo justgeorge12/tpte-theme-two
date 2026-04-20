@@ -1,0 +1,309 @@
+/* =========================================
+   Department Info Page Template
+   ========================================= */
+
+/* --- Header: let it flow in normal document order on this template,
+   so the hero title sits below it. Sticky state (position:fixed via
+   .tp-header-sticky on #header-sticky) is added by JS on scroll and
+   keeps working unchanged. --- */
+body.tpte-dept-info .header-area.tp-header-transparent {
+    position: relative;
+    top: 0;
+}
+
+/* --- Hero (title + quick links) --- */
+.tp-dept-hero {
+    background: #eddff2;
+}
+
+.tp-dept-hero .tp-breadcrumb__list span,
+.tp-dept-hero .tp-breadcrumb__list span a {
+    color: #031f42;
+}
+
+.tp-dept-hero-title {
+    color: #031f42;
+}
+
+.tp-dept-hero-quick {
+    margin-top: 32px;
+}
+
+.tp-dept-hero-quick-title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #031f42;
+    margin-bottom: 20px;
+}
+
+.tp-dept-hero-quick-list {
+    gap: 12px;
+}
+
+.tp-dept-quick-link-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    padding: 16px 24px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    min-width: 100px;
+}
+
+.tp-dept-quick-link-item:hover {
+    background: #fff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
+
+.tp-dept-quick-link-icon {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+}
+
+.tp-dept-quick-link-item:hover .tp-dept-quick-link-icon {
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.tp-dept-quick-link-icon img {
+    max-width: 36px;
+    max-height: 36px;
+    object-fit: contain;
+}
+
+.tp-dept-quick-link-icon i {
+    font-size: 24px;
+    color: #031f42;
+}
+
+.tp-dept-quick-link-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #031f42;
+    transition: color 0.3s ease;
+}
+
+.tp-dept-quick-link-item:hover .tp-dept-quick-link-title {
+    color: #2d4cff;
+}
+
+/* --- Content Sections --- */
+.tp-dept-info-area {
+    background: #F6F4EE;
+}
+
+.tp-dept-info-section {
+    border-bottom: 1px solid #e8e9ed;
+    padding-bottom: 40px;
+}
+
+.tp-dept-info-section:last-child {
+    border-bottom: none;
+}
+
+.tp-dept-info-heading {
+    font-size: 24px;
+    font-weight: 700;
+    color: #031f42;
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.tp-dept-info-text p {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #555;
+    margin-bottom: 16px;
+}
+
+.tp-dept-info-text ul,
+.tp-dept-info-text ol {
+    margin-bottom: 16px;
+    padding-left: 20px;
+}
+
+.tp-dept-info-text li {
+    font-size: 16px;
+    line-height: 1.75;
+    color: #555;
+    margin-bottom: 8px;
+}
+
+.tp-dept-info-text img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 16px 0;
+}
+
+.tp-dept-info-text a {
+    color: #2d4cff;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
+
+.tp-dept-info-text a:hover {
+    color: #031f42;
+}
+
+/* --- Collapsible Text --- */
+.tp-dept-info-text--collapsible {
+    position: relative;
+}
+
+.tp-dept-info-text-inner {
+    overflow: hidden;
+}
+
+.tp-dept-info-text-inner:not(.show) {
+    display: block !important;
+    max-height: 200px;
+    overflow: hidden;
+}
+
+.tp-dept-info-text-inner.collapsing {
+    max-height: none;
+}
+
+.tp-dept-info-text-inner.show {
+    max-height: none;
+}
+
+/* Fade overlay when collapsed */
+.tp-dept-info-text--collapsible .tp-dept-info-fade {
+    position: absolute;
+    bottom: 44px;
+    left: 0;
+    right: 0;
+    height: 80px;
+    background: linear-gradient(to bottom, rgba(246,244,238,0) 0%, rgba(246,244,238,1) 100%);
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.tp-dept-info-text--collapsible.is-expanded .tp-dept-info-fade {
+    opacity: 0;
+}
+
+/* Toggle button */
+.tp-dept-info-toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: none;
+    border: none;
+    co lor: #51aeff;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 8px 0;
+    margin-top: 4px;
+    transition: color 0.3s ease;
+}
+
+.tp-dept-info-toggle:hover {
+    color: #031f42;
+}
+
+.tp-dept-info-toggle-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    border: 1.5px solid currentColor;
+    transition: transform 0.3s ease;
+}
+
+/* Toggle text visibility */
+.tp-dept-info-toggle .tp-dept-info-toggle-less {
+    display: none;
+}
+
+.tp-dept-info-toggle[aria-expanded="true"] .tp-dept-info-toggle-more {
+    display: none;
+}
+
+.tp-dept-info-toggle[aria-expanded="true"] .tp-dept-info-toggle-less {
+    display: inline;
+}
+
+.tp-dept-info-toggle[aria-expanded="true"] .tp-dept-info-toggle-icon {
+    transform: rotate(45deg);
+}
+
+/* --- Section Image Layout (text + image row) --- */
+.tp-dept-info-row {
+    margin-top: 4px;
+}
+
+.tp-dept-info-image {
+    position: sticky;
+    top: 100px;
+}
+
+.tp-dept-info-image figure {
+    margin: 0;
+}
+
+.tp-dept-info-image figure img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.tp-dept-info-image figcaption {
+    font-size: 13px;
+    color: #888;
+    text-align: center;
+    margin-top: 8px;
+}
+
+/* --- Responsive --- */
+@media (max-width: 991px) {
+    .tp-dept-info-image {
+        margin-top: 24px;
+        position: static;
+    }
+}
+
+@media (max-width: 767px) {
+    .tp-dept-quick-link-item {
+        padding: 12px 16px;
+        min-width: 80px;
+    }
+
+    .tp-dept-quick-link-icon {
+        width: 48px;
+        height: 48px;
+    }
+
+    .tp-dept-quick-link-icon img {
+        max-width: 28px;
+        max-height: 28px;
+    }
+
+    .tp-dept-quick-link-title {
+        font-size: 12px;
+    }
+
+    .tp-dept-info-heading {
+        font-size: 20px;
+    }
+
+    .tp-dept-info-text p,
+    .tp-dept-info-text li {
+        font-size: 15px;
+    }
+}

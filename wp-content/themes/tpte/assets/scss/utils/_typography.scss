@@ -1,0 +1,61 @@
+
+// font url
+
+$font-url: 'https://fonts.googleapis.com/css2?family=Gentium+Plus:ital,wght@0,400;0,700;1,400;1,700&family=Google+Sans:ital,opsz,wght@0,17..18,400..700;1,17..18,400..700&display=swap';
+
+@font-face {
+    font-family: 'Tropiline_Bold';
+    src: url('../fonts/Tropiline-Bold.woff2') format('woff2'),
+        url('../fonts/Tropiline-Bold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tropiline_Regular';
+    src: url('../fonts/Tropiline-Regular.woff2') format('woff2'),
+        url('../fonts/Tropiline-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Tropiline_Extra_Bold';
+    src: url('../fonts/Tropiline-ExtraBold.woff2') format('woff2'),
+        url('../fonts/Tropiline-ExtraBold.woff') format('woff');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
+// font family
+$font-family: (
+    'ff': (
+        'body': "'Google Sans', sans-serif",
+        'heading': "'Google Sans', sans-serif",
+        'p': "'Google Sans', sans-serif",
+        'primary': "'Google Sans', sans-serif",
+        'secondary': "'Gentium Plus', serif",
+        'manrope': "'Manrope', sans-serif",
+        'rufina': "'Rufina', serif",
+        'inter': "'Inter', sans-serif",
+        'marcellus': "'Marcellus', serif",
+        'tropiline-bold': "'Tropiline_Bold', sans-serif",
+        'tropiline': "'Tropiline_Regular', sans-serif",
+        'tropiline-extra-bold': "'Tropiline_Extra_Bold', sans-serif",
+        'fontawesome': '"Font Awesome 6 Pro"',
+    )
+);
+
+
+// font size
+$font-size: (
+    'fz': (
+        'body': 16px,
+        'p': 16px,
+    )
+);
+
+

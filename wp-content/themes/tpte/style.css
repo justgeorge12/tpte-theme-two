@@ -1,0 +1,264 @@
+/*
+Theme Name: TPTE
+Theme URI: https://georgiou.dev/tpte
+Author: George Georgiou
+Author URI: https://georgiou.dev
+Description: TPTE - A custom WordPress theme for educational institutions, based on the Acadia template design.
+Version: 1.0.0
+Tested up to: 6.4
+Requires at least: 6.0
+Requires PHP: 7.4
+License: GNU General Public License v2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: tpte
+Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, education
+
+This theme is licensed under the GPL v2 or later.
+Based on the Acadia HTML template design.
+*/
+
+/*
+ * All styling is handled by the Acadia template CSS files:
+ * - assets/css/bootstrap.css
+ * - assets/css/main.css
+ * - etc.
+ *
+ * This file only contains the required WordPress theme metadata.
+ * Add any WordPress-specific style overrides below if needed.
+ */
+
+/* WordPress-specific overrides */
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.screen-reader-text:focus {
+	background-color: #f1f1f1;
+	border-radius: 3px;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	clip: auto !important;
+	clip-path: none;
+	color: #21759b;
+	display: block;
+	font-size: 0.875rem;
+	font-weight: 700;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* Skip link */
+.skip-link {
+	background-color: #f1f1f1;
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	color: #21759b;
+	display: block;
+	font-size: 14px;
+	font-weight: 700;
+	left: -9999em;
+	outline: none;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	text-transform: none;
+	top: -9999em;
+}
+
+.skip-link:focus {
+	clip: auto;
+	height: auto;
+	left: 6px;
+	top: 7px;
+	width: auto;
+	z-index: 100000;
+}
+
+/* Offcanvas mobile menu */
+.tp-main-menu-mobile {
+	width: 100%;
+}
+
+.tp-mobile-menu-wrapper {
+	max-height: calc(100vh - 220px);
+	overflow-y: auto;
+	padding-right: 4px;
+}
+
+.tp-main-menu-mobile #mobile-menu {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tp-main-menu-mobile #mobile-menu > li {
+	position: relative;
+	width: 100%;
+}
+
+.tp-main-menu-mobile #mobile-menu a {
+	display: block;
+	width: 100%;
+	padding: 10px 40px 10px 0;
+}
+
+.tp-main-menu-mobile #mobile-menu ul {
+	list-style: none;
+	margin: 0;
+	padding: 0 0 0 16px;
+}
+
+.tp-main-menu-mobile #mobile-menu li ul {
+	display: none;
+}
+
+.tp-main-menu-mobile #mobile-menu li.is-open > ul {
+	display: block;
+}
+
+.tp-main-menu-mobile #mobile-menu .mobile-submenu-toggle {
+	position: absolute;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+	width: 32px;
+	height: 32px;
+	border: none;
+	background: transparent;
+	cursor: pointer;
+}
+
+.tp-main-menu-mobile #mobile-menu .mobile-submenu-toggle::before,
+.tp-main-menu-mobile #mobile-menu .mobile-submenu-toggle::after {
+	content: '';
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	background-color: #000;
+	transform: translate(-50%, -50%);
+	transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.tp-main-menu-mobile #mobile-menu .mobile-submenu-toggle::before {
+	width: 2px;
+	height: 12px;
+}
+
+.tp-main-menu-mobile #mobile-menu .mobile-submenu-toggle::after {
+	width: 12px;
+	height: 2px;
+}
+
+.tp-main-menu-mobile #mobile-menu li.is-open > .mobile-submenu-toggle::before {
+	opacity: 0;
+}
+
+/* --- Footer: dark background overrides ---
+   The site-footer background was switched to a dark navy (rgba(0,19,64,.8)),
+   so all foreground elements here are recoloured for contrast. Scoped
+   strictly to .site-footer so the body/CTA styles on other pages are
+   unaffected. */
+.site-footer {
+	color: #dce3ef;
+}
+
+.site-footer .tp-footer-widget-content p,
+.site-footer .tp-footer-newsletter-wrap p {
+	color: #c7d1e0;
+}
+
+.site-footer .tp-footer-widget-title {
+	color: #ffffff;
+}
+
+.site-footer a {
+	color: #dce3ef;
+	transition: color 0.25s ease;
+}
+
+.site-footer a:hover {
+	color: #ffffff;
+}
+
+.site-footer .tp-footer-contact span {
+	color: #9fb1cc;
+	display: block;
+	margin-bottom: 4px;
+}
+
+.site-footer .tp-footer-contact a,
+.site-footer .tp-footer-contact-mail a {
+	color: #ffffff;
+}
+
+.site-footer .tp-footer-contact-mail a span,
+.site-footer .tp-footer-contact-mail a span svg {
+	color: #ffffff;
+}
+
+.site-footer .tp-footer-widget-link ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.site-footer .tp-footer-widget-link ul li a {
+	color: #c7d1e0;
+}
+
+.site-footer .tp-footer-widget-link ul li a:hover {
+	color: #ffffff;
+}
+
+/* Newsletter form on dark bg */
+.site-footer .tp-footer-newsletter-input input {
+	background: rgba(255, 255, 255, 0.08);
+	border: 1px solid rgba(255, 255, 255, 0.2);
+	color: #ffffff;
+}
+
+.site-footer .tp-footer-newsletter-input input::placeholder {
+	color: rgba(255, 255, 255, 0.6);
+}
+
+.site-footer .tp-footer-newsletter-input input:focus {
+	border-color: rgba(255, 255, 255, 0.5);
+	background: rgba(255, 255, 255, 0.12);
+	outline: none;
+}
+
+/* Social icons */
+.site-footer .tp-footer-newsletter-social a {
+	color: #ffffff;
+}
+
+.site-footer .tp-footer-newsletter-social a:hover {
+	opacity: 0.8;
+}
+
+/* Copyright bar */
+.site-footer .tp-footer-copyright span,
+.site-footer .tp-footer-copyright {
+	color: #c7d1e0;
+}
+
+.site-footer .tp-footer-copyright a {
+	color: #ffffff;
+}
+
+.site-footer .tp-footer-copyright a:hover {
+	color: #ffffff;
+	opacity: 0.85;
+}

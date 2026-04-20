@@ -1,0 +1,202 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2  footer
+---------------------------------*/
+
+.#{$theme-prifix}-footer {
+    &-yoga{
+        &-location{
+            & .titles{
+                font-family: var(--tp-ff-rufina);
+                font-weight: 400;
+                font-size: 20px;
+                letter-spacing: -0.02em;
+                color: var(--tp-heading-5);
+                & .location{
+                    font-size: 16px;
+                    &:hover{
+                        color: var(--tp-red-5);
+                    }
+                }
+            }
+        }
+        &-social{
+            & a{
+                border: 1px solid #e4e2dc;
+                width: 38px;
+                height: 38px;
+                line-height: 38px;
+                background: none;
+                color: var(--tp-heading-5);
+                &:hover{
+                    background: var(--tp-red-5);
+                    color: var(--tp-common-white);
+                    border-color: var(--tp-red-5);
+                }
+            }
+        }
+        &-call{
+            & .titles{
+                font-weight: 400;
+                font-size: 20px;
+                color: var(--tp-heading-5);
+                & a{
+                    &:hover{
+                        color: var(--tp-red-5);
+                    }
+                }
+            }
+            & .emails{
+                font-weight: 300;
+                font-size: 16px;
+                color: var(--tp-heading-5);
+                &:hover{
+                    color: var(--tp-red-5);
+                }
+            }
+        }
+        &-bottom{
+            background: #f3e9e4;
+            padding: 27px 0 17px 0px;
+            & .tp-footer-copyright{
+                & span{
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #86888d;
+                    & a{
+                        color: var(--tp-heading-5);
+                    }
+                }
+            }
+        }
+    }
+    &-chef{
+        &-widget{
+            @media #{$lg,$md,$sm,$xs}{
+                margin-left: 0;
+            }
+            & ul{
+                & li{
+                    list-style: none;
+                    &:not(:last-child){
+                        margin-bottom: 4px;
+                    }
+                    & a{
+                        font-weight: 400;
+                        font-size: 16px;
+                        color: var(--tp-text-body);
+                        &:hover{
+                            color: var(--tp-theme-10);
+                        }
+                    }
+                }
+            }
+            & .tp-footer-yoga-social a:hover {
+                background: var(--tp-theme-10);
+                color: var(--tp-common-white);
+                border-color: var(--tp-theme-10);
+            }
+            &-2{
+                margin-left: -25px;
+                @media #{$md,$sm,$xs}{
+                    margin-left: 0;
+                }
+            }
+            &-content{
+                & a{
+                    font-weight: 400;
+                    font-size: 16px;
+                    line-height: 22px;
+                    color: var(--tp-text-body);
+                    margin-bottom: 20px;
+                    display: inline-block;
+                    &:hover{
+                        color: var(--tp-theme-10);
+                    }
+                }
+            }
+        }
+        &-text{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 500;
+            font-size: 20px;
+            color: var(--tp-common-black);
+            line-height: 28px;
+            letter-spacing: 1px;
+            @media #{$lg,$md,$sm,$xs}{
+                & br{
+                    display: none;
+                }
+            }
+        }
+        &-contact{
+            & span{
+                font-weight: 400;
+                font-size: 14px;
+                color: var(--tp-text-body);
+            }
+            & a{
+                font-weight: 600;
+                font-size: 22px;
+                color: var(--tp-common-black);
+                display: block;
+                &:hover{
+                    color: var(--tp-theme-10);
+                }
+            }
+            &-mail{
+                & a{
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: var(--tp-text-body);
+                    &:hover{
+                        color: var(--tp-theme-10);
+                    }
+                }
+            }
+        }
+        &-title{
+            font-family: var(--tp-ff-tropiline-bold);
+            font-weight: 700;
+            font-size: 20px;
+            color: var(--tp-common-black);
+        }
+        &-bottom{
+            border-top: 1px solid rgba(33, 33, 32, 0.1);
+            padding: 28px 0px;
+        }
+        &-spacing{
+            padding-top: 175px;
+            margin-top: -84px;
+        }
+        &-copyright{
+            & span{
+                font-weight: 300;
+                font-size: 16px;
+                color: var(--tp-text-body);
+                & a{
+                    color: var(--tp-theme-10);
+                }
+            }
+        }
+    }
+    &-quran{
+        &-wrap{
+            & .tp-footer-newsletter-input input {
+                border-radius: 40px;
+            }
+            & .tp-footer-newsletter-submit .tp-btn {
+                border-radius: 40px;
+                background-color: #fdf275;
+                color: var(--tp-common-black);
+                &:hover{
+                    background: var(--tp-common-black);
+                    color: var(--tp-common-white);
+                }
+            }
+            & .tp-footer-newsletter-social a {
+                border-radius: 30px;
+            }
+        }
+    }
+}

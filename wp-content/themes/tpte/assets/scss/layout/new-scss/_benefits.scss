@@ -1,0 +1,30 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 about Classes
+---------------------------------*/
+
+.#{$theme-prifix}-benefits {
+    &-yoga{
+        &-title{
+            font-weight: 400;
+            font-size: 20px;
+            color: #2d2a29;
+        }
+        &-wrap{
+            & p{
+                font-weight: 400;
+                font-size: 16px;
+                line-height: 24px;
+                color: var(--tp-grey-9);
+            }
+        }
+        &-border{
+            border-left: 1px solid rgba(147, 49, 21, 0.1);
+            @media #{$lg,$md,$sm,$xs}{
+                padding-left: 0;
+                margin-left: 0;
+                border: none;
+            }
+        }
+    }
+}

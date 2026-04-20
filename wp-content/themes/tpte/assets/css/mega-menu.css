@@ -1,0 +1,317 @@
+/* ==========================================================================
+   MEGA MENU STYLES - VERSION 3
+   With column titles and single-column support
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Variables
+   -------------------------------------------------------------------------- */
+:root {
+    --mega-menu-bg: rgba(255, 255, 255, 0.93);
+    --mega-menu-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
+    --mega-menu-border-radius: 8px;
+    --mega-menu-padding: 30px;
+
+    /* Top level links (on dark/transparent header) */
+    --top-menu-link-color: #ffffff;
+    --top-menu-link-hover-color: #ffd700;
+
+    /* Dropdown menu items */
+    --dropdown-link-color: #333333;
+    --dropdown-link-hover-color: #0056b3;
+    --dropdown-link-font-size: 15px;
+
+    /* Column titles */
+    --column-title-color: #0056b3;
+    --column-title-font-size: 13px;
+    --column-title-font-weight: 600;
+
+    --column-gap: 40px;
+    --transition-speed: 0.25s;
+}
+
+/* --------------------------------------------------------------------------
+   Reset & Base
+   -------------------------------------------------------------------------- */
+#primary-menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#primary-menu li {
+    list-style: none;
+}
+
+/* --------------------------------------------------------------------------
+   Top Level Items
+   -------------------------------------------------------------------------- */
+#primary-menu > li.top-level-item {
+    position: relative;
+}
+
+#primary-menu > li.top-level-item > a {
+    display: inline-flex;
+    align-items: center;
+    padding: 25px 18px;
+    color: var(--top-menu-link-color);
+    font-size: 15px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+#primary-menu > li.top-level-item > a:hover,
+#primary-menu > li.top-level-item.has-mega-menu:hover > a {
+    color: var(--top-menu-link-hover-color);
+}
+
+/* Dropdown arrow for mega menu items */
+#primary-menu > li.has-mega-menu > a::after {
+    content: '';
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    margin-left: 8px;
+    border-right: 1.5px solid currentColor;
+    border-bottom: 1.5px solid currentColor;
+    transform: rotate(45deg) translateY(-2px);
+    transition: transform var(--transition-speed) ease;
+}
+
+#primary-menu > li.has-mega-menu:hover > a::after {
+    transform: rotate(-135deg) translateY(-2px);
+}
+
+/* --------------------------------------------------------------------------
+   Mega Menu Dropdown - HIDDEN BY DEFAULT
+   -------------------------------------------------------------------------- */
+.mega-menu-dropdown {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    min-width: 500px;
+    background: var(--mega-menu-bg);
+    border-radius: var(--mega-menu-border-radius);
+    box-shadow: var(--mega-menu-shadow);
+    z-index: 99999;
+
+    /* CRITICAL: Hidden by default */
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transform: translateX(-50%) translateY(15px);
+
+    transition:
+            opacity var(--transition-speed) ease,
+            visibility var(--transition-speed) ease,
+            transform var(--transition-speed) ease;
+}
+
+/* Show dropdown on hover */
+#primary-menu > li.has-mega-menu:hover > .mega-menu-dropdown {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* Top accent line */
+.mega-menu-dropdown::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 30px;
+    right: 30px;
+    height: 3px;
+    background: linear-gradient(90deg, #0056b3, #00a0dc);
+    border-radius: 3px 3px 0 0;
+}
+
+/* --------------------------------------------------------------------------
+   Mega Menu Inner (flex container for columns)
+   -------------------------------------------------------------------------- */
+.mega-menu-inner {
+    display: flex;
+    gap: var(--column-gap);
+    padding: var(--mega-menu-padding);
+
+}
+
+/* --------------------------------------------------------------------------
+   Columns
+   -------------------------------------------------------------------------- */
+.mega-menu-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* --------------------------------------------------------------------------
+   Column Title (non-clickable header)
+   -------------------------------------------------------------------------- */
+.mega-menu-column-title {
+    margin: 0 0 15px 0;
+    padding: 0 0 12px 0;
+    font-size: var(--column-title-font-size);
+    font-weight: var(--column-title-font-weight);
+    color: var(--column-title-color);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    border-bottom: 2px solid #e8e8e8;
+    cursor: default;
+    user-select: none;
+}
+
+/* --------------------------------------------------------------------------
+   Column list
+   -------------------------------------------------------------------------- */
+.mega-menu-column-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.mega-menu-column-list > li {
+    margin: 0;
+    padding: 0;
+}
+
+.mega-menu-column-list > li > a {
+    display: block;
+    padding: 10px 0;
+    padding-left: 0;
+    color: var(--dropdown-link-color);
+    font-size: var(--dropdown-link-font-size);
+    text-decoration: none;
+    position: relative;
+    transition:
+            color var(--transition-speed) ease,
+            padding-left var(--transition-speed) ease;
+}
+
+.mega-menu-column-list > li > a:hover {
+    color: var(--dropdown-link-hover-color);
+    padding-left: 15px;
+}
+
+/* Hover indicator line */
+.mega-menu-column-list > li > a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0;
+    height: 2px;
+    background: var(--dropdown-link-hover-color);
+    transition: width var(--transition-speed) ease;
+}
+
+.mega-menu-column-list > li > a:hover::before {
+    width: 8px;
+}
+
+/* --------------------------------------------------------------------------
+   Single Column Menu (smaller dropdown)
+   -------------------------------------------------------------------------- */
+#primary-menu > li.single-column-menu > .mega-menu-dropdown,
+#primary-menu > li.has-mega-menu:has(.mega-menu-column-single) > .mega-menu-dropdown {
+    min-width: 250px;
+}
+
+#primary-menu > li.single-column-menu .mega-menu-inner,
+.mega-menu-column-single {
+    min-width: auto;
+}
+
+.mega-menu-column-single {
+    flex: none;
+    min-width: 200px;
+}
+
+/* Single column without title */
+.mega-menu-column-single > .mega-menu-column-list {
+    padding-top: 0;
+}
+
+/* --------------------------------------------------------------------------
+   Simple dropdown (no columns at all - like "Ενημέρωση")
+   -------------------------------------------------------------------------- */
+#primary-menu > li.single-column-menu > .mega-menu-dropdown {
+    min-width: 220px;
+    left: 0;
+    transform: translateX(0) translateY(15px);
+}
+
+#primary-menu > li.single-column-menu:hover > .mega-menu-dropdown {
+    transform: translateX(0) translateY(0);
+}
+
+#primary-menu > li.single-column-menu .mega-menu-inner {
+    padding: 15px 20px;
+}
+
+/* Direct list items in single column menu */
+#primary-menu > li.single-column-menu .mega-menu-inner > .sub-menu {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#primary-menu > li.single-column-menu .mega-menu-inner > .sub-menu > li > a {
+    display: block;
+    padding: 8px 0;
+    color: var(--dropdown-link-color);
+    font-size: var(--dropdown-link-font-size);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+#primary-menu > li.single-column-menu .mega-menu-inner > .sub-menu > li > a:hover {
+    color: var(--dropdown-link-hover-color);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------------------- */
+@media (max-width: 1400px) {
+    #primary-menu > li.top-level-item > a {
+        padding: 25px 14px;
+        font-size: 14px;
+    }
+
+    .mega-menu-dropdown {
+        min-width: 450px;
+    }
+
+    #primary-menu > li.single-column-menu > .mega-menu-dropdown {
+        min-width: 200px;
+    }
+}
+
+@media (max-width: 1200px) {
+    #primary-menu > li.top-level-item > a {
+        padding: 20px 10px;
+        font-size: 13px;
+    }
+
+    .mega-menu-dropdown {
+        min-width: 380px;
+    }
+
+    .mega-menu-inner {
+        gap: 25px;
+        padding: 20px;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Sticky Header Adjustments
+   -------------------------------------------------------------------------- */
+.header-sticky #primary-menu > li.top-level-item > a {
+    padding-top: 18px;
+    padding-bottom: 18px;
+}

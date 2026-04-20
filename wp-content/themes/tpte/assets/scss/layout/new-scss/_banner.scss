@@ -1,0 +1,71 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 banner Classes
+---------------------------------*/
+
+.#{$theme-prifix}-banner {
+    &-chef{
+        &-wrap{
+            background: var(--tp-common-yellow);
+            border-radius: 20px;
+            @media #{$md,$sm,$xs}{
+                padding: 0px 20px 40px 20px;
+            }
+        }
+        &-thumb{
+            padding-top: 33px;
+            padding-bottom: 36px;
+            text-align: right;
+            @media #{$xl,$lg,$md,$sm,$xs}{
+                margin-right: 0;
+            }
+        }
+        &-subtitle{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 600;
+            font-size: 20px;
+            display: inline-block;
+            color: var(--tp-theme-10);
+        }
+        &-title{
+            font-family: var(--tp-ff-tropiline-extra-bold);
+            font-weight: 900;
+            font-size: 70px;
+            line-height: 123%;
+            letter-spacing: 0.02em;
+            color: #fdf275;
+            text-shadow: 7px 7px 0 #FF5224, -7px -7px 0 #FF5224, 7px -7px 0 #FF5224,
+              -7px 7px 0 #FF5224, 7px 7px 0 #FF5224;
+              @media #{$sm,$xs}{
+                font-size: 45px;
+              }
+        }
+        &-shape{
+            top: 107px;
+            left: -40px;
+            &-2{
+                right: 191px;
+                top: 38px;
+                @media #{$xl,$lg,$md,$sm,$xs}{
+                    right: 100px;
+                    top: 10px;
+                }
+            }
+            &-3{
+                bottom: 109px;
+                right: 57px;
+                @media #{$xl,$lg,$md,$sm,$xs}{
+                    bottom: 20px;
+                    right: 20px;
+                    & img{
+                        width: 80px;
+                    }
+                }
+            }
+            &-4{
+                bottom: -14px;
+                right: 280px;
+            }
+        }
+    }
+}
