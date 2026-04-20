@@ -195,7 +195,7 @@ function tpte_scripts() {
 	wp_enqueue_script( 'tpte-flatpickr', get_template_directory_uri() . '/assets/js/flatpickr.js', array(), TPTE_VERSION, true );
 
 	// Main theme JS (bundled).
-	wp_enqueue_script( 'tpte-main', get_template_directory_uri() . '/assets/js/main.min.js', array( 'jquery', 'tpte-bootstrap', 'tpte-swiper' ), TPTE_VERSION, true );
+	wp_enqueue_script( 'tpte-main', get_template_directory_uri() . '/assets/js/main.js', array( 'jquery', 'tpte-bootstrap', 'tpte-swiper', 'tpte-slick' ), TPTE_VERSION, true );
 
 	// Theme navigation JS.
 	wp_enqueue_script( 'tpte-navigation', get_template_directory_uri() . '/js/navigation.js', array(), TPTE_VERSION, true );

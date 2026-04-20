@@ -43,18 +43,18 @@ while ( have_posts() ) :
 			<div class="row">
 				<div class="col-12">
 					<div class="tp-about-4-wrapper mb-80 wow fadeInUp" data-wow-delay=".3s">
-						<h2 class="tp-about-4-head"><?php esc_html_e( 'Our goal is to develop and meet the needs of each child so that he or she becomes a well-rounded tomorrow individual.', 'tpte' ); ?></h2>
+						<h2 class="tp-about-4-head"><?php esc_html_e( 'Στόχος του Τμήματος είναι να εκπαιδεύει ολοκληρωμένους επιστήμονες που συνδυάζουν δημιουργικά την τεχνολογία με τον πολιτισμό.', 'tpte' ); ?></h2>
 						<div class="tp-about-4-btn">
-							<a class="tp-btn" href="#"><?php esc_html_e( 'Why Choose Acadia', 'tpte' ); ?></a>
+
 							<div class="tp-about-4-video">
-								<a href="https://www.youtube.com/watch?v=_RpLvsA1SNM" class="popup-video">
+								<a href="https://www.youtube.com/watch?v=Hc_4Qnetdzo&list=PLImGhm8yJYXrQdEFei5AyKChfykvpd2g8&index=1" target="_blank">
 									<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="12" height="14" viewBox="0 0 12 14" fill="none">
 											<path d="M12 7.00012L0 0.0719185L0 13.9283L12 7.00012Z" fill="currentColor" />
 										</svg>
 									</span>
 								</a>
-								<span><?php esc_html_e( 'Play Video', 'tpte' ); ?></span>
+								<span><?php esc_html_e( 'Ιστορίες των Αποφοίτων μας', 'tpte' ); ?></span>
 							</div>
 						</div>
 					</div>
@@ -87,36 +87,6 @@ while ( have_posts() ) :
 	<!-- about-area-end -->
 
 
-	<!-- counter-area-start -->
-	<section class="counter-area grey-bg pb-90">
-		<div class="container">
-			<div class="tp-counter-bg wow fadeInUp" data-wow-delay=".3s" data-background="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/bg/counter-bg-2.jpg">
-				<?php
-				$about_counters = array(
-					array( 'count' => '10',  'unit' => 'k', 'label' => __( 'Students', 'tpte' ) ),
-					array( 'count' => '300', 'unit' => '',  'label' => __( 'Professors', 'tpte' ) ),
-					array( 'count' => '48',  'unit' => '',  'label' => __( 'Programs', 'tpte' ) ),
-					array( 'count' => '2',   'unit' => 'k', 'label' => __( 'Research', 'tpte' ) ),
-				);
-				?>
-				<div class="row">
-					<?php foreach ( $about_counters as $i => $counter ) : ?>
-						<div class="col-lg-3 col-md-6">
-							<div class="tp-counter-item <?php echo ( count( $about_counters ) - 1 === $i ) ? 'item-end ' : ''; ?>text-center">
-								<h3 class="tp-counter-count mb-10">
-									<span data-purecounter-duration="1" data-purecounter-end="<?php echo esc_attr( $counter['count'] ); ?>" class="purecounter"><?php echo esc_html( $counter['count'] ); ?></span><?php echo esc_html( $counter['unit'] ); ?>
-								</h3>
-								<p><?php echo esc_html( $counter['label'] ); ?></p>
-							</div>
-						</div>
-					<?php endforeach; ?>
-				</div>
-			</div>
-		</div>
-	</section>
-	<!-- counter-area-end -->
-
-
 	<!-- our-mission-area-start -->
 	<section class="tp-our-mission-area grey-bg pt-30">
 		<div class="container">
@@ -129,15 +99,15 @@ while ( have_posts() ) :
 				<div class="col-lg-8">
 					<div class="tp-our-mission-wrapper wow fadeInUp" data-wow-delay=".5s">
 						<div class="tp-our-mission-heading">
-							<h3 class="tp-our-mission-title"><?php esc_html_e( 'Mission and values', 'tpte' ); ?></h3>
-							<p><?php esc_html_e( 'We prepare you to launch your career by providing a supportive, creative, and professional. Our mission is to prepare students to understand, contribute to, and succeed in a rapidly changing society,', 'tpte' ); ?></p>
+							<h3 class="tp-our-mission-title"><?php esc_html_e( 'Σπουδές με επίκεντρο τον Ψηφιακό Πολιτισμό', 'tpte' ); ?></h3>
+							<p><?php esc_html_e( 'Το Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας του Πανεπιστημίου Αιγαίου συνδυάζει πολιτισμικές σπουδές, ψηφιακές τεχνολογίες και επικοινωνία, προσφέροντας ένα σύγχρονο και διεπιστημονικό περιβάλλον σπουδών. Με έμφαση στην καινοτομία, την πολιτιστική διαχείριση και την ανάπτυξη ψηφιακού περιεχομένου, προετοιμάζει αποφοίτους για ένα ευρύ φάσμα δημιουργικών, τεχνολογικών και εκπαιδευτικών διαδρομών.', 'tpte' ); ?></p>
 						</div>
 
 						<?php
 						$mission_items = array(
 							array(
-								'title' => __( 'Creativity', 'tpte' ),
-								'desc'  => __( 'Encouraging behaviours which encompass notions of originality, and problem-solving in all that we do.', 'tpte' ),
+								'title' => __( 'Το Τμήμα', 'tpte' ),
+								'desc'  => __( 'Το Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας ανήκει στη Σχολή Κοινωνικών Επιστημών του Πανεπιστημίου Αιγαίου, εδρεύει στη Μυτιλήνη και υποδέχεται φοιτητές από το 1ο και 4ο επιστημονικό πεδίο. Ιδρύθηκε το 2000, ως απάντηση στη δυναμική ανάπτυξη της Πολιτισμικής Πληροφορικής, ενός πεδίου που αξιοποιεί τις νέες τεχνολογίες για την ανάλυση, μελέτη, προβολή και δημιουργική επεξεργασία του πολιτισμού. Το Τμήμα είναι μοναδικό στην Ελλάδα ως προς τον συνδυασμό πολιτισμού, επικοινωνίας και ψηφιακής τεχνολογίας. Εστιάζει στις μεθόδους με τις οποίες η ψηφιακή τεχνολογία αναπαριστά, αναδεικνύει και επαναπροσδιορίζει το πολιτισμικό περιεχόμενο, καλλιεργώντας ένα σταθερά διεπιστημονικό ακαδημαϊκό περιβάλλον με εθνική και διεθνή ερευνητική παρουσία.', 'tpte' ),
 								'thumb' => 'mission-item-1.jpg',
 								'class' => 'tp-our-mission-item-thumb-1',
 							),
@@ -187,7 +157,7 @@ while ( have_posts() ) :
 
 
 	<!-- about year area start -->
-	<section class="tp-about-year-area tp-about-year-bg p-relative pt-200 pb-95">
+	<section class="tp-about-year-area tp-about-year-background p-relative pt-200 pb-95">
 		<div class="tp-about-year-shape">
 			<div class="shape-1">
 				<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/our-mission/star.png" alt="">
@@ -214,6 +184,24 @@ while ( have_posts() ) :
 				'year'  => '2012',
 				'thumb' => 'thumb-4.jpg',
 				'title' => __( '10 New <br> Courses Added', 'tpte' ),
+				'desc'  => __( 'Etiam quis sapien in orci feugiat suscipit quis eget risus. Morbi in dapibus magna, et congue tortor. Students loved the system, but the teachers struggled to manage the paperwork and manual tracking.', 'tpte' ),
+			),
+			array(
+				'year'  => '2017',
+				'thumb' => 'thumb-2.jpg',
+				'title' => __( '12 New <br> Courses Added', 'tpte' ),
+				'desc'  => __( 'Etiam quis sapien in orci feugiat suscipit quis eget risus. Morbi in dapibus magna, et congue tortor. Students loved the system, but the teachers struggled to manage the paperwork and manual tracking.', 'tpte' ),
+			),
+			array(
+				'year'  => '2020',
+				'thumb' => 'thumb-3.jpg',
+				'title' => __( '6 New <br> Courses Added', 'tpte' ),
+				'desc'  => __( 'Etiam quis sapien in orci feugiat suscipit quis eget risus. Morbi in dapibus magna, et congue tortor. Students loved the system, but the teachers struggled to manage the paperwork and manual tracking.', 'tpte' ),
+			),
+			array(
+				'year'  => '2024',
+				'thumb' => 'thumb-4.jpg',
+				'title' => __( '20 New <br> Courses Added', 'tpte' ),
 				'desc'  => __( 'Etiam quis sapien in orci feugiat suscipit quis eget risus. Morbi in dapibus magna, et congue tortor. Students loved the system, but the teachers struggled to manage the paperwork and manual tracking.', 'tpte' ),
 			),
 		);

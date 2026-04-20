@@ -809,7 +809,7 @@
 			asNavFor: '.slider-for',
 			arrows: false,
 			centerMode: true,
-			focusOnSelect: true,
+			swipeToSlide: true,
 			responsive: [
 				{
 					breakpoint: 576,
