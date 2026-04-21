@@ -840,3 +840,147 @@
 .tpt-no-line-before:before{
     background-color: transparent;
 }
+
+.tp-our-mission-item-content{
+    padding: 40px !important;
+}
+
+// Let the last mission card overflow into the next section's background.
+.tp-our-mission-area {
+    position: relative;
+    padding-bottom: 60px;
+}
+.tp-our-mission-wrapper .tp-our-mission-item:last-child {
+    position: relative;
+    z-index: 1;
+    margin-bottom: -120px;
+    box-shadow: 0 24px 48px rgba(1, 15, 28, 0.08);
+}
+
+// Collapsible mission item descriptions — 4-5 lines max before expand.
+.tp-about-mission-collapse {
+    .tp-dept-info-text-inner {
+        max-height: 170px;
+    }
+    &.is-expanded .tp-dept-info-text-inner {
+        max-height: none;
+    }
+    .tp-dept-info-fade {
+        background: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 100%) !important;
+        bottom: 36px;
+    }
+}
+
+// Research fields — two-column tab links on the left, image + logo + title + CTA on the right.
+.tp-about-research-tab {
+    & .nav {
+        display: block;
+        margin-bottom: 0;
+    }
+    & .nav-link {
+        &::after {
+            content: none !important;
+        }
+    }
+    .tp-about-research-nav {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        column-gap: 30px;
+        row-gap: 20px;
+        padding-left: 0 !important;
+
+        margin-bottom: 0;
+        @media #{$lg} {
+            padding-left: 55px;
+            column-gap: 20px;
+        }
+        @media #{$md,$sm,$xs} {
+            padding-left: 0;
+            padding-bottom: 40px;
+            column-gap: 20px;
+        }
+        @media #{$xs} {
+            grid-template-columns: 1fr;
+        }
+        & .nav-item {
+            margin-bottom: 0 !important;
+        }
+        & .nav-link {
+            text-align: left;
+            white-space: normal;
+            line-height: 1.3;
+            font-size: 16px;
+        }
+    }
+}
+
+.tp-about-research-content {
+    flex-wrap: wrap;
+    row-gap: 20px;
+}
+
+.tp-about-research-info {
+    gap: 16px;
+    flex: 1 1 auto;
+    min-width: 0;
+}
+
+.tp-about-research-logo {
+    flex: 0 0 auto;
+    & img {
+        width: 56px;
+        height: 56px;
+        object-fit: contain;
+        border-radius: 10px;
+    }
+}
+
+.tp-about-research-logo-placeholder {
+    display: block;
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    background: repeating-linear-gradient(
+        45deg,
+        rgba(1, 15, 28, 0.06),
+        rgba(1, 15, 28, 0.06) 6px,
+        rgba(1, 15, 28, 0.03) 6px,
+        rgba(1, 15, 28, 0.03) 12px
+    );
+    border: 1px solid rgba(1, 15, 28, 0.10);
+}
+
+.tp-about-research-title {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin: 0;
+    color: var(--tp-heading-primary);
+    @media #{$lg} {
+        font-size: 18px;
+    }
+}
+
+// Stretch the image to match the left column's height at lg+ so tall text doesn't dwarf the image.
+.tp-about-research-area {
+    .tab-content,
+    .tab-pane {
+        height: 100%;
+    }
+}
+.tp-about-research-box {
+    height: 100%;
+    min-height: 500px;
+    & .tp-about-campus-thumb {
+        height: 100%;
+    }
+    & .tp-about-campus-thumb img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+}
+.tp-about-campus-btn .tp-btn:hover {
+    color: var(--tp-common-white);
+    background-color: #51aeff !important;
+}

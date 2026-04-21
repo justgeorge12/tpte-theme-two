@@ -165,13 +165,11 @@ while ( have_posts() ) :
 
 							<?php if ( $needs_collapse ) : ?>
 								<div class="tp-dept-info-text tp-dept-info-text--collapsible">
-									<div class="tp-dept-info-text-inner collapse" id="<?php echo esc_attr( $collapse_id ); ?>">
+									<div class="tp-dept-info-text-inner" id="<?php echo esc_attr( $collapse_id ); ?>">
 										<?php echo wp_kses_post( $section['content'] ); ?>
 									</div>
 									<div class="tp-dept-info-fade"></div>
 									<button class="tp-dept-info-toggle" type="button"
-										data-bs-toggle="collapse"
-										data-bs-target="#<?php echo esc_attr( $collapse_id ); ?>"
 										aria-expanded="false"
 										aria-controls="<?php echo esc_attr( $collapse_id ); ?>">
 										<span class="tp-dept-info-toggle-icon">

@@ -161,21 +161,9 @@ body.tpte-dept-info .header-area.tp-header-transparent {
 }
 
 .tp-dept-info-text-inner {
-    overflow: hidden;
-}
-
-.tp-dept-info-text-inner:not(.show) {
-    display: block !important;
     max-height: 200px;
     overflow: hidden;
-}
-
-.tp-dept-info-text-inner.collapsing {
-    max-height: none;
-}
-
-.tp-dept-info-text-inner.show {
-    max-height: none;
+    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 /* Fade overlay when collapsed */
@@ -201,7 +189,7 @@ body.tpte-dept-info .header-area.tp-header-transparent {
     gap: 8px;
     background: none;
     border: none;
-    co lor: #51aeff;
+    color: #51aeff;
     font-size: 14px;
     font-weight: 600;
     cursor: pointer;

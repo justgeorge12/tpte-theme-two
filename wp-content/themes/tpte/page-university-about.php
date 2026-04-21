@@ -90,12 +90,9 @@ while ( have_posts() ) :
 	<!-- our-mission-area-start -->
 	<section class="tp-our-mission-area grey-bg pt-30">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-4">
-					<div class="tp-our-mission-thumb wow fadeInUp" data-wow-delay=".3s">
-						<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/our-mission/thumb-1.png" alt="">
-					</div>
-				</div>
+			<div class="row d-flex justify-content-center">
+
+
 				<div class="col-lg-8">
 					<div class="tp-our-mission-wrapper wow fadeInUp" data-wow-delay=".5s">
 						<div class="tp-our-mission-heading">
@@ -130,27 +127,41 @@ while ( have_posts() ) :
                                     'class' => 'tp-our-mission-item-thumb-2',
                             ),
 						);
-						$mission_last_index = count( $mission_items ) - 1;
+						$mission_last_index  = count( $mission_items ) - 1;
+						$collapse_char_limit = 200;
 						foreach ( $mission_items as $i => $item ) :
-							$is_last = ( $i === $mission_last_index );
+							$is_last        = ( $i === $mission_last_index );
+							$needs_collapse = mb_strlen( $item['desc'] ) > $collapse_char_limit;
+							$collapse_id    = 'mission-item-' . $i;
 							?>
 							<div class="tp-our-mission-item d-flex align-items-center justify-content-center justify-content-md-between<?php echo $is_last ? '' : ' mb-20'; ?>">
 								<div class="tp-our-mission-item-content">
 									<h4 class="tp-our-mission-item-title"><?php echo esc_html( $item['title'] ); ?></h4>
+
+									<?php if ( $needs_collapse ) : ?>
+									<div class="tp-dept-info-text tp-dept-info-text--collapsible tp-about-mission-collapse">
+										<div class="tp-dept-info-text-inner" id="<?php echo esc_attr( $collapse_id ); ?>">
+											<p><?php echo esc_html( $item['desc'] ); ?></p>
+										</div>
+										<div class="tp-dept-info-fade"></div>
+										<button class="tp-dept-info-toggle" type="button"
+											aria-expanded="false"
+											aria-controls="<?php echo esc_attr( $collapse_id ); ?>">
+											<span class="tp-dept-info-toggle-icon">
+												<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+													<path d="M6 1V11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+													<path d="M1 6H11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+												</svg>
+											</span>
+											<span class="tp-dept-info-toggle-more"><?php esc_html_e( 'Περισσότερα', 'tpte' ); ?></span>
+											<span class="tp-dept-info-toggle-less"><?php esc_html_e( 'Λιγότερα', 'tpte' ); ?></span>
+										</button>
+									</div>
+									<?php else : ?>
 									<p><?php echo esc_html( $item['desc'] ); ?></p>
-									<div class="tp-our-mission-item-btn">
-										<a class="tp-btn-3" href="#"><?php esc_html_e( 'Learn More', 'tpte' ); ?> <i>
-											<svg xmlns="http://www.w3.org/2000/svg" width="13" height="12" viewBox="0 0 13 12" fill="none">
-												<path d="M1.5 6H11.5" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-												<path d="M6.5 1L11.5 6L6.5 11" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-											</svg>
-										</i></a>
-									</div>
-								</div>
-								<div class="tp-our-mission-item-thumb">
-									<div class="<?php echo esc_attr( $item['class'] ); ?>">
-										<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/our-mission/<?php echo esc_attr( $item['thumb'] ); ?>" alt="">
-									</div>
+									<?php endif; ?>
+
+
 								</div>
 							</div>
 						<?php endforeach; ?>
@@ -165,9 +176,7 @@ while ( have_posts() ) :
 	<!-- about year area start -->
 	<section class="tp-about-year-area tp-about-year-background p-relative pt-200 pb-95">
 		<div class="tp-about-year-shape">
-			<div class="shape-1">
-				<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/our-mission/star.png" alt="">
-			</div>
+
 			<div class="shape-2">
 				<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/our-mission/thumb-2-shape.jpg" alt="">
 			</div>
@@ -248,42 +257,8 @@ while ( have_posts() ) :
 	<!-- about year area end -->
 
 
-	<!-- about team area start -->
-	<section class="tp-about-team-area grey-bg p-relative pt-120 pb-90">
-		<div class="tp-about-team-shape">
-			<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/team/about-team/team-shape.png" alt="">
-		</div>
-		<div class="container">
-			<?php
-			$team_members = array(
-				array( 'name' => __( 'Patrick James', 'tpte' ),  'role' => __( 'Head Coach', 'tpte' ), 'thumb' => 'about-team-1.jpg', 'delay' => '.3s' ),
-				array( 'name' => __( 'Michael Patel', 'tpte' ),  'role' => __( 'Head Coach', 'tpte' ), 'thumb' => 'about-team-2.jpg', 'delay' => '.5s' ),
-				array( 'name' => __( 'Samantha Lee', 'tpte' ),   'role' => __( 'Head Coach', 'tpte' ), 'thumb' => 'about-team-3.jpg', 'delay' => '.7s' ),
-				array( 'name' => __( 'David Johnson', 'tpte' ),  'role' => __( 'Head Coach', 'tpte' ), 'thumb' => 'about-team-4.jpg', 'delay' => '.9s' ),
-			);
-			?>
-			<div class="row">
-				<?php foreach ( $team_members as $member ) : ?>
-					<div class="col-lg-3 col-sm-6">
-						<div class="tp-about-team-item p-relative mb-30 wow fadeInUp" data-wow-delay="<?php echo esc_attr( $member['delay'] ); ?>">
-							<div class="tp-about-team-thumb">
-								<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/team/about-team/<?php echo esc_attr( $member['thumb'] ); ?>" alt="">
-							</div>
-							<div class="tp-about-team-content">
-								<h4 class="tp-about-team-title"><a href="#"><?php echo esc_html( $member['name'] ); ?></a></h4>
-								<p><?php echo esc_html( $member['role'] ); ?></p>
-							</div>
-						</div>
-					</div>
-				<?php endforeach; ?>
-			</div>
-		</div>
-	</section>
-	<!-- about team area end -->
-
-
-	<!-- about campus area start -->
-	<section class="tp-about-campus-area grey-bg p-relative pb-120">
+	<!-- research fields area start -->
+	<section class="tp-about-campus-area tp-about-research-area grey-bg p-relative pb-120 pt-120">
 		<div class="tp-about-campus-shape">
 			<div class="shape-1">
 				<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/campus/campuses-shape-1.jpg" alt="">
@@ -293,46 +268,102 @@ while ( have_posts() ) :
 			</div>
 		</div>
 		<?php
-		$campuses = array(
-			array( 'id' => 'home',    'tab_label' => __( 'Gorki Campus', 'tpte' ),            'address' => __( '197345, Russia, Saint-Petersburg, Mebelnaya, 11A', 'tpte' ), 'thumb' => 'campuses-thumb.jpg' ),
-			array( 'id' => 'profile', 'tab_label' => __( 'Skolkovo Campus', 'tpte' ),         'address' => __( '197345, Russia, Saint-Petersburg, Mebelnaya, 11A', 'tpte' ), 'thumb' => 'campuses-thumb.jpg' ),
-			array( 'id' => 'contact', 'tab_label' => __( 'Saint Petersburg Campus', 'tpte' ), 'address' => __( '197345, Russia, Saint-Petersburg, Mebelnaya, 11A', 'tpte' ), 'thumb' => 'campuses-thumb.jpg' ),
-			array( 'id' => 'Moscow',  'tab_label' => __( 'Moscow Campus', 'tpte' ),           'address' => __( '197345, Russia, Saint-Petersburg, Mebelnaya, 11A', 'tpte' ), 'thumb' => 'campuses-thumb.jpg' ),
-			array( 'id' => 'Campus',  'tab_label' => __( 'Tashkent Campus', 'tpte' ),         'address' => __( '197345, Russia, Saint-Petersburg, Mebelnaya, 11A', 'tpte' ), 'thumb' => 'campuses-thumb.jpg' ),
+		$research_fields = array(
+			array(
+				'id'        => 'research-digital-museology',
+				'tab_label' => __( 'Ψηφιακή Μουσειολογία', 'tpte' ),
+				'title'     => __( 'Εργαστήριο Μουσειολογίας', 'tpte' ),
+				'thumb'     =>  'yellow.jpg',
+				'logo'      =>  'museolab.png',
+				'cta_text'  => __( 'Μάθετε Περισσότερα', 'tpte' ),
+				'cta_url'   => 'https://museologylab.ct.aegean.gr',
+			),
+			array(
+				'id'        => 'research-cultural-heritage',
+				'tab_label' => __( 'Πολιτισμική Κληρονομιά', 'tpte' ),
+				'title'     => __( 'Εργαστήριο Διαχείρισης της Πολιτισμικής Κληρονομιάς ', 'tpte' ),
+				'thumb'     => 'heritage.jpg',
+				'logo'      => 'chml.png',
+				'cta_text'  => __( 'Μάθετε Περισσότερα', 'tpte' ),
+				'cta_url'   => 'https://chmlab.aegean.gr/',
+			),
+			array(
+				'id'        => 'privasi-research',
+				'tab_label' => __( 'Τεχνολογίες Προστασίας Ιδιωτικότητας', 'tpte' ),
+				'title'     => __( 'Εργαστήριο Τεχνολογίες Προστασίας της
+Ιδιωτικότητας και Εφαρμογές Πληροφορικής στις Κοινωνικές Επιστήμες', 'tpte' ),
+				'thumb'     => 'privasi-visual.png',
+				'logo'      => 'privasi.png',
+				'cta_text'  => __( 'Μάθετε Περισσότερα', 'tpte' ),
+				'cta_url'   => 'privasi.aegean.gr',
+			),
+			array(
+				'id'        => 'research-digital-storytelling',
+				'tab_label' => __( 'Τεχνητή Νοημοσύνη', 'tpte' ),
+				'title'     => __( 'Εργαστήριο Ευφυών Συστημάτων', 'tpte' ),
+				'thumb'     => 'AI.png',
+				'logo'      => 'ilab.png',
+				'cta_text'  => __( 'Μάθετε Περισσότερα', 'tpte' ),
+				'cta_url'   => 'https://i-lab.aegean.gr',
+			),
+			array(
+				'id'        => 'research-educational-tech',
+				'tab_label' => __( 'Εννοιολογική Μοντελοποίηση - Εκπαιδευτική Ρομποτική', 'tpte' ),
+				'title'     => __( 'Εργαστήριο Πολιτισμικών Πληροφορικών Συστημάτων ', 'tpte' ),
+				'thumb'     => 'connecting-nodes.png',
+				'logo'      => 'cil.png',
+				'cta_text'  => __( 'Μάθετε Περισσότερα', 'tpte' ),
+				'cta_url'   => 'https://cilab.aegean.gr',
+			),
+			array(
+				'id'        => 'research-picture',
+				'tab_label' => __( 'Εικόνα, Ήχος, Πολιτιστική Αναπαράσταση και Εικονική Πραγματικότητα', 'tpte' ),
+				'title'     => __( 'Εργαστήριο Εικόνας, Ήχου και Πολιτιστικής Αναπαράστασης', 'tpte' ),
+				'thumb'     => 'vr.png',
+				'logo'      => 'ps.png',
+				'cta_text'  => __( 'Μάθετε Περισσότερα', 'tpte' ),
+				'cta_url'   => 'https://www.cultural-representation.com/el/',
+			),
 		);
 		?>
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-4">
-					<div class="tp-about-campus-tab wow fadeInUp" data-wow-delay=".3s">
+				<div class="col-lg-5">
+					<div class="tp-about-campus-tab tp-about-research-tab wow fadeInUp" data-wow-delay=".3s">
 						<div class="tp-about-campus-heading">
-							<h4 class="tp-about-campus-title"><?php esc_html_e( 'Campuses', 'tpte' ); ?></h4>
-							<p><?php esc_html_e( 'Acadia University has five campuses, which are located in the most exclusive areas of Moscow, Saint Petersburg and Tashkent.', 'tpte' ); ?></p>
+							<h4 class="tp-about-campus-title"><?php esc_html_e( 'Ερευνητικά Πεδία', 'tpte' ); ?></h4>
+							<p><?php esc_html_e( 'Το Τμήμα αναπτύσσει και υποστηρίζει ερευνητικές δράσεις με έντονο διεπιστημονικό χαρακτήρα, υλοποιώντας προγράμματα που συμβάλλουν στην καταγραφή, ανάλυση και ανάδειξη πτυχών του ελληνικού, ευρωπαϊκού και παγκόσμιου πολιτισμού μέσα από την παραγωγή και διαχείριση σύγχρονων πολιτισμικών υπηρεσιών και προϊόντων. Στο πλαίσιο αυτό, ευθυγραμμίζεται με τις διεθνείς εξελίξεις και προδιαγραφές, προωθώντας ένα σύγχρονο πλαίσιο οργάνωσης και αξιοποίησης του πολιτισμού και της επικοινωνίας. Παράλληλα, ενισχύει τη συνεργασία με δημόσιους και ιδιωτικούς φορείς για την υλοποίηση ερευνητικών έργων σε εθνικό και διεθνές επίπεδο. Η ερευνητική δραστηριότητα υποστηρίζεται από έξι θεσμοθετημένα εργαστήρια και περιλαμβάνει και την εκπόνηση πρωτότυπων διδακτορικών διατριβών, ενισχύοντας τη δημιουργία νέας γνώσης και την ανάπτυξη εξειδικευμένου επιστημονικού δυναμικού.', 'tpte' ); ?></p>
 						</div>
-						<ul class="nav nav-tabs justify-content-center" id="myTab" role="tablist">
-							<?php foreach ( $campuses as $i => $campus ) : $active = 0 === $i; ?>
+						<ul class="nav nav-tabs tp-about-research-nav" id="researchTab" role="tablist">
+							<?php foreach ( $research_fields as $i => $field ) : $active = 0 === $i; ?>
 								<li class="nav-item" role="presentation">
-									<button class="nav-link<?php echo $active ? ' active' : ''; ?>" id="<?php echo esc_attr( $campus['id'] ); ?>-tab" data-bs-toggle="tab" data-bs-target="#<?php echo esc_attr( $campus['id'] ); ?>" type="button" role="tab" aria-controls="<?php echo esc_attr( $campus['id'] ); ?>" aria-selected="<?php echo $active ? 'true' : 'false'; ?>"><?php echo esc_html( $campus['tab_label'] ); ?></button>
+									<button class="nav-link<?php echo $active ? ' active' : ''; ?>" id="<?php echo esc_attr( $field['id'] ); ?>-tab" data-bs-toggle="tab" data-bs-target="#<?php echo esc_attr( $field['id'] ); ?>" type="button" role="tab" aria-controls="<?php echo esc_attr( $field['id'] ); ?>" aria-selected="<?php echo $active ? 'true' : 'false'; ?>"><?php echo esc_html( $field['tab_label'] ); ?></button>
 								</li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
 				</div>
-				<div class="col-lg-8">
-					<div class="tab-content wow fadeInUp" data-wow-delay=".5s" id="myTabContent">
-						<?php foreach ( $campuses as $i => $campus ) : $active = 0 === $i; ?>
-							<div class="tab-pane fade<?php echo $active ? ' show active' : ''; ?>" id="<?php echo esc_attr( $campus['id'] ); ?>" role="tabpanel" aria-labelledby="<?php echo esc_attr( $campus['id'] ); ?>-tab">
-								<div class="tp-about-campus-box p-relative">
+				<div class="col-lg-7">
+					<div class="tab-content wow fadeInUp" data-wow-delay=".5s" id="researchTabContent">
+						<?php foreach ( $research_fields as $i => $field ) : $active = 0 === $i; ?>
+							<div class="tab-pane fade<?php echo $active ? ' show active' : ''; ?>" id="<?php echo esc_attr( $field['id'] ); ?>" role="tabpanel" aria-labelledby="<?php echo esc_attr( $field['id'] ); ?>-tab">
+								<div class="tp-about-campus-box tp-about-research-box p-relative">
 									<div class="tp-about-campus-thumb">
-										<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/campus/<?php echo esc_attr( $campus['thumb'] ); ?>" alt="">
+										<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/about/lab-thumbnails/<?php echo esc_attr( $field['thumb'] ); ?>" alt="<?php echo esc_attr( $field['title'] ); ?>">
 									</div>
-									<div class="tp-about-campus-content d-flex justify-content-between">
-										<div class="tp-about-campus-location">
-											<span><svg width="14" height="17" viewBox="0 0 14 17" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.53162 0.93677C5.71647 -0.332725 8.40201 -0.310536 10.5664 0.994893C12.7094 2.32691 14.0119 4.70417 13.9999 7.26143C13.9499 9.80192 12.5533 12.19 10.8075 14.0361C9.79981 15.1064 8.6726 16.0528 7.44883 16.856C7.32279 16.9289 7.18474 16.9777 7.04147 17C6.90359 16.9941 6.7693 16.9534 6.65074 16.8814C4.78242 15.6745 3.14333 14.134 1.81233 12.3339C0.698586 10.8313 0.0658344 9.01599 0 7.13441L0.00498621 6.86068C0.0959219 4.40464 1.42479 2.16093 3.53162 0.93677ZM7.90725 5.03476C7.01906 4.65723 5.99503 4.86234 5.31331 5.55434C4.63158 6.24633 4.42663 7.28871 4.79415 8.19477C5.16168 9.10082 6.02917 9.69183 6.99159 9.69183C7.62209 9.69636 8.22817 9.44381 8.67479 8.99046C9.12141 8.53711 9.37147 7.92062 9.36924 7.27837C9.37259 6.29802 8.79544 5.4123 7.90725 5.03476Z" fill="currentColor"/></svg></span>
-											<a href="#"><?php echo esc_html( $campus['address'] ); ?></a>
+									<div class="tp-about-campus-content tp-about-research-content d-flex align-items-center justify-content-between">
+										<div class="tp-about-research-info d-flex align-items-center">
+											<div class="tp-about-research-logo">
+												<?php if ( ! empty( $field['logo'] ) ) : ?>
+													<img src="<?php echo esc_url( $tp_theme_uri . '/assets/img/about/lab-logos/' . $field['logo'] ); ?>" alt="">
+												<?php else : ?>
+													<span class="tp-about-research-logo-placeholder" aria-hidden="true"></span>
+												<?php endif; ?>
+											</div>
+											<h5 class="tp-about-research-title"><?php echo esc_html( $field['title'] ); ?></h5>
 										</div>
 										<div class="tp-about-campus-btn">
-											<a class="tp-btn" href="#"><?php esc_html_e( 'Find out More', 'tpte' ); ?></a>
+											<a class="tp-btn" href="<?php echo esc_url( $field['cta_url'] ); ?>"><?php echo esc_html( $field['cta_text'] ); ?></a>
 										</div>
 									</div>
 								</div>
@@ -343,7 +374,7 @@ while ( have_posts() ) :
 			</div>
 		</div>
 	</section>
-	<!-- about campus area end -->
+	<!-- research fields area end -->
 
 	<?php
 endwhile;
