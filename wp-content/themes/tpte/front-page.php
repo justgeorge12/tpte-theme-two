@@ -211,7 +211,7 @@ foreach ($services as $service) :
 					<div class="tp-about-highlights mt-40">
 						<div class="row">
                             <h5 class="tp-about-highlight-title mb-20" style="padding: 0 40px">
-                                Εκεί που συναντίουνται...
+                                Εκεί που συναντώνται...
                             </h5>
 							<div class="col-6">
 								<div class="tp-about-highlight-item text-center">

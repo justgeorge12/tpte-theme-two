@@ -258,6 +258,53 @@ body.tpte-dept-info .header-area.tp-header-transparent {
     margin-top: 8px;
 }
 
+/* --- About page: mission cards sticky stack --- */
+/* Cards stack on top of each other as the page scrolls. The card currently in
+   focus sits at the sticky offset; the next card slides up over it, and the
+   covered card scales/fades slightly (driven by JS). Enabled on ≥992px. */
+@media (min-width: 992px) {
+    .tp-mission-stack {
+        display: block;
+    }
+
+    .tp-mission-stack-card {
+        position: sticky;
+        top: 120px;
+        transform-origin: top center;
+        transition: transform 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                    box-shadow 0.35s cubic-bezier(0.22, 0.61, 0.36, 1),
+                    opacity 0.35s cubic-bezier(0.22, 0.61, 0.36, 1);
+        will-change: transform;
+        box-shadow: 0 6px 24px rgba(3, 31, 66, 0.06);
+    }
+
+    /* Stagger the sticky offsets so each stacked card peeks behind the focused
+       one, giving the "deck of cards" look. */
+    .tp-mission-stack-card:nth-child(1) { top: 120px; z-index: 1; }
+    .tp-mission-stack-card:nth-child(2) { top: 136px; z-index: 2; }
+    .tp-mission-stack-card:nth-child(3) { top: 152px; z-index: 3; }
+    .tp-mission-stack-card:nth-child(4) { top: 168px; z-index: 4; }
+    .tp-mission-stack-card:nth-child(5) { top: 184px; z-index: 5; }
+
+    /* Override the legacy `.tp-our-mission-wrapper .tp-our-mission-item:last-child`
+       rule in main.css — its (0,3,0) specificity would otherwise reset the last
+       card to position:relative with a -120px margin, dropping it below the stack. */
+    .tp-our-mission-wrapper .tp-mission-stack .tp-mission-stack-card:last-child {
+        position: sticky;
+        margin-bottom: 0;
+        z-index: 5;
+    }
+
+    /* When a card is expanded via the "Περισσότερα" toggle, release it from
+       the stack so the long text reads naturally. */
+    .tp-mission-stack-card.is-stack-expanded {
+        position: relative;
+        top: auto !important;
+        transform: none !important;
+        opacity: 1 !important;
+    }
+}
+
 /* --- Responsive --- */
 @media (max-width: 991px) {
     .tp-dept-info-image {

@@ -29157,6 +29157,19 @@ span.common-pale-purple {
   background: #0a53be;
 }
 
+.tp-apply-process-subtitle span {
+  border: 2px solid var(--tp-theme-4);
+  color: var(--tp-theme-4);
+}
+
+.tp-admission-apply-thumb::after {
+  background-color: var(--tp-theme-4);
+}
+
+.tp-admission-overview-area {
+  border-bottom: 1px solid #e5e5e5;
+}
+
 /*---------------------------------
     1.2 about Classes
 ---------------------------------*/

@@ -218,6 +218,12 @@ function tpte_scripts() {
 		wp_enqueue_style( 'tpte-department-info', get_template_directory_uri() . '/assets/css/department-info.css', array( 'tpte-main' ), TPTE_VERSION );
 		wp_enqueue_script( 'tpte-department-info', get_template_directory_uri() . '/assets/js/department-info.js', array( 'tpte-bootstrap' ), TPTE_VERSION, true );
 	}
+
+	// Quality Assurance page template — ApexCharts for line chart.
+	if ( is_page_template( 'page-quality-assurance.php' ) ) {
+		wp_enqueue_style( 'tpte-apexcharts', get_template_directory_uri() . '/assets/css/apexcharts.css', array(), TPTE_VERSION );
+		wp_enqueue_script( 'tpte-apexcharts', get_template_directory_uri() . '/assets/js/apexcharts.min.js', array(), TPTE_VERSION, true );
+	}
 }
 add_action( 'wp_enqueue_scripts', 'tpte_scripts' );
 

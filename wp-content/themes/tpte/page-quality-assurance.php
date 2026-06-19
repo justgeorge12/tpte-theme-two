@@ -1,9 +1,9 @@
 <?php
 /**
- * Template Name: University Admission Overview
+ * Template Name: Quality Assurance
  * Template Post Type: page
  *
- * Admissions overview page template converted from university-admission-overview.html.
+ *
  *
  * @package tpte
  */
@@ -14,10 +14,6 @@ while ( have_posts() ) :
 	the_post();
 	$tp_theme_uri = get_template_directory_uri();
 
-	// Internal links — replace with real page URLs when available.
-	$financial_aid_url  = '#';
-	$net_price_calc_url = '#';
-	$how_to_apply_url   = '#';
 	?>
 
 	<!-- admission breadcrumb start -->
@@ -43,20 +39,13 @@ while ( have_posts() ) :
 
 
 	<!-- campus choose area start -->
+<!--
 	<section class="tp-campus-choose-area pt-120 pb-30 grey-bg">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<div class="tp-campus-choose-wrapper text-center">
 						<div class="tp-campus-choose-btn admission wow fadeInUp" data-wow-delay=".3s">
-							<p><?php esc_html_e( 'Financial Aid', 'tpte' ); ?></p>
-							<a href="#down"><span>
-								<svg width="20" height="123" viewBox="0 0 20 123" fill="none" xmlns="http://www.w3.org/2000/svg">
-									<path d="M20 113C14.4726 113 9.99998 117.473 9.99998 123" stroke="#B1040E" stroke-miterlimit="10"/>
-									<path d="M10 123C10 117.473 5.52736 113 -1.96429e-05 113" stroke="#B1040E" stroke-miterlimit="10"/>
-									<rect x="9.5" width="1" height="120" fill="#B1040E"/>
-								</svg>
-							</span></a>
 							<div class="tp-campus-choose-content mb-10 wow fadeInUp" data-wow-delay=".5s">
 								<h2 class="tp-campus-choose-title fs-50"><?php echo wp_kses_post( __( 'At Stanford, we practice holistic admission. <br> This means that each piece in your application <br> is reviewed as part of an integrated and <br> comprehensive whole.', 'tpte' ) ); ?></h2>
 							</div>
@@ -65,7 +54,7 @@ while ( have_posts() ) :
 				</div>
 			</div>
 		</div>
-	</section>
+	</section>-->
 	<!-- campus choose area end -->
 
 
@@ -120,55 +109,119 @@ while ( have_posts() ) :
 
 
 	<!-- admission area start -->
-	<section class="tp-admission-overview-area grey-bg pb-130">
+	<section class="tp-admission-overview-area grey-bg pb-80 ">
 		<div class="container">
 			<div class="row">
-				<div class="col-lg-6">
-					<div class="tp-admission-overview-heading wow fadeInUp" data-wow-delay=".3s">
-						<h3 class="tp-admission-overview-title">
-							<?php esc_html_e( 'Afford Acadia', 'tpte' ); ?>
-						</h3>
-					</div>
-				</div>
+
 				<div class="col-lg-6">
 					<div class="tp-admission-overview-wrapper wow fadeInUp" data-wow-delay=".5s">
-						<p><?php esc_html_e( 'At Acadia University, we prepare you to launch your career by providing a supportive, creative, and professional environment from which to learn practical skills, build a network of industry contacts.', 'tpte' ); ?></p>
-						<p><?php echo wp_kses_post( __( 'Acadia is affordable for all admitted students. Financial aid covers all demonstrated need for all students, regardless of citizenship or citizenship status. Families making under <span>$85,000</span> a year pay nothing for their student\'s education, and families making between <span>$85,000-$150,000 pay 0-10% of their incomes.</span>', 'tpte' ) ); ?></p>
-						<div class="tp-admission-overview-btn mt-50">
-							<a class="tp-btn" href="<?php echo esc_url( $financial_aid_url ); ?>"><?php echo wp_kses_post( __( 'Learn more <br> About financial aid', 'tpte' ) ); ?> <span><svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
-								<path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-							</svg></span>
+                        <h3><?php esc_html_e('Διεθνής Αναγνώριση ') ?></h3>
+						<p><?php esc_html_e( 'Ο ανεξάρτητος φορέας Times Higher Education κατατάσσει το Πανεπιστήμιο Αιγαίου μεταξύ των κορυφαίων πανεπιστημιακών ιδρυμάτων στον δείκτη «Industry» στον τομέα των Κοινωνικών Επιστημών για το 2026. Η δυναμική της Σχολής μας στη μεταφορά γνώσης, διαμέσου της σύνδεσης της έρευνας με την παραγωγή, αναγνωρίζεται διεθνώς.', 'tpte' ); ?></p>
+						<p><?php echo wp_kses_post( __( 'Η συμβολή του δικού μας Τμήματος είναι καθοριστική, καθώς στρατηγικός του στόχος είναι η ανάπτυξη καινοτόμων διεπιστημονικών πεδίων, η ενίσχυση της σύνδεσης έρευνας, εκπαίδευσης και αγοράς εργασίας, καθώς και η συστηματική αξιοποίηση των ερευνητικών αποτελεσμάτων προς όφελος της κοινωνίας και της οικονομίας, μέσα από ένα πλαίσιο ποιότητας, εξωστρέφειας και διεθνούς προσανατολισμού.', 'tpte' ) ); ?></p>
+						<div class="tp-event-btn mt-50">
+							<a class="tp-btn" href="https://www.timeshighereducation.com/world-university-rankings/university-aegean"><?php echo wp_kses_post( __( 'Μάθε Περισσότερα', 'tpte' ) ); ?>
+								<span>
+									<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+										<path d="M1 7H13" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+										<path d="M7 1L13 7L7 13" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+									</svg>
+								</span>
 							</a>
 						</div>
 					</div>
 				</div>
+                <div class="col-lg-6">
+                    <div class="tp-qa-chart-wrap wow fadeInUp" data-wow-delay=".3s">
+                        <div id="tp-qa-line-chart" class="tp-qa-line-chart"></div>
+                        <p class="tp-qa-chart-source" style="font-size: 13px; color: #888; margin-top: 12px; text-align: right;">
+                            <?php esc_html_e( 'Πηγή: Times Higher Education — Social Sciences 2026 University of the Aegean, Breakdown by Year: Industry', 'tpte' ); ?>
+                        </p>
+                    </div>
+
+                </div>
 			</div>
 		</div>
 	</section>
 	<!-- admission area end -->
+    <!-- apply process area start -->
+    <section class="tp-apply-process-area grey-bg pb-60 pt-80">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div id="down" class="tp-apply-process-wrapper wow fadeInUp" data-wow-delay=".5s">
+                        <h3 class="tp-apply-process-title">Οι Πυλώνες της Στρατηγικής μας</h3>
+                        <div class="tp-apply-process-box">
+                            <h4 class="tp-apply-process-subtitle"><span>1</span>Καινοτομία & Διεπιστημονικότητα</h4>
+                            <p>
+                                Το Τμήμα επενδύει στην ανάπτυξη νέων διεπιστημονικών γνωστικών πεδίων και
+                                προγραμμάτων σπουδών σε αντικείμενα αιχμής, όπως η Τεχνητή Νοημοσύνη και
+                                οι αναδυόμενες τεχνολογίες, με έμφαση στις εφαρμογές στον πολιτισμό και
+                                τη δημιουργική οικονομία.
+                            </p>
+                        </div>
+
+                        <div class="tp-apply-process-box">
+                            <h4 class="tp-apply-process-subtitle"><span>2</span>Σύνδεση με την Αγορά Εργασίας</h4>
+                            <p>
+                                Μέσα από πρακτικές ασκήσεις, συνεργασίες με φορείς και συνεχή επικοινωνία
+                                με την αγορά εργασίας, το Τμήμα ενισχύει τη σύνδεση της εκπαίδευσης με τις
+                                σύγχρονες επαγγελματικές απαιτήσεις και τις ανάγκες της κοινωνίας.
+                            </p>
+                        </div>
+
+                        <div class="tp-apply-process-box">
+                            <h4 class="tp-apply-process-subtitle"><span>3</span>Έρευνα & Αξιοποίηση Γνώσης</h4>
+                            <p>
+                                Η στρατηγική του Τμήματος εστιάζει στη δυναμική ενίσχυση της ερευνητικής
+                                δραστηριότητας και στην αξιοποίηση των ερευνητικών αποτελεσμάτων μέσω
+                                συνεργασιών, χρηματοδοτήσεων, καινοτομίας και μεταφοράς τεχνογνωσίας προς
+                                την κοινωνία και την οικονομία.
+                            </p>
+                        </div>
+
+                        <div class="tp-apply-process-box">
+                            <h4 class="tp-apply-process-subtitle"><span>4</span>Διεθνής Εξωστρέφεια</h4>
+                            <p>
+                                Το Τμήμα αναπτύσσει διεθνείς συνεργασίες και ενισχύει τη διεθνοποιημένη
+                                διάσταση της εκπαίδευσης και της έρευνας, προωθώντας την ακαδημαϊκή
+                                αριστεία και τη διεθνή παρουσία του σε σύγχρονα επιστημονικά πεδία.
+                            </p>
+                        </div>
+
+                        <div class="tp-apply-process-box">
+                            <h4 class="tp-apply-process-subtitle"><span>5</span>Κοινωνικός Αντίκτυπος & Ποιότητα</h4>
+                            <p>
+                                Με έμφαση στην ποιότητα των σπουδών, τη διαρκή αναβάθμιση των υποδομών και
+                                τη συνεργασία με τοπικούς και θεσμικούς φορείς, το Τμήμα συμβάλλει ενεργά
+                                στην κοινωνική ανάπτυξη και στη δημιουργία ουσιαστικού περιφερειακού και
+                                εθνικού αντίκτυπου.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- apply process area end -->
 
 
 	<!-- admission cta area start -->
 	<section class="tp-admission-cta-area grey-bg pb-160">
 		<div class="container">
-			<div class="tp-admission-cta-box">
+			<div class="tp-admission-cta-box" style="background: rgba(0, 19, 64, .8)">
 				<div class="row">
 					<div class="col-lg-6">
 						<div class="tp-admission-cta-heading wow fadeInUp" data-wow-delay=".3s">
-							<h3 class="tp-admission-cta-title"><?php echo wp_kses_post( __( 'Calculate Your <br> Estimated Scholarship.', 'tpte' ) ); ?></h3>
-							<p><?php echo wp_kses_post( __( 'How affordable is Harvard? See for yourself with our <br> Net Price Calculator.', 'tpte' ) ); ?></p>
-							<div class="tp-admission-cta-btn">
-								<a class="tp-btn" href="<?php echo esc_url( $net_price_calc_url ); ?>"><?php esc_html_e( 'Net Price Calculator', 'tpte' ); ?> <span>
-									<svg xmlns="http://www.w3.org/2000/svg" width="7" height="12" viewBox="0 0 7 12" fill="none">
-										<path d="M1 11L6 6L1 1" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-									</svg></span>
+							<h3 class="tp-admission-cta-title"><?php echo wp_kses_post( __( 'Πιστοποίηση Προπτυχιακού Προγράμματος Σπουδών', 'tpte' ) ); ?></h3>
+							<p><?php echo wp_kses_post( __( 'Το 2021, το Πρόγραμμα Προπτυχιακών Σπουδών του Τμήματος πιστοποιήθηκε από την ΕΘΑΑΕ για πλήρη συμμόρφωση με τα πρότυπα ποιότητας της ελληνικής και ευρωπαϊκής ανώτατης εκπαίδευσης (ESG), λαμβάνοντας πενταετή πιστοποίηση ποιότητας.', 'tpte' ) ); ?></p>
+                                <a class="tp-btn" href=""><?php echo wp_kses_post( __( 'Πλήρες Κείμενο Έκθεσης', 'tpte' ) ); ?>
 								</a>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-lg-6">
 						<div class="tp-admission-cta-thumb wow fadeInUp" data-wow-delay=".5s">
-							<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/course/details/admisson-overview-1.jpg" alt="">
+							<img src="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/about/certificate.png" alt="Πιστοποιητικό">
 						</div>
 					</div>
 				</div>
@@ -189,7 +242,7 @@ while ( have_posts() ) :
 				</div>
 				<div class="col-lg-6">
 					<div class="tp-admission-apply-heading wow fadeInUp" data-wow-delay=".5s">
-						<h3 class="tp-admission-apply-title"><?php esc_html_e( 'Apply for 2024', 'tpte' ); ?></h3>
+						<h3 class="tp-admission-apply-title"><?php esc_html_e( 'Δεδομένα Ποιότητας & Πολιτική', 'tpte' ); ?></h3>
 						<p><?php echo wp_kses_post( __( 'We’ll guide you through the Common Application <br> or Coalition Application, Powered by Scoir, and answer <br> any questions you have along the way.', 'tpte' ) ); ?></p>
 						<div class="tp-admission-apply-btn">
 							<a class="tp-btn" href="<?php echo esc_url( $how_to_apply_url ); ?>"><?php esc_html_e( 'How To Apply', 'tpte' ); ?>
@@ -203,8 +256,30 @@ while ( have_posts() ) :
 		</div>
 	</section>
 	<!-- admission apply area end -->
-
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof ApexCharts === 'undefined') return;
+            var el = document.getElementById('tp-qa-line-chart');
+            if (!el) return;
+            new ApexCharts(el, {
+                chart:       { type: 'line', height: 340, toolbar: { show: false }, zoom: { enabled: false } },
+                stroke:      { curve: 'smooth', width: 3 },
+                markers:     { size: 5, hover: { sizeOffset: 2 } },
+                series:      [{
+                    name: <?php echo wp_json_encode( __( 'Δείκτης Industry Παν. Αιγαίου', 'tpte' ) ); ?>,
+                    data: [33.4, 77.4, 78.4, 83, 72.4, 91.3]
+                }],
+                xaxis:       { categories: ['2021', '2022', '2023', '2024', '2025', '2026'] },
+                yaxis:       { min: 0, max: 100, decimalsInFloat: 1 },
+                colors:      ['#2d4cff'],
+                grid:        { borderColor: '#e8e9ed', strokeDashArray: 4 },
+                dataLabels:  { enabled: false },
+                tooltip:     { y: { formatter: function (v) { return v; } } }
+            }).render();
+        });
+    </script>
 	<?php
 endwhile;
+
 
 get_footer();

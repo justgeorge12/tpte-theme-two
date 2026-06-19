@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: University About
+ * Template Name: About Us
  * Template Post Type: page
  *
  * About page template converted from university-about.html.
@@ -129,12 +129,15 @@ while ( have_posts() ) :
 						);
 						$mission_last_index  = count( $mission_items ) - 1;
 						$collapse_char_limit = 200;
+						?>
+						<div class="tp-mission-stack">
+						<?php
 						foreach ( $mission_items as $i => $item ) :
 							$is_last        = ( $i === $mission_last_index );
 							$needs_collapse = mb_strlen( $item['desc'] ) > $collapse_char_limit;
 							$collapse_id    = 'mission-item-' . $i;
 							?>
-							<div class="tp-our-mission-item d-flex align-items-center justify-content-center justify-content-md-between<?php echo $is_last ? '' : ' mb-20'; ?>">
+							<div class="tp-our-mission-item tp-mission-stack-card d-flex align-items-center justify-content-center justify-content-md-between<?php echo $is_last ? '' : ' mb-20'; ?>">
 								<div class="tp-our-mission-item-content">
 									<h4 class="tp-our-mission-item-title"><?php echo esc_html( $item['title'] ); ?></h4>
 
@@ -165,6 +168,7 @@ while ( have_posts() ) :
 								</div>
 							</div>
 						<?php endforeach; ?>
+						</div>
 					</div>
 				</div>
 			</div>
