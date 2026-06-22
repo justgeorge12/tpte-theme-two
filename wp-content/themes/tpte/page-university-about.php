@@ -341,7 +341,7 @@ while ( have_posts() ) :
 						<ul class="nav nav-tabs tp-about-research-nav" id="researchTab" role="tablist">
 							<?php foreach ( $research_fields as $i => $field ) : $active = 0 === $i; ?>
 								<li class="nav-item" role="presentation">
-									<button class="nav-link<?php echo $active ? ' active' : ''; ?>" id="<?php echo esc_attr( $field['id'] ); ?>-tab" data-bs-toggle="tab" data-bs-target="#<?php echo esc_attr( $field['id'] ); ?>" type="button" role="tab" aria-controls="<?php echo esc_attr( $field['id'] ); ?>" aria-selected="<?php echo $active ? 'true' : 'false'; ?>"><?php echo esc_html( $field['tab_label'] ); ?></button>
+									<button class="lab-link nav-link<?php echo $active ? ' active' : ''; ?>" id="<?php echo esc_attr( $field['id'] ); ?>-tab" data-bs-toggle="tab" data-bs-target="#<?php echo esc_attr( $field['id'] ); ?> " type="button" role="tab" aria-controls="<?php echo esc_attr( $field['id'] ); ?>" aria-selected="<?php echo $active ? 'true' : 'false'; ?>"><?php echo esc_html( $field['tab_label'] ); ?></button>
 								</li>
 							<?php endforeach; ?>
 						</ul>
