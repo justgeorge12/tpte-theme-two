@@ -1,0 +1,65 @@
+services:
+  db:
+    image: mysql:8.0
+    container_name: tpte_container
+    restart: always
+    env_file:
+      - .env
+    environment:
+      MYSQL_DATABASE: tpte
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASSWORD: ${DB_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+    volumes:
+      - db_data:/var/lib/mysql
+      # Seed: any *.sql here runs automatically on FIRST boot (empty volume only).
+      # Run `scripts/db-dump.sh` to (re)generate db/init/seed.sql from your live DB.
+      - ./db/init:/docker-entrypoint-initdb.d
+    # Optional: expose only if you want host access (MySQL client on your PC)
+    ports:
+      - "${DB_PORT}:3306"
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-p${DB_ROOT_PASSWORD}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  wordpress:
+    depends_on:
+      db:
+        condition: service_healthy
+    image: wordpress:6.9-php8.3-apache
+    container_name: tpte_wp
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${WP_PORT}:80"
+    environment:
+      WORDPRESS_DB_HOST: db:3306
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: tpte
+      WORDPRESS_DEBUG: 1
+    volumes:
+      - ./wp-content:/var/www/html/wp-content
+      - ./uploads.ini:/usr/local/etc/php/conf.d/uploads.ini
+
+  phpmyadmin:
+    depends_on:
+      db:
+        condition: service_healthy
+    image: phpmyadmin:5.2
+    container_name: tpte_phpmyadmin
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "${PMA_PORT:-8081}:80"
+    environment:
+      PMA_HOST: db
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+
+volumes:
+  db_data:

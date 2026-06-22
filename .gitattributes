@@ -1,0 +1,20 @@
+# Normalize line endings for cross-platform reproducibility.
+* text=auto
+
+# Shell scripts and Docker/PHP config must stay LF or they break in Linux containers.
+*.sh        text eol=lf
+*.ini       text eol=lf
+Dockerfile  text eol=lf
+*.sql       text eol=lf
+
+# Windows-only scripts keep CRLF.
+*.bat       text eol=crlf
+*.cmd       text eol=crlf
+
+# Binary assets — never normalize.
+*.png       binary
+*.jpg       binary
+*.jpeg      binary
+*.gif       binary
+*.zip       binary
+*.gz        binary

@@ -1,5 +1,16 @@
-template
+# Dependencies
 node_modules
-.env
-docker-compose.yml
 
+# Local secrets (use .env.example as the template)
+.env
+
+# Editor / tooling caches
+.php-cs-fixer.cache
+
+# Scratch / build output
+template
+
+# Database
+# Track the seed dump in db/init/, but never commit local dump exports or volume backups
+db/init/local-*.sql
+db_data_backup.tar.gz
