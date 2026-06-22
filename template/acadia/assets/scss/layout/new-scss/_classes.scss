@@ -1,0 +1,138 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2  Classes
+---------------------------------*/
+
+.#{$theme-prifix}-classes {
+    &-yoga{
+        &-bg{
+            background: rgba(147, 49, 21, 0.06);
+        }
+        &-tag{
+            font-weight: 400;
+            font-size: 14px;
+            text-transform: uppercase;
+            color: var(--tp-red-4);
+            margin-bottom: 2px;
+            display: inline-block;
+        }
+        &-title{
+            font-family: var(--tp-ff-marcellus);
+            font-weight: 400;
+            font-size: 30px;
+            letter-spacing: -0.01em;
+            color: var(--tp-heading-4);
+            @media #{$xl,$lg,$md,$sm,$xs}{
+                font-size: 22px;
+            }
+        }
+        &-thumb{
+            & img{
+                transition: all .4s ease;
+            }
+        }
+        &-wrap{
+            background: #f9f4f1;
+            box-shadow: 0 0 30px 0 rgba(45, 42, 41, 0.08);
+            &:hover{
+                & .tp-classes-yoga-thumb{
+                    & img{
+                        transform: scale(1.1);
+                    }
+                }
+                & .tp-classes-yoga-link{
+                    opacity: 1;
+                    margin-top: 0;
+                }
+            }
+        }
+        &-meta{
+            display: flex;
+            align-items: center;
+            & span{
+                font-weight: 400;
+                font-size: 14px;
+                color: var(--tp-grey-8);
+                display: flex;
+                align-items: center;
+                &:not(:last-child){
+                    margin-right: 17px;
+                    padding-right: 17px;
+                    border-right: 1px solid rgba(147, 49, 21, 0.1);
+                }
+            }
+        }
+        &-content{
+            padding: 25px 30px 33px 35px;
+        }
+        &-price{
+            font-weight: 600;
+            font-size: 24px;
+            text-transform: uppercase;
+            color: var(--tp-common-white);
+            border-radius: 60px;
+            width: 70px;
+            height: 70px;
+            background: var(--tp-red-5);
+            display: inline-block;
+            text-align: center;
+            line-height: 70px;
+            position: absolute;
+            top: -35px;
+            right: 35px;
+        }
+        &-3{
+            &-wrap{
+                background: none;
+                box-shadow: none;
+                border: 1px solid rgba(45, 42, 41, 0.08);
+                & .tp-classes-yoga-title {
+                    font-family: var(--tp-ff-rufina);
+                    color: var(--tp-heading-5);
+                    font-size: 22px;
+                    & a{
+                        &:hover{
+                            color: var(--tp-red-4);
+                        }
+                    }
+                }
+                & .tp-classes-yoga-tag {
+                    font-weight: 300;
+                    font-size: 18px;
+                    color: var(--tp-grey-8);
+                    text-transform: unset;
+                    margin-bottom: 0;
+                }
+                & .tp-classes-yoga-content {
+                    padding: 28px 10px 28px 10px;
+                }
+            }
+        }
+        &-link{
+            width: 120px;
+            height: 120px;
+            padding: 15px;
+            box-shadow: rgba(0, 0, 0, 0.08) 0px 0px 30px;
+            transition: 350ms cubic-bezier(0.37, 0, 0.63, 1);
+            left: 50%;
+            top: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            background: var(--tp-common-white);
+            font-family: var(--tp-ff-rufina);
+            color: var(--tp-heading-5);
+            font-size: 22px;
+            font-weight: 400;
+            border-radius: 50%;
+            text-align: center;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            margin-top: 15px;
+            &:hover{
+                color: var(--tp-red-4);
+            }
+        }
+    }
+}

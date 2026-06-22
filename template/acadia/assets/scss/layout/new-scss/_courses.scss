@@ -1,0 +1,258 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 courses Classes
+---------------------------------*/
+
+.#{$theme-prifix}-courses {
+    &-chef{
+        &-wrap{
+            width: 330px;
+            border-radius: 16px;
+            background: var(--tp-common-white);
+            padding: 27px 30px 23px 30px;
+            &:hover{
+                & .tp-courses-chef-thumb{
+                    & img{
+                        transform: scale(1.06);
+                    }
+                }
+            }
+        }
+        &-title{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 700;
+            font-size: 20px;
+            color: #212120;
+            margin-bottom: 18px;
+        }
+        &-thumb{
+            overflow: hidden;
+            border-radius: 10px;
+            & img{
+                border-radius: 10px;
+                transition: all .4s ease;
+            }
+        }
+        &-studebts{
+            display: flex;
+            align-items: center;
+            & span{
+                font-weight: 400;
+                font-size: 14px;
+                color: var(--tp-grey-8);
+                display: flex;
+                align-items: center;
+                &:not(:last-child){
+                    border-right: 1px solid  rgba(147, 49, 21, 0.1);
+                    padding-right: 16px;
+                    margin-right: 16px;
+                }
+                & svg{
+                    margin-right: 6px;
+                }
+            }
+        }
+        &-price{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 800;
+            font-size: 24px;
+            letter-spacing: -0.03em;
+            text-transform: uppercase;
+            color: var(--tp-theme-10);
+            display: inline-block;
+            border: 3px solid #fff;
+            border-radius: 56px;
+            width: 76px;
+            height: 76px;
+            background: var(--tp-common-yellow);
+            text-align: center;
+            line-height: 76px;
+            position: absolute;
+            top: -38px;
+            right: 34px;
+        }
+        &-2{
+            &-wrap{
+                transition: all .4s ease;
+                border-radius: 10px 10px 18px 18px;
+                &:hover{
+                    box-shadow: 0px 8px 16px 0px rgba(22, 18, 3, 0.08);
+                    & .tp-courses-chef-thumb{
+                        & img{
+                            transform: scale(1.06);
+                        }
+                    }
+                }
+                & .tp-courses-chef-ratings{
+                    & span{
+                        color: #FFB21D;
+                        & i{
+                            font-size: 13px;
+                        }
+                    }
+                }
+                & .tp-courses-chef-title {
+                    font-size: 22px;
+                    line-height: 30px;
+                    & a{
+                        &:hover{
+                            color: var(--tp-theme-10);
+                        }
+                    }
+                }
+                & .tp-courses-chef-thumb{
+                    border-radius: 10px 10px 0px 0px;
+                    &  img {
+                        border-radius: 10px 10px 0px 0px;
+                    }
+                }
+            }
+            &-content{
+                box-shadow: 0 1px 3px 0 rgba(33, 33, 32, 0.1);
+                background: var(--tp-common-white);
+                border-radius: 0 0 18px 18px;
+                padding: 20px 42px 27px 30px;
+            }
+        }
+        &-dot{
+            text-align: center;
+            & span{
+                border-radius: 20px;
+                width: 30px;
+                height: 6px;
+                background: #e0dfdd;
+                opacity: 1;
+                &.swiper-pagination-bullet-active{
+                    background: var(--tp-theme-10);
+                }
+            }
+        }
+        &-bottom{
+            width: 100%;
+            box-shadow: 0 1px 3px 0 rgba(33, 33, 32, 0.1);
+            background: var(--tp-common-white);
+            border-radius: 100px;
+            padding: 18px 30px 3px 36px;
+            flex-wrap: wrap;
+            &-subtitle{
+                font-family: var(--tp-ff-tropiline);
+                font-weight: 600;
+                font-size: 14px;
+                display: inline-block;
+                color: var(--tp-theme-10);
+            }
+            &-title{
+                font-family: var(--tp-ff-tropiline);
+                font-weight: 700;
+                font-size: 18px;
+                color: #212120;
+            }
+            &-btn{
+                & .tp-quran-btn {
+                    color: #223d32;
+                    &:hover{
+                        background: #223d32;
+                        border-color: #223d32;;
+                        color: var(--tp-common-white);
+                    }
+                }
+            }
+        }
+        &-ratings{
+            color: var(--tp-theme-10);
+        }
+        &-shape{
+            left: 0;
+            top: 0;
+            width: 15%;
+            & img{
+                width: 100%;
+            }
+            &-2{
+                right: 0;
+                bottom: 90px;
+                width: 12%;
+                & img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &-quran{
+        &-wrap{
+            & .tp-courses-chef-price {
+                font-family: var(--tp-ff-body);
+                font-weight: 600;
+                color: var(--tp-heading-primary);
+                line-height: 69px;
+            }
+            & .tp-courses-chef-title {
+                font-family: var(--tp-ff-body);
+                font-weight: 600;
+                color: var(--tp-heading-primary);
+                line-height: 1;
+                margin-bottom: 10px;
+                & a{
+                    &:hover{
+                        color: var(--tp-theme-11);
+                    }
+                }
+            }
+            & .tp-courses-chef-bottom-subtitle {
+                font-family: var(--tp-ff-body);
+                font-weight: 400;
+                color: var(--tp-theme-11);
+            }
+            & .tp-courses-chef-bottom-title {
+                font-family: var(--tp-ff-body);
+                font-weight: 600;
+            }
+            & .tp-courses-chef-dot span.swiper-pagination-bullet-active {
+                background: var(--tp-theme-11);
+            }
+        }
+        &-shape{
+            &-2{
+                position: absolute;
+                top: 0;
+                right: 114px;
+                mix-blend-mode: luminosity;
+                z-index: -1;
+            }
+            & .tp-feature-quran-shape{
+                left: -162px;
+                top: -40px;
+                &-2{
+                    top: 126px;
+                    left: 25px;
+                }
+                &-3{
+                    width: 450px;
+                    height: 450px;
+                    bottom: -230px;
+                    right: -45px;
+                }
+                &-4{
+                    width: 200px;
+                    height: 200px;
+                    bottom: -60px;
+                    right: 144px;
+                }
+            }
+            & .tp-feature-quran-shape-5 {
+                position: absolute;
+                right: auto;
+                bottom: auto;
+                left: 115px;
+                top: 195px;
+            }
+        }
+        &-text{
+            font-weight: 300;
+            font-size: 16px;
+            line-height: 24px;
+            color: var(--tp-text-body);
+            margin-bottom: 18px;
+        }
+    }
+}

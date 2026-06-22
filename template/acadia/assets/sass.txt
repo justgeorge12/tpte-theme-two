@@ -1,0 +1,5 @@
+sass --watch D:\pranta-dropbox\Dropbox\pranto\HTML\acadia\assets\scss\main.scss:D:\pranta-dropbox\Dropbox\pranto\HTML\acadia\assets\css\main.css
+
+sass --watch "C:\Users\Admin\Dropbox\Harun Pure\acadia\assets\scss\main.scss":"C:\Users\Admin\Dropbox\Harun Pure\acadia\assets\css\main.css"
+
+sass --watch "C:\Users\Admin\Dropbox\Harun Pure\acadia-main\acadia-prev\acadia\assets\scss\main.scss":"C:\Users\Admin\Dropbox\Harun Pure\acadia-main\acadia-prev\acadia\assets\css\main.css"

@@ -1,0 +1,86 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 chose
+---------------------------------*/
+
+.#{$theme-prifix}-chose {
+    &-yoga{
+        &-content{
+            @media #{$lg,$md,$sm,$xs}{
+                margin-left: 0;
+            }
+        }
+        &-thumb{
+            & .thumb{
+                @media #{$xs}{
+                    margin-right: 70px;
+                }
+            }
+            & .thumb-2{
+                top: 50%;
+                transform: translateY(-50%);
+                right: 0;
+                @media #{$xs}{
+                    width: 140px;
+                }
+            }
+        }
+        &-shape{
+            top: 60px;
+            right: 0;
+            z-index: -1;
+        }
+        &-text{
+            font-family: var(--tp-ff-rufina);
+            font-weight: 400;
+            font-size: 20px;
+            line-height: 1;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            color: var(--tp-red-4);
+            position: absolute;
+            writing-mode: sideways-lr;
+            top: -63px;
+            left: -35px;
+            height: 100%;
+            @media #{$lg,$md,$sm,$xs}{
+                display: none;
+            }
+        }
+        &-icon{
+            border: 1px solid rgba(147, 49, 21, 0.1);
+            border-radius: 40px;
+            width: 78px;
+            height: 78px;
+            text-align: center;
+            line-height: 78px;
+            display: inline-block;
+            flex: 0 0 auto;
+            margin-right: 23px;
+        }
+        &-spacing{
+            @media #{$md,$sm,$xs}{
+                padding-bottom: 130px;
+            } 
+        }
+        &-feature{
+            @media #{$md,$sm,$xs}{
+                margin-left: 0;
+            }
+            &-tittel{
+                font-family: var(--tp-ff-rufina);
+                font-weight: 700;
+                font-size: 22px;
+                color: var(--tp-heading-5);
+            }
+            &-content{
+                & p{
+                    font-weight: 300;
+                    font-size: 17px;
+                    line-height: 24px;
+                    color: var(--tp-grey-8);
+                }
+            }
+        }
+    }
+}

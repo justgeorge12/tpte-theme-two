@@ -1,0 +1,53 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 skill Classes
+---------------------------------*/
+
+.#{$theme-prifix}-brands {
+    &-chef{
+        &-title{
+            position: absolute;
+            top: -14px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            & span{
+                display: inline-block;
+                font-family: var(--tp-ff-tropiline);
+                font-weight: 600;
+                font-size: 18px;
+                color: #212120;
+                background: var(--tp-common-white);
+                padding: 0 10px;
+            }
+        }
+        &-wrap{
+            padding: 40px 0px;
+            border: 1px solid rgba(87, 89, 95, 0.1);
+            border-radius: 16px;
+        }
+        &-slider{
+            &-active{
+                & .swiper-slide{
+                    width: 200px;
+                    @media #{$xs}{
+                        width: 120px;
+                    }
+                }
+            }
+        }
+    }
+    &-quran{
+        &-wrap{
+            & .swiper-slide{
+                border: 1px solid rgba(3, 31, 66, 0.08);
+                height: 180px;
+                text-align: center;
+                line-height: 180px;
+                width: 240px;
+                margin-right: -1px;
+                border-bottom: none;
+            }
+        }
+    }
+}

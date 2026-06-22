@@ -1,0 +1,118 @@
+@use '../../utils' as *;
+
+/*----------------------------------------*/
+/*  8.4 Funfact css
+/*----------------------------------------*/
+
+.#{$theme-prifix}-funfact {
+    &-item {
+        @media #{$md,$xs} {
+            margin-bottom: 15px;
+        }
+        @media #{$sm} {
+            margin-bottom: 30px;
+        }
+        &-2 {
+            margin-left: 25px;
+            @media #{$lg,$md,$sm,$xs} {
+                margin-left: 0px;
+            }
+        }
+        &-3 {
+            margin-left: 40px;
+            @media #{$xl} {
+                margin-left: 25px;
+            }
+            @media #{$lg,$md,$sm,$xs} {
+                margin-left: 0px;
+            }
+        }
+    }
+    &-bg {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        padding: 34px 0;
+        @media #{$md,$xs} {
+            padding-bottom: 14px;
+        }
+        @media #{$sm} {
+            padding-bottom: 4px;
+        }
+    }
+    &-icon {
+        flex: 0 0 auto;
+        margin-right: 25px;
+        @media #{$lg} {
+            margin-right: 10px;
+        }
+    }
+    &-title {
+        color: var(--tp-common-white);
+        font-size: 20px;
+        font-weight: 500;
+        margin-bottom: 2px;
+    }
+    &-content {
+        & span {
+            color: rgba(255, 255, 255, 0.80);
+            font-size: 15px;
+        }
+    }
+} 
+
+
+.#{$theme-prifix}-funfact-6{
+    &-ptb{
+        padding: 39px 0;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-color: var(--tp-theme-9);
+    }
+}
+
+
+.#{$theme-prifix}-funfact-7{
+    &-wrapper{
+        & .row{
+            [class*="col-"]{
+                &:not(:last-child){
+                    border-right: 1px solid #E9E9F0;
+                    @media #{$xs} {
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+    &-item{
+        padding: 45px 0 40px;
+        @include tp-transition();
+        &:hover{
+            background-color: var(--tp-common-white);
+            box-shadow: 0px 20px 20px 0px rgba(5, 5, 39, 0.10);
+        }
+        &-icon{
+            margin-bottom: 25px;
+        }
+        &-content{
+            & span{
+                font-size: 20px;
+                font-weight: 700;
+                margin-bottom: 10px;
+                display: inline-block;
+                color: var(--tp-heading-2);
+                font-family: var(--tp-ff-manrope);
+            }
+            & p{
+                font-size: 15px;
+                line-height: 1;
+                font-weight: 500;
+                margin-bottom: 0;
+                color: rgba(3, 31, 66, 0.80);
+                font-family: var(--tp-ff-manrope);
+            }
+        }
+    }
+}

@@ -1,0 +1,190 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2  cta
+---------------------------------*/
+
+.#{$theme-prifix}-cta {
+    &-yoga{
+        &-title{
+            font-family: var(--tp-ff-rufina);
+            font-weight: 400;
+            font-size: 24px;
+            letter-spacing: -0.02em;
+            color: var(--tp-heading-5);
+        }
+        &-icon{
+            position: absolute;
+            left: 21px;
+            top: 50%;
+            transform: translateY(-50%);
+            line-height: 1;
+        }
+        &-form{
+            & .inputs{
+                height: 56px;
+                background: #f3e9e4;
+                font-weight: 300;
+                font-size: 16px;
+                color: #86888d;
+                padding: 10px 190px 10px 50px;
+                border: none;
+                width: 100%;
+                @media #{$xs}{
+                    padding: 10px 120px 10px 50px;
+                }
+                &::placeholder{
+                    font-weight: 300;
+                    font-size: 16px;
+                    color: #86888d;
+                }
+            }
+        }
+        &-btn{
+            font-weight: 600;
+            font-size: 16px;
+            text-transform: uppercase;
+            color: var(--tp-common-white);
+            padding: 10px 48px;
+            height: 100%;
+            background: var(--tp-red-5);
+            top: 0;
+            right: 0;
+            position: absolute;
+            @media #{$xs}{
+                padding: 10px 15px;
+            }
+            &:hover{
+                background: var(--tp-red-4);
+            }
+        }
+    }
+    &-chef{
+        &-bg{
+            background: var(--tp-common-yellow);
+            padding: 42px 50px 20px 50px;
+            box-shadow: 6px 6px 0 0 #ff5224;
+            border: 1.50px solid #ff5224;
+            border-radius: 20px;
+            @media #{$xs}{
+                padding: 42px 20px 20px 20px;
+            }
+        }
+        &-shape{
+            position: absolute;
+            right: 77px;
+            top: -5px;
+            z-index: -1;
+            &-2{
+                position: absolute;
+                left: -35px;
+                top: -36px;
+            }
+        }
+        &-subtitle{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 600;
+            font-size: 18px;
+            color: var(--tp-theme-10);
+        }
+        &-title{
+            font-family: var(--tp-ff-tropiline-bold);
+            font-weight: 700;
+            font-size: 36px;
+            line-height: 117%;
+            color: var(--tp-common-black);
+            @media #{$lg,$md,$sm,$xs}{
+                & br{
+                    display: none;
+                }
+            }
+            @media #{$sm,$xs}{
+                font-size: 26px;
+            }
+        }
+        &-form{
+            & .inputs{
+                border: 1.50px solid var(--tp-theme-10);
+                border-radius: 70px;
+                background: var(--tp-common-white);
+                height: 54px;
+                padding-right: 150px;
+                padding-left: 54px;
+                color: var(--tp-common-black);
+                &:focus{
+                    border: 1.50px solid var(--tp-theme-10);
+                }
+                &::placeholder{
+                    font-family: var(--font-family);
+                    font-weight: 300;
+                    font-size: 16px;
+                    line-height: 187%;
+                    color: var(--tp-grey-8);
+                }
+            }
+            & .icon{
+                position: absolute;
+                left: 26px;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+            & .button{
+                font-weight: 600;
+                font-size: 16px;
+                text-transform: uppercase;
+                color: var(--tp-theme-10);
+                position: absolute;
+                right: 0;
+                top: 50%;
+                transform: translateY(-50%);
+                padding: 0px 24px;
+                line-height: 1;
+                border-left: 1.50px solid rgba(94, 90, 89, 0.2);
+            }
+        }
+        &-content{
+            @media #{$xs}{
+                flex-direction: column;
+            }
+        }
+    }
+    &-quran{
+        &-wrap{
+            & .tp-cta-3-wrap {
+                padding: 74px 40px;
+                border-radius: 0;
+                background: #f8f8f8;
+                border: 20px solid var(--tp-common-white);
+                @media #{$xs}{
+                    padding: 24px 20px;
+                    border: none;
+                }
+            }
+            & .tp-cta-3-form-input input {
+                border-radius: 50px;
+                box-shadow: 0 1px 2px 0 rgba(17, 22, 29, 0.12);
+                background: var(--tp-common-white);
+                border: 1px solid transparent;
+                &:focus{
+                    border-color: var(--tp-theme-11);
+                }
+            }
+            .tp-cta-3-form-input textarea {
+                border-radius: 20px;
+                box-shadow: 0 1px 2px 0 rgba(17, 22, 29, 0.12);
+                background: var(--tp-common-white);
+                border: 1px solid transparent;
+                &:focus{
+                    border-color: var(--tp-theme-11);
+                }
+            }
+            & .tp-cta-3-btn button {
+                box-shadow: 0 1px 3px 0 rgba(17, 22, 29, 0.12);
+                background: #11161d;
+                border-radius: 50px;
+                &:hover{
+                    background: var(--tp-theme-11);
+                }
+            }
+        }
+    }
+}

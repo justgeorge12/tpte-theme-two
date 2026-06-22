@@ -1,0 +1,69 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 expertise Classes
+---------------------------------*/
+
+.#{$theme-prifix}-expertise {
+    &-quran{
+        &-progress{
+            background: #f2eef0;
+            width: 100%;
+            height: 6px;
+            position: relative;
+            &-wrapper{
+                padding-bottom: 6px;
+            }
+            &-title{
+                font-weight: 500;
+                font-size: 18px;
+                color: var(--tp-heading-primary);
+            }
+            &-travel{
+                color: var(--tp-heading-5);
+            }
+            .progress-bar {
+                overflow: visible;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                height: 6px;
+                text-align: center;
+                white-space: nowrap;
+                background-color: var(--tp-theme-11);
+                transition: width .6s ease;
+                position: relative;
+                &:before{
+                    position: absolute;
+                    content: "";
+                    width: 1px;
+                    height: 20px;
+                    background-color:  var(--tp-theme-11);
+                    border-radius: 50%;
+                    right: 0;
+                }
+            }
+        }
+        &-counter{
+            position: absolute;
+            right: 0;
+            top: 0;
+            font-weight: 500;
+            font-size: 18px;
+            color: var(--tp-heading-primary);
+        }
+        &-content{
+            @media #{$xs}{
+                margin-right: 0;
+            }
+        }
+        &-video{
+            & .popup-video{
+                padding: 235px 20px 194px 20px;
+                display: inline-block;
+                @media #{$lg,$md,$sm,$xs}{
+                    padding: 135px 20px 104px 20px;
+                }
+            }
+        }
+    }
+}

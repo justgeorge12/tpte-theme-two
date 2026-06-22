@@ -1,0 +1,127 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 feature Classes
+---------------------------------*/
+
+.#{$theme-prifix}-feature {
+    &-chef{
+        &-title{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 700;
+            font-size: 22px;
+            color: var(--tp-heading-5);
+            @media #{$lg,$sm}{
+                font-size: 20px;
+            }
+            &-wrap{
+                @media #{$md,$sm,$xs}{
+                    padding-bottom: 30px;
+                }
+            }
+        }
+        &-wrap{
+            box-shadow: 0 10px 50px 0 rgba(31, 29, 27, 0.08);
+            background: var(--tp-common-white);
+            border-radius: 20px;
+            padding: 45px 40px 33px 40px;
+            @media #{$sm,$xs}{
+                padding: 45px 15px 33px 15px;
+            }
+            &:hover{
+                & .tp-feature-chef-icon{
+                    animation-name: tpshake;
+                    animation-timing-function: ease-in-out;
+                    animation-duration: 0.4s;
+                    animation-iteration-count: 1;
+                }
+            }
+            & p{
+                font-weight: 300;
+                font-size: 18px;
+                line-height: 26px;
+                color: var(--tp-text-body);
+            }
+        }
+        &-icon{
+            height: 72px;
+            transition: all .4s ease;
+        }
+        &-bg{
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            text-align: center;
+            z-index: -1;
+            @media #{$lg,$md,$sm,$xs}{
+                & img{
+                    width: 100%;
+                }
+            }
+        }
+        &-shape{
+            position: absolute;
+            top: -43px;
+            left: 497px;
+        }
+    }
+    &-quran{
+        &-title{
+            font-weight: 500;
+            font-size: 20px;
+            color: #244034;
+            @media #{$lg,$md,$sm,$xs}{
+                font-size: 18px;
+            }
+        }
+        &-icon{
+            width: 80px;
+            height: 80px;
+            display: inline-block;
+            border-radius: 100px;
+            border: 1px solid rgba(29, 146, 103, 0.1);
+            line-height: 80px;
+        }
+        &-wrap{
+            box-shadow: 0 14px 40px 0 rgba(22, 22, 19, 0.04);
+            background: var(--tp-common-white);
+            padding: 40px 20px 20px 20px;
+            transition: all .4s ease;
+            &:hover{
+                box-shadow: 0 1px 3px 0 rgba(33, 33, 32, 0.1);
+            }
+            & p{
+                font-weight: 300;
+                font-size: 17px;
+                line-height: 24px;
+                color: var(--tp-text-body);
+            }
+        }
+        &-shape{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            display: block;
+            &-5{
+                position: absolute;
+                right: 170px;
+                bottom: 155px;
+                animation: hero-dot-1 5s linear 0s infinite alternate;
+                @media #{$xxl,$xl,$lg,$md,$sm,$xs}{
+                    right: 10px;
+                }
+            }
+            &-6{
+                position: absolute;
+                right: 48px;
+                top: -4px;
+                @media #{$xl,$lg,$md,$sm,$xs}{
+                    right: 5px;
+                }
+            }
+        }
+    }
+}

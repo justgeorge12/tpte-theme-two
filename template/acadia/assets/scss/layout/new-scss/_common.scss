@@ -1,0 +1,256 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 Common Classes
+---------------------------------*/
+.#{$theme-prifix}-yoga {
+	&-btn{
+		padding: 12px 25px;
+		background: var(--tp-red-5);
+		font-weight: 600;
+		font-size: 16px;
+		letter-spacing: 0.02em;
+		color: var(--tp-common-white);
+		border-radius: 200px;
+		display: inline-block;
+		transition: all .3s ease;
+		&:hover{
+			background: var(--tp-heading-5);
+			color: var(--tp-common-white);
+		}
+		&-yelow{
+			background: var(--tp-red-5);
+			color: var(--tp-common-white);
+			padding: 12px 40px;
+			&:hover{
+				color: var(--tp-common-white);
+				background: var(--tp-red-4);
+			}
+		}
+		&-border{
+			border: 1px solid rgba(45, 42, 41, 0.1);
+			background: transparent;
+			padding: 11px 40px;
+			color: var(--tp-common-black);
+			&:hover{
+				background: var(--tp-red-5);
+				color: var(--tp-common-white);
+			}
+		}
+	}
+	&-subtitle{
+		font-family: var(--tp-ff-rufina);
+		font-weight: 400;
+		font-size: 20px;
+		line-height: 100%;
+		text-transform: uppercase;
+		color: var(--tp-red-4);
+	}
+	&-title{
+		font-family: var(--tp-ff-rufina);
+		font-weight: 400;
+		font-size: 60px;
+		letter-spacing: -0.02em;
+		color: var(--tp-heading-5);
+		line-height: 1;
+		@media #{$lg,$md,$sm}{
+			font-size: 50px;
+		}
+		@media #{$xs}{
+			font-size: 42px;
+		}
+	}
+	&-text{
+		font-family: var(--font-family);
+		font-weight: 300;
+		font-size: 18px;
+		line-height: 28px;
+		color: var(--tp-grey-8);
+	}
+}
+.#{$theme-prifix}-chef {
+	&-btn{
+		font-weight: 600;
+		font-size: 14px;
+		text-transform: uppercase;
+		text-align: right;
+		color: var(--tp-theme-10);
+		border: 1.50px solid var(--tp-theme-10);
+		border-radius: 46px;
+		padding: 11px 26px;
+		box-shadow: 2px 2px 0 0 var(--tp-theme-10);
+		background: var(--tp-common-white);
+		display: inline-block;
+		&:hover{
+			box-shadow: none;
+			color: var(--tp-theme-10);
+		}
+		&-squre{
+			border-radius: 16px;
+		}
+		&-lg{
+			padding: 13px 35px;
+		}
+		&-shadow-4{
+			box-shadow: 4px 4px 0 0 var(--tp-theme-10);
+		}
+	}
+	&-section{
+		&-subtitle{
+			font-family: var(--tp-ff-tropiline);
+			font-weight: 600;
+			font-size: 17px;
+			color: var(--tp-theme-10);
+			letter-spacing: 1px;
+		}
+		&-title{
+			font-family: var(--tp-ff-tropiline-bold);
+			font-weight: 700;
+			font-size: 50px;
+			color: var(--tp-heading-5);
+			@media #{$sm}{
+				font-size: 35px;
+			}
+			@media #{$xs}{
+				font-size: 30px;
+			}
+		}
+	}
+}
+.#{$theme-prifix}-quran {
+	&-btn{
+		font-weight: 500;
+		font-size: 17px;
+		color: #223d32;
+		padding: 9px 24px;
+		background: var(--tp-common-yellow);
+		border-radius: 50px;
+		display: inline-block;
+		border: 1px solid transparent;
+		&:hover{
+			background: var(--tp-common-white);
+			color: var(--tp-heading-5);
+			border-color: var(--tp-common-yellow);
+		}
+		&-lg{
+			padding: 14px 31px;
+		}
+		&-green{
+			background: var(--tp-theme-11);
+			color: var(--tp-common-white);
+			&:hover{
+				background: var(--tp-common-yellow);
+				color: var(--tp-heading-5);
+			}
+		}
+	}
+	&-section{
+		&-subtitle{
+			font-weight: 400;
+			font-size: 20px;
+			letter-spacing: -0.01em;
+			color: var(--tp-theme-11);
+		}
+		&-title{
+			font-weight: 600;
+			font-size: 50px;
+			line-height: 116%;
+			letter-spacing: -0.02em;
+			color: var(--tp-heading-primary);
+			@media #{$lg,$md,$sm,$xs}{
+				font-size: 40px;
+			}
+			@media #{$xl,$lg,$md,$sm,$xs}{
+				& br{
+					display: none;
+				}
+			}
+		}
+		&-text{
+			font-size: 17px;
+			letter-spacing: .1px;
+		}
+	}
+	&-grey{
+		&-bg{
+			background: #f8f8f8;
+		}
+	}
+}
+@media (min-width: 1400px){
+	.custom-container-1823 {
+		max-width: 1823px;
+	}
+}
+@media (min-width: 1400px){
+	.custom-container-1590 {
+		max-width: 1590px;
+	}
+}
+@media (min-width: 1400px){
+	.custom-container-1750 {
+		max-width: 1750px;
+	}
+}
+@media (min-width: 1400px){
+	.custom-container-1490 {
+		max-width: 1490px;
+	}
+}
+@media (min-width: 1400px){
+	.custom-container-1330 {
+		max-width: 1330px;
+	}
+}
+.gx-10{
+	--bs-gutter-x: 10px;
+}
+.yoga-bg{
+	background: var(--tp-grey-7);
+}
+.chef-bg{
+	background: var(--tp-common-yellow);
+}
+.chef-bg-2{
+	background: #f7f6f4;
+}
+
+@include keyframes(tpshake){
+    10% {
+        transform: translateY(-10px);
+    }
+    50% {
+        transform: skew(15deg);
+    }
+    80% {
+        transform: rotate(10deg);
+    }
+    100% {
+        transform: translate(0);
+    }
+}
+.bg-position{
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.tp-megamenu-up-speacing{
+	padding: 50px 50px 10px 50px;
+}
+.offcanvas__update{
+	.tp-main-menu-content {
+		@media #{$lg,$md,$sm,$xs}{
+			margin-left: 0;
+		}
+	}
+	& .tp-megamenu-up-speacing {
+		@media #{$lg,$md,$sm,$xs}{
+			padding: 0;
+		}
+	}
+}
+.tp-megamenu-up-speacing {
+	@media #{$lg,$md,$sm,$xs}{
+		padding: 0;
+	}
+}

@@ -1,0 +1,212 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 testimonial
+---------------------------------*/
+
+.#{$theme-prifix}-testimonial {
+    &-yoga{
+        &-border{
+            border-top: 1px solid rgba(147, 49, 21, 0.1);
+        }
+        &-shape{
+            margin-top: -100px;
+            padding: 0 50px;
+            background: var(--tp-grey-7);
+            display: inline-block;
+            & .shape-img{
+                top: 50%;
+                transform: translateY(-50%);
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+            }
+            & .shape-text{
+                & img{
+                    animation: tp-rotate-video-text 12s linear infinite;
+                }
+            }
+            &-3{
+                bottom: 46px;
+                right: 0;
+            }
+        }
+        &-content{
+            & p{
+                font-family: var(--tp-ff-rufina);
+                font-weight: 400;
+                font-size: 28px;
+                letter-spacing: -0.01em;
+                color: var(--tp-heading-5);
+                line-height: 40px;
+                @media #{$xs}{
+                    font-size: 20px;
+                    line-height: 33px;
+                }
+            }
+            & h5{
+                font-family: var(--tp-ff-rufina);
+                font-weight: 700;
+                font-size: 20px;
+                letter-spacing: -0.01em;
+                color: var(--tp-heading-5);
+            }
+            & span{
+                font-weight: 400;
+                font-size: 12px;
+                letter-spacing: 0.02em;
+                text-transform: uppercase;
+                color: var(--tp-grey-8);
+            }
+        }
+        &-wrap{
+            padding: 0 200px;
+            @media #{$lg}{
+                padding: 0 100px;
+            }
+            @media #{$md,$sm,$xs}{
+                padding: 0;
+            }
+        }
+        &-arrow{
+            & span{
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                left: -138px;
+                border-right: 1px solid #d9d9d9;
+                height: 120px;
+                line-height: 120px;
+                padding-right: 30px;
+                color: var(--tp-heading-5);
+                transition: all .4s ease;
+                @media #{$md,$sm,$xs}{
+                    left: 0;
+                    top: 80%;
+                    border: none;
+                    z-index: 99;
+                }
+                &:hover{
+                    color: var(--tp-red-4);
+                }
+                &.tp-testimonial-yoga-next{
+                    left: auto;
+                    right: -138px;
+                    border-right: 0;
+                    border-left: 1px solid #d9d9d9;
+                    height: 120px;
+                    padding-right: 0;
+                    padding-left: 30px;
+                    @media #{$md,$sm,$xs}{
+                        right: 0;
+                        border: none;
+                    }
+                }
+            }
+        }
+    }
+    &-chef{
+        &-thumb{
+            @media #{$md,$sm,$xs}{
+                margin-bottom: 30px;
+                margin-top: 0;
+            }
+            & img{
+                border-radius: 20px;
+            }
+        }
+        &-ratings{
+            & span{
+                color: var(--tp-theme-10);
+                font-size: 17px;
+            }
+        }
+        &-slide{
+            &-wrap{
+                box-shadow: 6px 6px 0 0 #ff5224;
+                background: var(--tp-common-yellow);
+                border: 1.50px solid #ff5224;
+                border-radius: 20px;
+                padding: 60px 49px 40px 49px;
+                margin-top: -131px;
+                @media #{$md,$sm,$xs}{
+                    margin-top: 30px;
+                }
+                @media #{$xs}{
+                    padding: 60px 29px 40px 29px;
+                }
+            }
+        }
+        &-comment{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 600;
+            font-size: 24px;
+            line-height: 34px;
+            color: var(--tp-common-black);
+            @media #{$lg,$md,$sm,$xs}{
+                font-size: 22px;
+            }
+        }
+        &-qoute{
+            position: absolute;
+            top: 35px;
+            left: 0;
+            right: 0;
+            text-align: center;
+        }
+        &-name{
+            font-family: var(--tp-ff-tropiline);
+            font-weight: 600;
+            font-size: 18px;
+            text-align: center;
+            color: var(--tp-common-black);
+        }
+        &-dot{
+            text-align: center;
+            & span{
+                border-radius: 20px;
+                width: 30px;
+                height: 6px;
+                background: #e0dfdd;
+                opacity: 1;
+                &.swiper-pagination-bullet-active{
+                    background: var(--tp-theme-10);
+                }
+            }
+        }
+        &-bg{
+            &::before{
+                position: absolute;
+                content: "";
+                width: 100%;
+                height: 75%;
+                bottom: 0;
+                left: 0;
+                background: #f7f6f4;
+                z-index: -1;
+            }
+        }
+        &-shape{
+            left: 0;
+            bottom: 266px;
+            &-2{
+                right: 0;
+                bottom: 125px;
+                width: 11%;
+                & img{
+                    width: 100%;
+                }
+            }
+        }
+    }
+    &-quran{
+        &-wrap{
+            & .tp-testimonial-6-item-title {
+                font-size: 20px;
+                font-weight: 400;
+                color: var(--tp-theme-11);
+                font-family: var(--tp-ff-body);
+            }
+        }
+    }
+}
+

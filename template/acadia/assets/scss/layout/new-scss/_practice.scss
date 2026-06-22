@@ -1,0 +1,68 @@
+@use '../../utils' as *;
+/*---------------------------------
+    1.2 practice
+---------------------------------*/
+
+.#{$theme-prifix}-practice {
+    &-yoga{
+        &-content{
+            background: #f3e9e4;
+            padding: 85px 100px 90px 80px;
+            @media #{$lg,$md,$sm}{
+                padding: 25px 30px 30px 30px; 
+            }
+            @media #{$xs}{
+                padding: 55px 30px 60px 30px; 
+            }
+        }
+        &-list{
+            & ul{
+                & li{
+                    font-family: var(--tp-ff-rufina);
+                    font-weight: 400;
+                    font-size: 20px;
+                    color: var(--tp-heading-5);
+                    list-style: none;
+                    display: flex;
+                    justify-content: space-between;
+                    border-bottom: 1px solid rgba(45, 42, 41, 0.1);
+                    padding-bottom: 10px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+        &-title{
+            font-family: var(--tp-ff-rufina);
+            font-weight: 400;
+            font-size: 40px;
+            color: var(--tp-heading-5);
+            @media #{$xs}{
+                font-size: 30px;
+            }
+        }
+        &-video{
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 0;
+            right: 0;
+            text-align: center;
+            & .popup-video{
+                font-size: 16px;
+                color: var(--tp-common-white);
+                width: 80px;
+                height: 80px;
+                border-radius: 50%;
+                text-align: center;
+                line-height: 80px;
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                display: inline-block;
+                &::after {
+                    width: 104%;
+                    height: 104%;
+                    border: 1px solid rgba(255, 255, 255, 0.2);
+                }
+            }
+        }
+    }
+}

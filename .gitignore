@@ -8,7 +8,6 @@ node_modules
 .php-cs-fixer.cache
 
 # Scratch / build output
-template
 
 # Database
 # Track the seed dump in db/init/, but never commit local dump exports or volume backups
