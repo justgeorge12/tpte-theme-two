@@ -57,18 +57,37 @@ site, the database is committed as a SQL seed.
 
 - **Seed file:** `db/init/seed.sql` — auto-imported by MySQL on the first boot
   against an empty `db_data` volume.
-- **Export the current DB to the seed** (stack must be running):
+### Collaboration workflow
 
-  ```bash
-  ./scripts/db-dump.sh      # writes db/init/seed.sql — commit the result
-  ```
+The seed file is how both people stay in sync. Whoever changes the DB saves a
+checkpoint; the other person restores it — no volume wipe needed.
 
-- **Re-seed your machine** (wipes local DB, reloads from `seed.sql`):
+> **Windows / PowerShell:** use the `.ps1` equivalents instead of the `.sh`
+> scripts — `.\scripts\db-dump.ps1` and `.\scripts\db-restore.ps1`. They produce
+> the same UTF-8 / LF `seed.sql`, so checkpoints stay byte-identical regardless
+> of who dumps.
 
-  ```bash
-  docker compose down -v    # deletes the db_data volume — destructive
-  docker compose up -d
-  ```
+**Save a checkpoint** (after you've made DB changes you want to share):
+
+```bash
+./scripts/db-dump.sh      # writes db/init/seed.sql
+git add db/init/seed.sql
+git commit -m "db: checkpoint <short description>"
+git push
+```
+
+**Load a collaborator's checkpoint** (after you've pulled their commit):
+
+```bash
+./scripts/db-restore.sh   # imports seed.sql into your running DB in-place
+```
+
+**Re-seed from scratch** (wipes local DB, reloads from `seed.sql`):
+
+```bash
+docker compose down -v    # deletes the db_data volume — destructive
+docker compose up -d
+```
 
 See `db/init/README.md` for details.
 
