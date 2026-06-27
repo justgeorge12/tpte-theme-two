@@ -126,6 +126,74 @@ docker compose logs -f wordpress
 docker compose exec -u www-data wordpress wp --info   # WP-CLI inside the container
 ```
 
+## Troubleshooting
+
+Three recurring issues in this Docker + MySQL setup. The common thread for the
+first two: **MySQL only initializes the `db_data` volume once — on the first boot
+against an empty volume.** Editing `.env` or committing a new `seed.sql` does
+**not** change a volume that already exists.
+
+### Greek (UTF-8) text shows as `????`
+
+If Greek fields render as `?`, first find out whether the data is actually
+corrupted or just displayed wrong — look at the **raw stored bytes**:
+
+```bash
+docker compose exec -T db sh -c \
+  'mysql -u root -p"$MYSQL_ROOT_PASSWORD" --default-character-set=utf8mb4 -N -e \
+   "SELECT post_title, HEX(post_title) FROM tpte.wp_posts LIMIT 5;"'
+```
+
+- **Bytes are `3F3F3F…`** → real corruption: the text was overwritten with literal
+  `?` by an import that used a non-UTF-8 connection. It cannot be un-corrupted —
+  recover by re-importing a clean `seed.sql` (the committed file uses
+  `SET NAMES utf8mb4`, so its Greek is intact):
+
+  ```bash
+  ./scripts/db-restore.sh        # or db-restore.ps1 on Windows
+  ```
+
+  This replaces the live tables with the clean data, no volume wipe needed.
+- **Bytes are multi-byte (`CE`/`CF…`)** → data is fine; it's only a *display*
+  problem. In a PowerShell terminal, run `chcp 65001` and
+  `[Console]::OutputEncoding=[Text.Encoding]::UTF8`. The website itself
+  (`charset=UTF-8`) is unaffected.
+
+> Always dump/restore through the provided scripts — they force UTF-8 (no BOM,
+> LF) so the round trip never reintroduces `?` corruption.
+
+### `Access denied for user 'tpte_admin'` after changing a password in `.env`
+
+The volume still stores the **old** password — `MYSQL_PASSWORD` is only applied on
+first init. Reset the stored password to match `.env` (root still works, so no
+data loss):
+
+```bash
+docker compose exec -T db sh -c \
+  'mysql -u root -p"$MYSQL_ROOT_PASSWORD" -e \
+   "ALTER USER '\''tpte_admin'\''@'\''%'\'' IDENTIFIED BY '\''$MYSQL_PASSWORD'\''; FLUSH PRIVILEGES;"'
+```
+
+Or wipe and re-init from the seed (the user is recreated from `.env`):
+`docker compose down -v && docker compose up -d`.
+
+> Tip: avoid `$` in `.env` passwords — Compose interprets `$word` as a variable
+> (escape it as `$$` if unavoidable).
+
+### `not a directory` mounting `uploads.ini` (WordPress won't start)
+
+```
+error mounting ".../uploads.ini" ... not a directory
+```
+
+A stale WordPress container holds a broken bind-mount spec (often from a moment
+the host file was missing and Docker created a directory in its place). Force a
+recreate so the mount is re-resolved against the current file:
+
+```bash
+docker compose up -d --force-recreate wordpress
+```
+
 ## Versions (pinned for reproducibility)
 
 | Image      | Tag                       |

@@ -1,0 +1,269 @@
+/* =========================================
+   Undergrad Programme Page Template
+   (page-university-undergrad-programme.php)
+   ========================================= */
+
+/* --- Tab bar --------------------------------------------------- */
+.tp-programme-tabs {
+    margin-bottom: 45px;
+    border-bottom: 1px solid rgba(22, 22, 19, 0.1);
+}
+
+.tp-programme-tabs .nav-tabs {
+    border: 0;
+    gap: 4px 8px;
+    flex-wrap: wrap;
+}
+
+.tp-programme-tabs .nav-item {
+    margin-bottom: -1px;
+}
+
+.tp-programme-tabs .nav-link {
+    border: 0;
+    border-bottom: 3px solid transparent;
+    border-radius: 0;
+    background: transparent;
+    padding: 12px 18px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.4;
+    color: var(--tp-heading-primary, #161613);
+    transition: color 0.2s ease, border-color 0.2s ease;
+}
+
+.tp-programme-tabs .nav-link:hover,
+.tp-programme-tabs .nav-link:focus {
+    color: var(--tp-theme-primary, #488ecc);
+}
+
+.tp-programme-tabs .nav-link.active {
+    color: var(--tp-theme-secondary, #1a73e8);
+    background: transparent;
+    border-bottom-color: var(--tp-theme-secondary, #1a73e8);
+}
+
+/* --- Intro / rich-text panel (Tab 1, Tab 3 intro) ------------- */
+.tp-programme-intro {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #3e3e3a;
+}
+
+.tp-programme-intro p {
+    margin-bottom: 18px;
+}
+
+.tp-programme-intro h4 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 18px;
+}
+
+.tp-programme-pdf-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-weight: 600;
+    color: var(--tp-theme-primary, #488ecc);
+}
+
+.tp-programme-pdf-link:hover {
+    color: var(--tp-theme-secondary, #1a73e8);
+    text-decoration: underline;
+}
+
+/* "open in new tab" icon — inherits link colour, sits flush with text */
+.tp-programme-extlink-icon {
+    flex: 0 0 auto;
+    width: 14px;
+    height: 14px;
+    vertical-align: -1px;
+}
+
+/* --- Semester accordions (Tab 2) ------------------------------ */
+.tp-programme-accordion .accordion-item {
+    border: 1px solid rgba(22, 22, 19, 0.1);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 16px;
+}
+
+.tp-programme-accordion .accordion-button {
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--tp-heading-primary, #161613);
+    background: var(--tp-blue-1, #f1f3f9);
+    box-shadow: none;
+}
+
+.tp-programme-accordion .accordion-button:not(.collapsed) {
+    color: var(--tp-theme-primary, #488ecc);
+    background: #e3eefb;
+    box-shadow: none;
+}
+
+.tp-programme-accordion .accordion-body {
+    padding: 24px 28px;
+}
+
+/* --- Course / prerequisite tables ----------------------------- */
+/* Reuses the base .tp-tution-table markup, but with flexible
+   columns instead of the tuition layout's fixed 410/410/80 px. */
+.tp-programme-table .tp-course-table-row {
+    gap: 16px;
+}
+
+.tp-programme-table .tp-tution-id,
+.tp-programme-table .tp-tution-sub,
+.tp-programme-table .tp-tution-type {
+    width: auto;
+}
+
+.tp-programme-table .tp-tution-inner,
+.tp-programme-table .tp-tution-table-title {
+    font-size: 16px;
+}
+
+/* Courses: code (narrow) | name (grow) | syllabus PDF (fixed) */
+.tp-programme-table.is-courses .tp-tution-id {
+    flex: 0 0 110px;
+}
+
+.tp-programme-table.is-courses .tp-tution-sub {
+    flex: 1 1 auto;
+}
+
+.tp-programme-table.is-courses .tp-tution-type {
+    flex: 0 0 210px;
+    text-align: right;
+}
+
+/* Prerequisites: A/A (narrow) | prerequisite (grow) | chain (grow) */
+.tp-programme-table.is-prereq .tp-tution-id {
+    flex: 0 0 64px;
+}
+
+.tp-programme-table.is-prereq .tp-tution-sub,
+.tp-programme-table.is-prereq .tp-tution-type {
+    flex: 1 1 50%;
+}
+
+/* Course/prereq table header: override the base pink (.tp-tution-table-head) with the theme tint */
+.tp-programme-table .tp-tution-table-head {
+    background: var(--tp-blue-1, #f1f3f9);
+}
+
+.tp-programme-pdf-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--tp-theme-primary, #488ecc);
+}
+
+.tp-programme-pdf-cell:hover {
+    color: var(--tp-theme-secondary, #1a73e8);
+    text-decoration: underline;
+}
+
+/* Mandatory-lab list under the prerequisites table */
+.tp-programme-lab {
+    margin-top: 40px;
+}
+
+.tp-programme-lab-title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+.tp-programme-lab ul {
+    margin: 0;
+    padding-left: 20px;
+}
+
+.tp-programme-lab ul li {
+    margin-bottom: 8px;
+    color: #3e3e3a;
+}
+
+/* --- Sidebar: undergrad section navigation widget ------------- */
+/* Lives in template-parts/sidebar-undergrad.php; styled here (loads on this
+   template). Reuses the base .tp-course-requrement-widget-content shell. */
+.tp-undergrad-nav-title {
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--tp-heading-primary, #161613);
+}
+
+.tp-undergrad-nav .tp-course-requrement-widget-content a:hover {
+    color: var(--tp-theme-primary, #488ecc);
+}
+
+.tp-undergrad-nav .tp-course-requrement-widget-content .current-page,
+.tp-undergrad-nav .tp-course-requrement-widget-content .is-disabled {
+    display: block;
+    font-size: 17px;
+    font-weight: 400;
+}
+
+.tp-undergrad-nav .tp-course-requrement-widget-content .current-page:not(:last-of-type),
+.tp-undergrad-nav .tp-course-requrement-widget-content .is-disabled:not(:last-of-type) {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed rgba(22, 22, 19, 0.2);
+}
+
+/* Current page: highlighted, still a clickable link */
+.tp-undergrad-nav .tp-course-requrement-widget-content a.current-page,
+.tp-undergrad-nav .tp-course-requrement-widget-content a.current-page:hover {
+    font-weight: 700;
+    color: var(--tp-theme-secondary, #1a73e8);
+}
+
+/* Pages not yet created: muted, non-interactive */
+.tp-undergrad-nav .tp-course-requrement-widget-content .is-disabled {
+    color: rgba(87, 89, 95, 0.45);
+    cursor: default;
+}
+
+/* --- Responsive: let wide tables scroll on small screens ------ */
+@media only screen and (max-width: 991px) {
+    .tp-programme-table {
+        overflow-x: auto;
+    }
+
+    .tp-programme-table ul li {
+        min-width: 640px;
+    }
+
+    /* Sticky in-page tab bar while scrolling on mobile. Sits BELOW the site's
+       own sticky header (`.tp-header-sticky` is position:fixed, top:0, z-index:99),
+       so we offset by its height and keep a lower z-index — the two stack, header
+       on top. Tabs WRAP (no horizontal scrollbar) and stay readable as tabs.
+       If the header height differs on a device, tune `top`. */
+    .tp-programme-tabs {
+        position: sticky;
+        top: 78px;
+        z-index: 98;
+        margin-bottom: 30px;
+        margin-left: -12px;
+        margin-right: -12px;
+        padding: 8px 12px 0;
+        background: var(--tp-grey-1, #f7f7f7);
+        box-shadow: 0 4px 6px -2px rgba(0, 0, 0, 0.08);
+    }
+
+    .tp-programme-tabs .nav-tabs {
+        flex-wrap: wrap;
+        gap: 2px 6px;
+    }
+
+    .tp-programme-tabs .nav-link {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+}

@@ -219,6 +219,15 @@ function tpte_scripts() {
 		wp_enqueue_script( 'tpte-department-info', get_template_directory_uri() . '/assets/js/department-info.js', array( 'tpte-bootstrap' ), TPTE_VERSION, true );
 	}
 
+	// Undergrad Programme page template — tab bar + course/prerequisite tables.
+	// Versioned by the file's own mtime so edits always bust the browser cache
+	// (TPTE_VERSION tracks functions.php, not the stylesheet).
+	if ( is_page_template( 'page-university-undergrad-programme.php' ) ) {
+		$tpte_programme_css = get_template_directory() . '/assets/css/programme.css';
+		$tpte_programme_ver = file_exists( $tpte_programme_css ) ? filemtime( $tpte_programme_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-programme', get_template_directory_uri() . '/assets/css/programme.css', array( 'tpte-main' ), $tpte_programme_ver );
+	}
+
 	// Quality Assurance page template — ApexCharts for line chart.
 	if ( is_page_template( 'page-quality-assurance.php' ) ) {
 		wp_enqueue_style( 'tpte-apexcharts', get_template_directory_uri() . '/assets/css/apexcharts.css', array(), TPTE_VERSION );

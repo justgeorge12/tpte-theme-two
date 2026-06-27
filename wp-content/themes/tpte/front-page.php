@@ -720,7 +720,7 @@ $cta_interval = 5000; // ms between rotations
                 'posts_per_page' => 2,
             ) );
 
-            if ( $blog_query->have_posts() ) :
+            if ( $blog_query->have_posts()  ) :
                 $delay_classes = array( 'wow fadeInLeft', 'wow fadeInRight' );
                 $i = 0;
                 while ( $blog_query->have_posts() ) :

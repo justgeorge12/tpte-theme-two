@@ -10,6 +10,33 @@
 
 $tp_theme_uri = get_template_directory_uri();
 
+// Internal navigation for the undergraduate "Σπουδές" section. Sibling pages are
+// resolved by slug; those not yet created render as muted, non-clickable items so
+// the full section structure is always visible. The current page is highlighted.
+$undergrad_nav = array(
+	array(
+		'slug'  => 'undergrad-programme',
+		'label' => __( 'Πρόγραμμα Προπτυχιακών Σπουδών', 'tpte' ),
+	),
+	array(
+		'slug'  => 'undergrad-completion-requirements',
+		'label' => __( 'Προϋποθέσεις ολοκλήρωσης σπουδών', 'tpte' ),
+	),
+	array(
+		'slug'  => 'undergrad-pedagogical-competency',
+		'label' => __( 'Παιδαγωγική επάρκεια', 'tpte' ),
+	),
+	array(
+		'slug'  => 'undergrad-thesis',
+		'label' => __( 'Πτυχιακή εργασία', 'tpte' ),
+	),
+	array(
+		'slug'  => 'undergrad-internship',
+		'label' => __( 'Πρακτική άσκηση', 'tpte' ),
+	),
+);
+$current_page_id = get_queried_object_id();
+
 $sidebar_links = array(
 	array(
 		'label' => __( 'Degree Requirements', 'tpte' ),
@@ -30,6 +57,28 @@ $sidebar_links = array(
 );
 ?>
 <div class="tp-course-requrement-widget-box">
+	<div class="tp-course-requrement-widget tp-undergrad-nav mb-30">
+		<h4 class="tp-undergrad-nav-title"><?php esc_html_e( 'Προπτυχιακές Σπουδές', 'tpte' ); ?></h4>
+		<div class="tp-course-requrement-widget-content">
+			<?php
+			foreach ( $undergrad_nav as $nav_item ) :
+				$nav_page    = get_page_by_path( $nav_item['slug'] );
+				$nav_url     = $nav_page ? get_permalink( $nav_page ) : '';
+				$is_current  = $nav_page && (int) $nav_page->ID === (int) $current_page_id;
+
+				if ( $is_current ) :
+					?>
+					<a class="current-page" aria-current="page" href="<?php echo esc_url( $nav_url ); ?>"><?php echo esc_html( $nav_item['label'] ); ?></a>
+				<?php elseif ( $nav_url ) : ?>
+					<a href="<?php echo esc_url( $nav_url ); ?>"><?php echo esc_html( $nav_item['label'] ); ?></a>
+				<?php else : ?>
+					<span class="is-disabled"><?php echo esc_html( $nav_item['label'] ); ?></span>
+					<?php
+				endif;
+			endforeach;
+			?>
+		</div>
+	</div>
 	<div class="tp-course-requrement-widget mb-30">
 		<div class="tp-course-requrement-widget-content">
 			<?php foreach ( $sidebar_links as $link ) : ?>
