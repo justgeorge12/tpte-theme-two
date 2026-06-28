@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "Bash(powershell:*)"
+      "Bash(powershell:*)",
+      "PowerShell(Get-ChildItem -Path \"C:\\\\Users\\\\George\\\\tpte-theme-two\\\\wp-content\\\\themes\\\\tpte\\\\context\" -Force | ForEach-Object { $_.Name })"
     ]
   }
 }

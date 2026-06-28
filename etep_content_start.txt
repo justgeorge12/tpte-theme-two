@@ -1,0 +1,36 @@
+﻿<!DOCTYPE html>
+<!-- saved from url=(0034)https://www.ct.aegean.gr/Home/Etep -->
+<html class="skrollr skrollr-desktop"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="google-site-verification" content="dCfYkmOTI-kk1sw98lJOjv9sxYjghkcCpjtFLZS4p6U">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+    <link href="https://www.ct.aegean.gr/Custom/images/favicon.ico" rel="shortcut icon" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="144x144" href="https://www.ct.aegean.gr/Home/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="https://www.ct.aegean.gr/Home/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="https://www.ct.aegean.gr/Home/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" href="https://www.ct.aegean.gr/Home/apple-touch-icon.png">
+
+
+
+
+
+
+
+   <!--  <script src="https://account.snatchbot.me/script.js"></script> -->
+   <!--  <script>window.sntchChat.Init(161691)</script> -->
+    <link rel="stylesheet" type="text/css" href="../../../../../Desktop/Το%20Ειδικό%20Τεχνικό%20Εργαστηριακό%20Προσωπικό%20του%20Τμήματος%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/royal_preloader.css">
+
+    <script type="text/javascript" src="../../../../../Desktop/Το%20Ειδικό%20Τεχνικό%20Εργαστηριακό%20Προσωπικό%20του%20Τμήματος%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/jquery.min.js.download"></script>
+
+
+    <script type="text/javascript" src="../../../../../Desktop/Το%20Ειδικό%20Τεχνικό%20Εργαστηριακό%20Προσωπικό%20του%20Τμήματος%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/royal_preloader.min.js.download"></script>
+    <script>
+        $(document).ready(function () {
+            $('[data-toggle="tooltip1"]').tooltip();
+        });
+
+    </script>
+
+
+    <link href="../../../../../Desktop/Το%20Ειδικό%20Τεχνικό%20Εργαστηρ

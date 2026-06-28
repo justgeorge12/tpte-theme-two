@@ -1,4 +1,4 @@
-<?php
+e<?php
 /**
  * The header for tpte theme
  *

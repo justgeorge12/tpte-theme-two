@@ -1,0 +1,85 @@
+﻿== Begin 3 Team Members Image Top  ===-->
+<div class="row team-content-holder">
+    <!--=== Begin Team Member 1 ===-->
+    <div class="team-member-holder mb20-xs">
+        <div class="col-sm-4 text-center">
+            <!--=== Image ===-->
+            <img src="../../../../../Desktop/Το%20Ειδικό%20Τεχνικό%20Εργαστηριακό%20Προσωπικό%20του%20Τμήματος%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/kargas.jpg" class="img-responsive team-member-img-top" alt="Κάργας Παναγιώτης">
+            <!--=== Name ===-->
+            <h4 class="team-member-name-imgtop">Κάργας Παναγιώτης</h4>
+            <!--=== About ===-->
+           <div class="team-description">
+                <p>Υπεύθυνος Εργαστηρίων Πληροφορικής (Ε.Τ.Ε.Π.)</p> <p> Κτήριο Λέσχης, Λόφος Πανεπιστημίου, Υπόγειο, 811 00, Μυτιλήνη</p>
+				 <p>&nbsp;&nbsp;☎ 2251036615</p>
+
+                <!--=== Social ===-->
+                <a href="mailto:pica@aegean.gr"><span class="fa fa-envelope fa-1x"></span></a>
+                    </div>
+        </div><!-- /column -->
+    </div><!-- /team member holder -->
+    <!--=== Begin Team Member 2 ===-->
+    <div class="team-member-holder mb20-xs">
+        <div class="col-sm-4 text-center">
+            <!--=== Image ===-->
+           	<img src="../../../../../Desktop/Το%20Ειδικό%20Τεχνικό%20Εργαστηριακό%20Προσωπικό%20του%20Τμήματος%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/spathis.png" class="img-responsive team-member-img-top" alt="Σπάθης Αλέξανδρος">
+		
+            <!--=== Name ===-->
+            <h4 class="team-member-name-imgtop">Σπάθης Αλέξανδρος</h4>
+            <!--=== About ===-->
+           <div class="team-description">
+                <p>Τρισδιάστατα γραφικά, μοντάζ ήχου και εικόνας</p> <p> Κτήριο Λέσχης, Λόφος Πανεπιστημίου, 1ος όροφος, 811 00, Μυτιλήνη</p>
+				 <p>&nbsp;&nbsp;☎ 2251036628</p>
+               <p><a href="https://www.ct.aegean.gr/data/Spathis_EL.pdf" target="_blank"><button class="btn btn-link">Βιογραφικό</button></a></p>   
+			
+                <!--=== Social ===-->
+                <a href="mailto:a.spathis@aegean.gr"><span class="fa fa-envelope fa-1x"></span></a>&nbsp;&nbsp;
+		       <a href="https://www.linkedin.com/in/alexandros-spathis-a9141546?ppe=1/" target="_blank"><span class="ion-social-linkedin fa-1x"></span></a>
+          
+                    </div>
+        </div><!-- /column -->
+    </div><!-- /team member holder -->
+    <!--=== Begin Team Member 3 ===-->
+    <div class="team-member-holder">
+         <div class="col-sm-4 text-center">
+            <!--=== Image ===-->
+            <img src="../../../../../Desktop/Το%20Ειδικό%20Τεχνικό%20Εργαστηριακό%20Προσωπικό%20του%20Τμήματος%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/ΗΛΙΑΔΗΣ.jpg" class="img-responsive team-member-img-top" alt="Ηλιάδης Γιάννης">
+            <!--=== Name ===-->
+            <h4 class="team-member-name-imgtop">Ηλιάδης Γιάννης</h4>
+            <!--=== About ===-->
+           <div class="team-description">
+                <p>Έρευνα, Τεκμηρίωση και Διαχείριση Ψηφιακών Πολιτιστικών Δεδομένων</p> <p> Κτήριο Λέσχης, Λόφος Πανεπιστημίου, 1ος όροφος, 811 00, Μυτιλήνη</p>
+				 <p>&nbsp;&nbsp;☎ 2251036672</p>
+      <p><a href="https://www.ct.aegean.gr/data/staff/iliadis-giannis-el.pdf" target="_blank"><button class="btn btn-link">Βιογραφικό</button></a></p>               
+	
+               <!--=== Social ===-->
+                    <a href="mailto:ihl@aegean.gr"><span class="fa fa-envelope fa-1x"></span></a>&nbsp;&nbsp;
+		   
+            </div>
+        
+        </div><!-- /column -->
+    </div><!-- /team member holder -->
+</div><!-- /row -->
+<!--=== End 3 Team Members Image Top ===-->
+
+</div>
+
+
+        <hr>
+
+    </div>
+    <footer class="footer-light">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <div class="heading-footer" style="font-family:Segoe UI Light"><h4>Το Τμήμα</h4></div>
+                    <p>To Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας (Τ.Π.Τ.Ε.) ανήκει στη Σχολή Κοινωνικών Επιστημών, εδρεύει στην πόλη της Μυτιλήνης και δέχεται φοιτητές από το 1ο και 4ο επιστημονικό πεδίο.</p>
+                    <a href="https://www.ct.aegean.gr/Home/Department" class="btn btn-primary btn-rw mt10">
+                        Ενημερωθείτε
+                    </a>
+                </div>
+                <div class="col-sm-3 mg25-xs">
+                    <div class="heading-footer"><h4>Επικοινωνία</h4></div>
+                    <p><span class="ion-home footer-info-icons"></span><small class="address">Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας (Τ.Π.Τ.Ε.) - Πανεπιστήμιο Αιγαίου - Κτίριο Διοίκησης - Λόφος Πανεπιστημίου, Τ.Κ.81100, Μυτιλήνη</small></p>
+                    <p><span class="ion-email footer-info-icons"></span><small class="address"><a href="mailto:secr-culturaltec@aegean.gr">secr-culturaltec@aegean.gr</a></small></p>
+                    <p><span class="ion-ios7-telephone footer-i

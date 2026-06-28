@@ -1,0 +1,225 @@
+﻿τηριακό Διδακτικό Προσωπικό του Τ.Π.Τ.Ε.</h4></div>
+    </div>
+	
+
+
+
+  
+<br>
+<br>
+
+		<div class="row team-content-holder">
+			
+		
+		<div class="team-member-holder mt30-xs">
+			<div class="col-sm-4 text-center">
+				<!--=== Image ===-->
+				<img src="../../../../../Desktop/Το%20Εργαστηριακό%20Διδακτικό%20Προσωπικό%20(ΕΔΙΠ)%20του%20Τ.Π.Τ.Ε.%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/ΜΑΥΡΟΦΙΔΗΣ.jpg" class="img-responsive team-member-img-top" alt="Μαυροφίδης Θωμάς">
+				<!--=== Name ===-->
+				<h4 class="team-member-name-imgtop">Μαυροφίδης Θωμάς</h4>
+				<!--=== About ===-->
+				<div class="team-description">
+				<p>Ε.ΔΙ.Π.</p>
+					<p>Κοινωνικοτεχνικά Συστήματα</p>
+					<p>2260/20.8.2014, τ. Β΄ </p>
+					 <p>&nbsp;&nbsp;☎ 2251036632</p>
+					 <p><a href="https://www.ct.aegean.gr/data/staff/mavrofides-thomas-eng.pdf">Βιογραφικό</a></p>
+	
+					<!--=== Social ===-->
+					 <a href="mailto:blacktom@aegean.gr"><span class="fa fa-envelope fa-2x"></span></a>&nbsp;
+				   
+				</div>
+			</div><!-- /column -->
+		</div><!-- /team member holder -->
+		<!--=== Begin Team Member 3 ===-->
+		<div class="team-member-holder mt30-xs">
+			<div class="col-sm-4 text-center">
+				<!--=== Image ===-->
+				<img src="../../../../../Desktop/Το%20Εργαστηριακό%20Διδακτικό%20Προσωπικό%20(ΕΔΙΠ)%20του%20Τ.Π.Τ.Ε.%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/ΜΠΑΚΑΛΗΣ.jpg" class="img-responsive team-member-img-top" alt="Μπακάλης Χρήστος">
+				<!--=== Name ===-->
+				<h4 class="team-member-name-imgtop">Μπακάλης Χρήστος</h4>
+				<!--=== About ===-->
+				<div class="team-description">
+				<p>Ε.ΔΙ.Π.</p>
+					<p>Κοινωνιολογία του Πολιτισμού και του Περιβάλλοντος</p>
+					<p>1820/3.7.2014, τ. Β΄ </p>
+					 <p>&nbsp;&nbsp;☎ 2251036555 </p>
+					 <p><a href="https://www.ct.aegean.gr/data/staff/bakalis-christos-el.pdf">Βιογραφικό</a></p>
+					
+						 <a href="mailto:cbakalis@aegean.gr"><span class="fa fa-envelope fa-2x"></span></a>&nbsp;
+			  <!--=== Social ===-->
+					 
+					  <a href="https://aegean.academia.edu/CHRISTOSBAKALIS" target="_blank"><span class="fa fa-university fa-2x"></span></a>&nbsp;
+					
+					
+					
+					  <a href="https://www.researchgate.net/profile/Christos_Bakalis" target="_blank"><span class="ai ai-researchgate-square ai-2x"></span></a>&nbsp;
+					  <a href="https://christosbakalis.wordpress.com/" target="_blank"><span class="fa fa-globe fa-2x"></span></a>&nbsp;
+
+				
+				</div>
+			</div><!-- /column -->
+		</div><!-- /team member holder -->
+    <div class="team-member-holder mt30-xs">
+        <div class="col-sm-4 text-center">
+           <!--=== Image ===-->
+				<img src="../../../../../Desktop/Το%20Εργαστηριακό%20Διδακτικό%20Προσωπικό%20(ΕΔΙΠ)%20του%20Τ.Π.Τ.Ε.%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/ΣΙΔΕΡΗ.jpg" class="img-responsive team-member-img-top" alt="Σιδερή Μαρία">
+				<!--=== Name ===-->
+				<h4 class="team-member-name-imgtop">Σιδερή Μαρία</h4>
+				<!--=== About ===-->
+				<div class="team-description">
+				<p>Ε.ΔΙ.Π.</p>
+					<p>Κοινωνικά Δίκτυα και Ταυτότητες στα Ψηφιακά Μέσα Επικοινωνίας</p>
+					
+					 <p>2204/12.08.2014 τ. B΄</p>
+					 <p>&nbsp;&nbsp;☎ 2251036610</p>
+					 
+	<p><a href="https://www.ct.aegean.gr/data/SIDERI_CV_EL.pdf" target="_blank"><button class="btn btn-link">Βιογραφικό</button></a></p>               
+					 <a href="mailto:msid@aegean.gr"><span class="fa fa-envelope fa-2x"></span></a>&nbsp;
+								</div>
+			</div><!-- /column -->
+		</div><!-- /team member holder -->
+
+
+		</div>					
+<!--=== Begin 3 Team Members Image Top  ===-->
+<div class="row team-content-holder">
+    <!--=== Begin Team Member 1 ===-->
+   <!-- /team member holder -->
+   
+		<div class="team-member-holder mt30-xs">
+			<div class="col-sm-4 text-center">
+				<!--=== Image ===-->
+				<img src="../../../../../Desktop/Το%20Εργαστηριακό%20Διδακτικό%20Προσωπικό%20(ΕΔΙΠ)%20του%20Τ.Π.Τ.Ε.%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/simou.jpg" class="img-responsive team-member-img-top" alt="ΣΙΜΟΥ ΣΤΑΥΡΟΣ ">
+				<!--=== Name ===-->
+				<h4 class="team-member-name-imgtop">Σίμου Σταύρος</h4>
+				<!--=== About ===-->
+				<div class="team-description">
+				<p>Ε.ΔΙ.Π.</p>
+					<p>Ασφάλεια και Προστασία της Ιδιωτικότητας σε Περιβάλλοντα Νεφοϋπολογιστικής</p>
+					
+					 <p>167/26.01.2018 τ. Β’</p>
+					 <p>&nbsp;&nbsp;☎ 2251036663</p>
+					 
+	<p><a href="https://www.ct.aegean.gr/data/staff/simou-stavros-el.pdf" target="_blank"><button class="btn btn-link">Βιογραφικό</button></a></p>               
+	        
+					 <a href="mailto:ssimou@aegean.gr"><span class="fa fa-envelope fa-2x"></span></a>&nbsp;
+					  <a href="https://aegean.academia.edu/StavrosSimou" target="_blank"><span class="fa fa-university fa-2x"></span></a>&nbsp;
+					
+					
+					
+					  <a href="https://www.researchgate.net/profile/Stavros_Simou" target="_blank"><span class="ai ai-researchgate-square ai-2x"></span></a>&nbsp;
+					
+								</div>
+			</div><!-- /column -->
+		</div><!-- /team member holder -->
+		<div class="team-member-holder mt30-xs">
+				<div class="col-sm-4 text-center">
+				<!--=== Image ===-->
+				<img src="../../../../../Desktop/Το%20Εργαστηριακό%20Διδακτικό%20Προσωπικό%20(ΕΔΙΠ)%20του%20Τ.Π.Τ.Ε.%20_%20Τμήμα%20Πολιτισμικής%20Τεχνολογίας%20και%20Επικοινωνίας_files/ΧΑΤΖΗΓΕΩΡΓΙΟΥ.jpg" class="img-responsive team-member-img-top" alt="ΣΙΜΟΥ ΣΤΑΥΡΟΣ ">
+				<!--=== Name ===-->
+				<h4 class="team-member-name-imgtop">Χατζηγεωργίου Τριάδα</h4>
+				<!--=== About ===-->
+				<div class="team-description">
+				<p>Ε.ΔΙ.Π.</p>
+					<p>Κοινωνικές και Πολιτισμικές Ταυτότητες</p>
+					<p>993/09.10.2017,τ. Γ</p>
+					
+
+					 <p>&nbsp;&nbsp;☎ 2251036611</p>
+					 
+	<p><a href="https://www.ct.aegean.gr/data/Chatzigeorgiou_CV.pdf" target="_blank"><button class="btn btn-link">Βιογραφικό</button></a></p>               
+	         
+					 <a href="mailto:adacha@aegean.gr"><span class="fa fa-envelope fa-2x"></span></a>&nbsp;
+						
+					
+					
+					 
+								</div>
+			</div><!-- /column -->
+		
+            </div>
+    <div class="team-member-holder mt30-xs">
+			<div class="col-sm-4 text-center">
+                </div>
+            </div>
+</div><!-- /row -->
+<!--=== End 3 Team Members Image Top ===-->
+
+
+
+
+        
+
+       
+         
+
+        <hr>
+
+    </div>
+    <footer class="footer-light">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-sm-3">
+                    <div class="heading-footer" style="font-family:Segoe UI Light"><h4>Το Τμήμα</h4></div>
+                    <p>To Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας (Τ.Π.Τ.Ε.) ανήκει στη Σχολή Κοινωνικών Επιστημών, εδρεύει στην πόλη της Μυτιλήνης και δέχεται φοιτητές από το 1ο και 4ο επιστημονικό πεδίο.</p>
+                    <a href="https://www.ct.aegean.gr/Home/Department" class="btn btn-primary btn-rw mt10">
+                        Ενημερωθείτε
+                    </a>
+                </div>
+                <div class="col-sm-3 mg25-xs">
+                    <div class="heading-footer"><h4>Επικοινωνία</h4></div>
+                    <p><span class="ion-home footer-info-icons"></span><small class="address">Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας (Τ.Π.Τ.Ε.) - Πανεπιστήμιο Αιγαίου - Κτίριο Διοίκησης - Λόφος Πανεπιστημίου, Τ.Κ.81100, Μυτιλήνη</small></p>
+                    <p><span class="ion-email footer-info-icons"></span><small class="address"><a href="mailto:secr-culturaltec@aegean.gr">secr-culturaltec@aegean.gr</a></small></p>
+                    <p><span class="ion-ios7-telephone footer-info-icons"></span><small class="address">(+30)2251036 604-608</small></p>
+                </div>
+
+                <div class="col-sm-3 mg25-xs">
+                    <div class="heading-footer"><h4>Social Networks</h4></div>
+                    <a target="_blank" href="https://www.facebook.com/ctaegean/" class="btn btn-social-icon btn-rw btn-primary btn-xs">
+
+
+                        <i class="fa fa-facebook largewhitebg"></i>
+                    </a>
+					
+					 <a target="_blank" href="https://www.instagram.com/ctaegean/" class="btn btn-social-icon btn-rw btn-primary btn-xs">
+                                               <i class="fa  fa-instagram largewhitebg"></i>
+
+
+                                           </a>
+					
+					
+					
+					
+					
+                    <a target="_blank" href="https://www.youtube.com/channel/UCJzGKJKh9TQ0nlwzmwzTw_A" class="btn btn-social-icon btn-rw btn-primary btn-xs">
+
+                        <i class="fa fa-youtube largewhitebg"></i>
+                    </a><a target="_blank" href="https://www.linkedin.com/company/cultural-technology-communication" class="btn btn-social-icon btn-rw btn-primary btn-xs" style="margin-left: 4px;"><i class="fa fa-linkedin largewhitebg"></i></a>
+
+                </div>
+
+                <div class="col-sm-3 mg25-xs">
+                    <div class="heading-footer"><h4>Σχολή Κοινωνικών Επιστημών</h4></div>
+                    <a target="_blank" href="http://www.ct.aegean.gr/" class="btn btn-rw  btn-xs">Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας</a>
+
+                    <a target="_blank" href="http://www.sah.aegean.gr/" class="btn btn-rw  btn-xs">Τμήμα Κοινωνικής Ανθρωπολογίας και Ιστορίας</a>
+
+                    <a target="_blank" href="http://www.soc.aegean.gr/" class="btn btn-rw btn-xs">Τμήμα Κοινωνιολογίας</a><br>
+                    <a target="_blank" href="https://geography.aegean.gr/" class="btn btn-rw  btn-xs">Τμήμα Γεωγραφίας</a>
+
+
+
+
+                </div>
+            </div><!-- /row -->
+            <!-- Copyright -->
+            <div class="row">
+                <hr class="dark-hr">
+                <div class="col-sm-11 col-xs-10">
+                    <p class="copyright">
+                        © 2017 - 2026  Τμήμα Πολιτισμικής Τεχνολογίας και Επικοινωνίας | Πανεπιστήμιο Αιγαίου | Μυτιλήνη | ☎ (+30)2251036 604-608 | <i class="fa fa-fax"></i> 2251036 609
+                    </p>
+                </div>
+                <div cl
