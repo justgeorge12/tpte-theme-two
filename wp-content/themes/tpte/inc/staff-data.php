@@ -74,7 +74,8 @@ function tpte_all_staff() {
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/bakalis-christos-el.pdf',
 				'links'          => array(
 					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/CHRISTOSBAKALIS', 'label' => 'Academia' ),
-					array( 'icon' => 'fa-globe',           'url' => 'https://christosbakalis.wordpress.com/',    'label' => 'Website' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Christos_Bakalis', 'label' => 'ResearchGate' ),
+					array( 'icon' => 'fa-globe',           'url' => 'https://christosbakalis.wordpress.com/', 'label' => 'Website' ),
 				),
 				'photo_thumb'    => $uri . '/assets/img/edip/bakalis.jpg',
 				'photo_hero'     => '',
@@ -144,7 +145,9 @@ function tpte_all_staff() {
 				'phone'          => '',
 				'email'          => 'vernicos@ct.aegean.gr',
 				'cv_url'         => '',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/NicolasVernicos', 'label' => 'Academia' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/vernikos.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Βερνίκος Νικόλας',
@@ -159,7 +162,9 @@ function tpte_all_staff() {
 				'phone'          => '',
 				'email'          => 's.dascalopoulos@aegean.gr',
 				'cv_url'         => '',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/SofiaDASKALOPOULOU', 'label' => 'Academia' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/daskalopoulou.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Δασκαλοπούλου Σοφία',
@@ -176,7 +181,9 @@ function tpte_all_staff() {
 				'phone'          => '2251036612',
 				'email'          => 'kavakli@ct.aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/KAVAKLI_EL.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.gr/citations?user=TATlL7sAAAAJ&hl=el', 'label' => 'Google Scholar' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/kavakli.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Καβακλή Ευαγγελία',
@@ -191,7 +198,12 @@ function tpte_all_staff() {
 				'phone'          => '2251036624',
 				'email'          => 'canag@ct.aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/anagnostopoulos-christos-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/ChristosNikolaosAnagnostopoulos', 'label' => 'Academia' ),
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.gr/citations?user=H5ikkF8AAAAJ&hl=el', 'label' => 'Google Scholar' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Christos-Nikolaos_Anagnostopoulos', 'label' => 'ResearchGate' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://www.linkedin.com/in/cnanagnostopoulos/?ppe=1', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/anagnostopoulos.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Αναγνωστόπουλος Χρήστος-Νικόλαος',
@@ -206,7 +218,12 @@ function tpte_all_staff() {
 				'phone'          => '2251036637',
 				'email'          => 'chkallon@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/Kalloniatis.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'http://aegean.academia.edu/ChristosKalloniatis', 'label' => 'Academia' ),
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.gr/citations?user=_yiQO4EAAAAJ&hl=el&oi=ao', 'label' => 'Google Scholar' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Christos_Kalloniatis', 'label' => 'ResearchGate' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://www.linkedin.com/in/kalloniatis-christos-aba39879/', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/kalloniatis.jfif',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Καλλονιάτης Χρήστος',
@@ -221,7 +238,10 @@ function tpte_all_staff() {
 				'phone'          => '2251036630',
 				'email'          => 'abounia@ct.aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/mpounia-aleksandra-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/ALEXANDRABOUNIA', 'label' => 'Academia' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Alexandra_Bounia', 'label' => 'ResearchGate' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/bounia.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Μπούνια Αλεξάνδρα',
@@ -236,7 +256,12 @@ function tpte_all_staff() {
 				'phone'          => '2251036650',
 				'email'          => 'daradoumis@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/daradoumis.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/TDaradoumis', 'label' => 'Academia' ),
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.gr/citations?user=5oD0RKcAAAAJ&hl=el&oi=ao', 'label' => 'Google Scholar' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Thanasis_Daradoumis', 'label' => 'ResearchGate' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://www.linkedin.com/in/thanasis-daradoumis/', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/daradoumis.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Νταραντούμης Αθανάσιος',
@@ -266,7 +291,11 @@ function tpte_all_staff() {
 				'phone'          => '2251036613',
 				'email'          => 'gpav@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/pavlogeorgatos-gerasimos-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'http://aegean.academia.edu/PavlogeorgatosGerasimos', 'label' => 'Academia' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Gerasimos_Pavlogeorgatos', 'label' => 'ResearchGate' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://www.linkedin.com/in/pavlogeorgatos', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/pavlogeorgatos.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Παυλογεωργάτος Γεράσιμος',
@@ -281,7 +310,10 @@ function tpte_all_staff() {
 				'phone'          => '2251036618',
 				'email'          => 'esampa@ct.aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/SAMPANIKOU_CV_EL.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/EviSampanikou', 'label' => 'Academia' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Evi_Sampanikou', 'label' => 'ResearchGate' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/sampanikou.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Σαμπανίκου Ευαγγελία',
@@ -311,7 +343,10 @@ function tpte_all_staff() {
 				'phone'          => '2251036631',
 				'email'          => 'gtsek@ct.aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/TSEKOURAS_EL.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.gr/citations?user=tQoukVYAAAAJ&hl=el', 'label' => 'Google Scholar' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/George_Tsekouras3', 'label' => 'ResearchGate' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/tsekouras.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Τσεκούρας Γεώργιος',
@@ -326,7 +361,12 @@ function tpte_all_staff() {
 				'phone'          => '2251036644',
 				'email'          => 'gcari@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/karidakis-georgios-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/GeorgeCaridakis', 'label' => 'Academia' ),
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.com/citations?hl=en&user=LBOSWEcAAAAJ', 'label' => 'Google Scholar' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/George_Caridakis', 'label' => 'ResearchGate' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://www.linkedin.com/in/georgecaridakis', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/karidakis.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Καρυδάκης Γεώργιος',
@@ -341,7 +381,9 @@ function tpte_all_staff() {
 				'phone'          => '2251036687',
 				'email'          => 'nassiah@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/chourmouziadi-anastasia-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/AnastasiaChourmouziadi', 'label' => 'Academia' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/chourmouziadi.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Χουρμουζιάδη Αναστασία',
@@ -358,7 +400,10 @@ function tpte_all_staff() {
 				'phone'          => '2251036620',
 				'email'          => 'kotis@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/kotis-kostas-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.com/citations?user=x4T5OfIAAAAJ&hl=en', 'label' => 'Google Scholar' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://gr.linkedin.com/in/kotis', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/kotis.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Κώτης Κωνσταντίνος',
@@ -373,7 +418,9 @@ function tpte_all_staff() {
 				'phone'          => '2251036626',
 				'email'          => 'dcatapoti@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/katapoti-despoina-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'http://aegean.academia.edu/despinacatapoti', 'label' => 'Academia' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/katapoti.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Καταπότη Δέσποινα',
@@ -388,7 +435,9 @@ function tpte_all_staff() {
 				'phone'          => '2251036629',
 				'email'          => 'nbubaris@ct.aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/bubaris-nikos-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/NikosBubaris', 'label' => 'Academia' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/bubaris.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Μπουμπάρης Νικόλαος',
@@ -403,7 +452,9 @@ function tpte_all_staff() {
 				'phone'          => '2251036638',
 				'email'          => 'v.kasapakis@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/kasapakis-vlasios-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-flask', 'url' => 'https://www.researchgate.net/profile/Vlasios_Kasapakis', 'label' => 'ResearchGate' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/kasapakis.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Κασαπάκης Βλάσιος',
@@ -420,7 +471,9 @@ function tpte_all_staff() {
 				'phone'          => '6945104788',
 				'email'          => 'kaivaliotis@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/aivaliotis-konstantinos-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'linkedin', 'url' => 'https://www.linkedin.com/in/konstantinosaivaliotis/', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/aivaliotis.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Αϊβαλιώτης Κωνσταντίνος',
@@ -435,7 +488,10 @@ function tpte_all_staff() {
 				'phone'          => '2251036622',
 				'email'          => 'a.kitsiou@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/KITSIOU.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.com/citations?user=cD_19JoAAAAJ&hl=el', 'label' => 'Google Scholar' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://www.linkedin.com/in/angeliki-kitsiou-554187b5', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/kitsiou.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Κίτσιου Αγγελική',
@@ -450,7 +506,11 @@ function tpte_all_staff() {
 				'phone'          => '2251036639',
 				'email'          => 'd.poulou@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/poulou-despoina-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/%CE%94%CE%AD%CF%83%CF%80%CE%BF%CE%B9%CE%BD%CE%B1%CE%A0%CE%BF%CF%8D%CE%BB%CE%BF%CF%85', 'label' => 'Academia' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Despina-Poulou', 'label' => 'ResearchGate' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://www.linkedin.com/in/despina-poulou-01144024a/', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/poulou.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Πούλου Δέσποινα',
@@ -465,7 +525,12 @@ function tpte_all_staff() {
 				'phone'          => '6946094378',
 				'email'          => 'a.chrysanthi@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/staff/chrysanthi-aggeliki-el.pdf',
-				'links'          => array(),
+				'links'          => array(
+					array( 'icon' => 'fa-graduation-cap', 'url' => 'https://aegean.academia.edu/AngelikiChrysanthi', 'label' => 'Academia' ),
+					array( 'icon' => 'google-scholar', 'url' => 'https://scholar.google.co.uk/citations?user=QiT4-7AAAAAJ&hl=en', 'label' => 'Google Scholar' ),
+					array( 'icon' => 'fa-flask',           'url' => 'https://www.researchgate.net/profile/Angeliki_Chrysanthi', 'label' => 'ResearchGate' ),
+					array( 'icon' => 'linkedin',        'url' => 'https://www.linkedin.com/in/angelikichrysanthi/', 'label' => 'LinkedIn' ),
+				),
 				'photo_thumb'    => $uri . '/assets/img/dep/chrysanthi.jpg',
 				'photo_hero'     => '',
 				'photo_alt'      => 'Χρυσάνθη Αγγελική',
@@ -515,7 +580,7 @@ function tpte_all_staff() {
 				'email'          => 'a.spathis@aegean.gr',
 				'cv_url'         => 'https://www.ct.aegean.gr/data/Spathis_EL.pdf',
 				'links'          => array(
-					array( 'icon' => 'fa-linkedin', 'url' => 'https://www.linkedin.com/in/alexandros-spathis-a9141546', 'label' => 'LinkedIn' ),
+					array( 'icon' => 'linkedin', 'url' => 'https://www.linkedin.com/in/alexandros-spathis-a9141546', 'label' => 'LinkedIn' ),
 				),
 				'photo_thumb'    => $uri . '/assets/img/etep/spathis.png',
 				'photo_hero'     => '',
@@ -639,6 +704,48 @@ function tpte_get_staff_member( $dept, $slug ) {
 	$dept = sanitize_key( $dept );
 	$slug = sanitize_key( $slug );
 	return isset( $all[ $dept ][ $slug ] ) ? $all[ $dept ][ $slug ] : null;
+}
+
+endif;
+
+
+if ( ! function_exists( 'tpte_link_icon' ) ) :
+
+/**
+ * Render the icon for a staff link entry.
+ * Brand icons (linkedin, google-scholar) are inline SVG so they render
+ * regardless of which Font Awesome style families are loaded.
+ * Everything else falls back to the existing fa-light icon font.
+ */
+function tpte_link_icon( $link ) {
+	switch ( $link['icon'] ) {
+
+		case 'linkedin':
+			return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"'
+				. ' width="1em" height="1em" fill="currentColor"'
+				. ' style="vertical-align:-0.125em;" aria-hidden="true">'
+				. '<path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037'
+				. '-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046'
+				. 'c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286z'
+				. 'M5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063'
+				. ' 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065z'
+				. 'M7.119 20.452H3.555V9h3.564v11.452z'
+				. 'M22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24'
+				. 'h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>'
+				. '</svg>';
+
+		case 'google-scholar':
+			return '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"'
+				. ' width="1em" height="1em" fill="currentColor"'
+				. ' style="vertical-align:-0.125em;" aria-hidden="true">'
+				. '<path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269'
+				. 'C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269z'
+				. 'M12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/>'
+				. '</svg>';
+
+		default:
+			return '<i class="fa-light ' . esc_attr( $link['icon'] ) . '"></i>';
+	}
 }
 
 endif;

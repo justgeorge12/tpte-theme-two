@@ -59,7 +59,7 @@ if ( ! $member ) :
 							<span class="white"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M8.07207 0C8.19331 0 8.31107 0.0404348 8.40664 0.114882L16.1539 6.14233L15.4847 6.98713L14.5385 6.25079V12.8994C14.538 13.1843 14.4243 13.4574 14.2225 13.6589C14.0206 13.8604 13.747 13.9738 13.4616 13.9743H2.69231C2.40688 13.9737 2.13329 13.8603 1.93146 13.6588C1.72962 13.4573 1.61597 13.1843 1.61539 12.8994V6.2459L0.669148 6.98235L0 6.1376L7.7375 0.114882C7.83308 0.0404348 7.95083 0 8.07207 0ZM8.07694 1.22084L2.69231 5.40777V12.8994H13.4616V5.41341L8.07694 1.22084Z" fill="currentColor"/></svg></a></span>
 							<span class="white">Προσωπικό</span>
 						</div>
-						<h3 class="tp-breadcrumb__title color">Προφίλ δεν βρέθηκε</h3>
+						<h3 class="tp-breadcrumb__title color">Βιογραφικό δεν βρέθηκε</h3>
 					</div>
 				</div>
 			</div>
@@ -98,36 +98,22 @@ if ( ! $member ) :
 	$listing_url   = $dept_info ? $dept_info['url']   : home_url( '/' );
 	?>
 
-	<!-- simple breadcrumb -->
-	<div class="grey-bg pt-25 pb-10">
-		<div class="container">
-			<p style="font-size:14px;color:#666;margin:0;">
-				<a href="<?php echo esc_url( home_url( '/' ) ); ?>" style="color:#666;">Αρχική</a>
-				<span style="margin:0 6px;color:#bbb;">›</span>
-				<a href="<?php echo esc_url( $listing_url ); ?>" style="color:#666;"><?php echo esc_html( $listing_label ); ?></a>
-				<span style="margin:0 6px;color:#bbb;">›</span>
-				<span style="color:#333;"><?php echo esc_html( $member['name'] ); ?></span>
-			</p>
-		</div>
-	</div>
-
-	<!-- profile banner — matches my-profile.html tp-dashboard-banner-wrap layout -->
-	<section class="tp-dashboard-banner-wrap grey-bg" style="padding-bottom:100px;">
+	<!-- profile banner -->
+	<section class="tp-dashboard-banner-wrap grey-bg pt-160">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
 					<?php
 					if ( ! empty( $member['photo_hero'] ) ) :
-						echo '<div class="tp-dashboard-banner-bg mt-20" data-background="' . esc_url( $member['photo_hero'] ) . '" style="padding-top:200px;padding-bottom:50px;">';
+						echo '<div class="tp-dashboard-banner-bg mt-20 tp-staff-banner" data-background="' . esc_url( $member['photo_hero'] ) . '">';
 					else :
-						echo '<div class="tp-dashboard-banner-bg mt-20" style="background-color:#0071DC;padding-top:200px;padding-bottom:50px;">';
+						echo '<div class="tp-dashboard-banner-bg mt-20 tp-staff-banner" style="background-color:#0071DC;">';
 					endif;
 					?>
 						<div class="tp-instructor-wrap d-flex justify-content-between">
 
 							<div class="tp-instructor-info d-flex">
-								<!-- margin-bottom:-83px lets only the avatar overlap the banner bottom by ~50% -->
-								<div class="tp-instructor-avatar" style="margin-bottom:-83px;">
+								<div class="tp-instructor-avatar tp-staff-avatar-overlap">
 									<img
 										src="<?php echo esc_url( $member['photo_thumb'] ); ?>"
 										alt="<?php echo esc_attr( $member['photo_alt'] ); ?>"
@@ -138,9 +124,9 @@ if ( ! $member ) :
 									</div>
 								</div>
 								<div class="tp-instructor-content" style="padding-left:12px;">
-									<h4 class="tp-instructor-title"><?php echo esc_html( $member['name'] ); ?></h4>
+									<h4 class="tp-instructor-title tp-instructor-title-size"><?php echo esc_html( $member['name'] ); ?></h4>
 									<div class="tp-instructor-rate d-flex align-items-center" style="gap:12px;flex-wrap:wrap;">
-										<span class="profile"><?php echo esc_html( $member['role'] ); ?></span>
+										<span class="profile role-size"><?php echo esc_html( $member['role'] ); ?></span>
 										<?php if ( ! empty( $member['specialization'] ) ) : ?>
 											<span class="profile" style="opacity:.82;"><?php echo esc_html( $member['specialization'] ); ?></span>
 										<?php endif; ?>
@@ -161,7 +147,7 @@ if ( ! $member ) :
 								<?php endif; ?>
 								<?php foreach ( $member['links'] as $link ) : ?>
 									<a href="<?php echo esc_url( $link['url'] ); ?>" target="_blank" rel="noopener noreferrer" title="<?php echo esc_attr( $link['label'] ); ?>">
-										<i class="fa-light <?php echo esc_attr( $link['icon'] ); ?>"></i>
+										<?php echo tpte_link_icon( $link ); ?>
 									</a>
 								<?php endforeach; ?>
 							</div>
@@ -220,7 +206,7 @@ if ( ! $member ) :
 										<?php foreach ( $member['links'] as $link ) : ?>
 											<li>
 												<a href="<?php echo esc_url( $link['url'] ); ?>" target="_blank" rel="noopener noreferrer" style="color:#0071DC;font-size:14px;">
-													<i class="fa-light <?php echo esc_attr( $link['icon'] ); ?>" style="margin-right:5px;"></i>
+													<span style="margin-right:5px;"><?php echo tpte_link_icon( $link ); ?></span>
 													<?php echo esc_html( $link['label'] ); ?>
 												</a>
 											</li>

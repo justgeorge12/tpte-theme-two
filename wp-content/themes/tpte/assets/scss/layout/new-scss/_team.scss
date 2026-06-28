@@ -152,3 +152,67 @@
         }
     }
 }
+.tp-instructor-title-size {
+    font-size: 37px;
+    @media #{$md} {
+        font-size: 28px;
+    }
+    @media #{$xs} {
+        font-size: 22px;
+    }
+}
+.tp-instructor-rate .profile:not(:last-child)::after {
+    display: none !important;
+}
+.profile.role-size {
+    font-size: 19px;
+    @media #{$xs} {
+        font-size: 15px;
+    }
+}
+.tp-profile-social {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    @media #{$md,$xs} {
+        margin-top: 16px;
+        width: 100%;
+        justify-content: flex-start;
+    }
+}
+
+/* Staff profile banner — responsive inner padding */
+.tp-staff-banner {
+    padding-top: 200px;
+    padding-bottom: 70px;
+    @media #{$md} {
+        padding-top: 120px;
+        padding-bottom: 56px;
+    }
+    @media #{$xs} {
+        padding-top: 70px;
+        padding-bottom: 44px;
+    }
+}
+
+/* Avatar overlap — only on desktop; stack cleanly on mobile */
+.tp-staff-avatar-overlap {
+    margin-bottom: -83px;
+    @media #{$xs} {
+        margin-bottom: 16px;
+        margin-right: 0 !important;
+    }
+}
+.tp-leadership-title{
+    & a:hover{
+        color: var(--tp-theme-primary) !important;
+    }
+}
+.tp-staff-banner {
+    margin-top: -150px;
+
+    @media (max-width: 768px) {
+        margin-top: 0;
+    }
+}

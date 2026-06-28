@@ -23,7 +23,7 @@ while ( have_posts() ) :
 
 	<!-- breadcrumb / hero -->
 	<section class="tp-breadcrumb__area pt-160 pb-150 p-relative z-index-1 fix">
-		<div class="tp-breadcrumb__bg overlay" data-background="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/breadcrumb/campus-breadcrumb.jpg"></div>
+		<div class="tp-breadcrumb__bg overlay" data-background="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/breadcrumb/tpte-building-full.png"></div>
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-sm-12">
@@ -71,15 +71,10 @@ while ( have_posts() ) :
 											<i class="fa-light fa-envelope"></i>
 										</a>
 									<?php endif; ?>
-									<?php foreach ( $member['links'] as $link ) : ?>
-										<a href="<?php echo esc_url( $link['url'] ); ?>" target="_blank" rel="noopener noreferrer" title="<?php echo esc_attr( $link['label'] ); ?>">
-											<i class="fa-light <?php echo esc_attr( $link['icon'] ); ?>"></i>
-										</a>
-									<?php endforeach; ?>
 								</div>
 								<div class="tp-leadership-btn">
 									<a href="<?php echo $profile_url; ?>">
-										Προφίλ<span>
+										Βιογραφικο<span>
 										<svg xmlns="http://www.w3.org/2000/svg" width="10" height="10" viewBox="0 0 10 10" fill="none">
 											<path d="M1.00195 9.00098L9.00195 1.00098" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
 											<path d="M1.00195 1.00098H9.00195V9.00098" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
