@@ -2480,6 +2480,9 @@
   height: 100%;
   width: 100%;
   z-index: -1;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
 }
 .tp-breadcrumb__bg.overlay::after {
   position: absolute;

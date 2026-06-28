@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* HEADER CSS */
 .tp-cart-checkout-shipping-option label::after, .tp-cart-checkout-shipping-option label::before, .tp-return-customer-forgot a::after, .profile__tab .tp-tab-line, .profile__main-thumb-edit label, .tp-profile-input-eye span, .tp-shop-widget-categories ul li a::after, .tp-shop-widget-categories ul li a span, .tp-product-details-review-input-eye span, .tp-product-details-tab-line, .tp-postbox-share button span {
   -webkit-transition: all 0.3s 0s ease-out;
@@ -29803,6 +29804,89 @@ span.common-pale-purple {
 }
 .tp-team-quran-wrap .tp-team-yoga-title a:hover {
   color: var(--tp-theme-11);
+}
+
+.tp-instructor-title-size {
+  font-size: 37px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .tp-instructor-title-size {
+    font-size: 28px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .tp-instructor-title-size {
+    font-size: 22px;
+  }
+}
+
+.tp-instructor-rate .profile:not(:last-child)::after {
+  display: none !important;
+}
+
+.profile.role-size {
+  font-size: 19px;
+}
+@media only screen and (max-width: 767px) {
+  .profile.role-size {
+    font-size: 15px;
+  }
+}
+
+.tp-profile-social {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px), only screen and (max-width: 767px) {
+  .tp-profile-social {
+    margin-top: 16px;
+    width: 100%;
+    justify-content: flex-start;
+  }
+}
+
+/* Staff profile banner — responsive inner padding */
+.tp-staff-banner {
+  padding-top: 200px;
+  padding-bottom: 70px;
+}
+@media only screen and (min-width: 768px) and (max-width: 991px) {
+  .tp-staff-banner {
+    padding-top: 120px;
+    padding-bottom: 56px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .tp-staff-banner {
+    padding-top: 70px;
+    padding-bottom: 44px;
+  }
+}
+
+/* Avatar overlap — only on desktop; stack cleanly on mobile */
+.tp-staff-avatar-overlap {
+  margin-bottom: -83px;
+}
+@media only screen and (max-width: 767px) {
+  .tp-staff-avatar-overlap {
+    margin-bottom: 16px;
+    margin-right: 0 !important;
+  }
+}
+
+.tp-leadership-title a:hover {
+  color: var(--tp-theme-primary) !important;
+}
+
+.tp-staff-banner {
+  margin-top: -150px;
+}
+@media (max-width: 768px) {
+  .tp-staff-banner {
+    margin-top: 0;
+  }
 }
 
 /*---------------------------------

@@ -214,7 +214,7 @@ function tpte_scripts() {
 		)
 	);
 	// Department Info page template assets (also used on University About for collapsible mission items).
-	if ( is_page_template( 'page-department-info.php' ) || is_page_template( 'page-university-about.php' ) ) {
+	if ( is_page_template( 'page-department-info.php' ) || is_page_template( 'page-university-about.php' ) || is_page_template( 'page-eep.php' ) || is_page_template( 'page-eep-single.php' ) || is_page_template( 'page-edip.php' ) || is_page_template( 'page-etep.php' ) || is_page_template( 'page-ppe.php' ) || is_page_template( 'page-person-single.php' ) ) {
 		wp_enqueue_style( 'tpte-department-info', get_template_directory_uri() . '/assets/css/department-info.css', array( 'tpte-main' ), TPTE_VERSION );
 		wp_enqueue_script( 'tpte-department-info', get_template_directory_uri() . '/assets/js/department-info.js', array( 'tpte-bootstrap' ), TPTE_VERSION, true );
 	}
