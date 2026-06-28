@@ -43,6 +43,17 @@
     border-bottom-color: var(--tp-theme-secondary, #1a73e8);
 }
 
+/* --- Section title (shared by tab panels) --------------------- */
+/* Smaller than the default h2, in the theme blue. Used on the
+   Μαθήματα and Κανονισμός tabs. */
+.tp-programme-section-title {
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.3;
+    margin-bottom: 18px;
+    color: var(--tp-theme-primary, #488ecc);
+}
+
 /* --- Intro / rich-text panel (Tab 1, Tab 3 intro) ------------- */
 .tp-programme-intro {
     font-size: 16px;
@@ -149,9 +160,12 @@
     flex: 1 1 50%;
 }
 
-/* Course/prereq table header: override the base pink (.tp-tution-table-head) with the theme tint */
+
+/* Course/prereq table header: override the base pink (.tp-tution-table-head) with the theme tint.
+   box-shadow matches the .accordion-button.collapsed visual contrast (inset bottom separator). */
 .tp-programme-table .tp-tution-table-head {
     background: var(--tp-blue-1, #f1f3f9);
+    box-shadow: inset 0 -1px 0 rgba(22, 22, 19, 0.1);
 }
 
 .tp-programme-pdf-cell {
@@ -199,7 +213,8 @@
     color: var(--tp-heading-primary, #161613);
 }
 
-.tp-undergrad-nav .tp-course-requrement-widget-content a:hover {
+.tp-undergrad-nav .tp-course-requrement-widget-content a:hover,
+.tp-undergrad-files .tp-course-requrement-widget-content a:hover {
     color: var(--tp-theme-primary, #488ecc);
 }
 

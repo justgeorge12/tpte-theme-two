@@ -157,6 +157,156 @@ function tpte_save_event_meta( $post_id ) {
 add_action( 'save_post_tpte_event', 'tpte_save_event_meta' );
 
 /**
+ * Template that the "Χρήσιμα Αρχεία" (useful files) meta box is bound to.
+ */
+const TPTE_USEFUL_FILES_TEMPLATE = 'page-undergrad-section.php';
+
+/**
+ * Register the "Χρήσιμα Αρχεία" meta box on pages using the Undergrad Section template.
+ *
+ * @param string  $post_type Current post type.
+ * @param WP_Post $post      Current post object.
+ */
+function tpte_useful_files_meta_box( $post_type, $post ) {
+	if ( 'page' !== $post_type ) {
+		return;
+	}
+
+	// Only show for pages that use the Undergrad Section template.
+	if ( TPTE_USEFUL_FILES_TEMPLATE !== get_post_meta( $post->ID, '_wp_page_template', true ) ) {
+		return;
+	}
+
+	add_meta_box(
+		'tpte_useful_files',
+		__( 'Χρήσιμα Αρχεία (sidebar)', 'tpte' ),
+		'tpte_useful_files_meta_box_html',
+		'page',
+		'normal',
+		'default'
+	);
+}
+add_action( 'add_meta_boxes', 'tpte_useful_files_meta_box', 10, 2 );
+
+/**
+ * Render the useful-files repeater meta box.
+ *
+ * @param WP_Post $post Current post object.
+ */
+function tpte_useful_files_meta_box_html( $post ) {
+	wp_nonce_field( 'tpte_useful_files_nonce', 'tpte_useful_files_nonce_field' );
+
+	$files = get_post_meta( $post->ID, 'tpte_useful_files', true );
+	if ( ! is_array( $files ) || empty( $files ) ) {
+		// One empty row so the box is ready to fill in.
+		$files = array( array( 'label' => '', 'url' => '' ) );
+	}
+	?>
+	<p class="description"><?php esc_html_e( 'Σύνδεσμοι αρχείων που εμφανίζονται στο πλαϊνό μενού, κάτω από τον τίτλο «Χρήσιμα Αρχεία». Αφήστε μια γραμμή κενή για να αγνοηθεί.', 'tpte' ); ?></p>
+	<table class="widefat tpte-useful-files-table" style="margin-top:10px;">
+		<thead>
+			<tr>
+				<th style="width:35%;"><?php esc_html_e( 'Τίτλος', 'tpte' ); ?></th>
+				<th><?php esc_html_e( 'URL', 'tpte' ); ?></th>
+				<th style="width:60px;"></th>
+			</tr>
+		</thead>
+		<tbody>
+			<?php foreach ( $files as $file ) : ?>
+				<tr class="tpte-useful-files-row">
+					<td><input type="text" name="tpte_useful_files_label[]" value="<?php echo esc_attr( isset( $file['label'] ) ? $file['label'] : '' ); ?>" class="widefat" placeholder="<?php esc_attr_e( 'π.χ. Οδηγός σπουδών 2025-26', 'tpte' ); ?>"></td>
+					<td><input type="url" name="tpte_useful_files_url[]" value="<?php echo esc_attr( isset( $file['url'] ) ? $file['url'] : '' ); ?>" class="widefat" placeholder="https://"></td>
+					<td><button type="button" class="button tpte-useful-files-remove"><?php esc_html_e( 'Αφαίρεση', 'tpte' ); ?></button></td>
+				</tr>
+			<?php endforeach; ?>
+		</tbody>
+	</table>
+	<p><button type="button" class="button button-secondary tpte-useful-files-add"><?php esc_html_e( '+ Προσθήκη αρχείου', 'tpte' ); ?></button></p>
+
+	<script>
+	( function () {
+		var table = document.querySelector( '.tpte-useful-files-table tbody' );
+		if ( ! table ) {
+			return;
+		}
+		var wrap = table.closest( '#tpte_useful_files' ) || document;
+		function rowHtml() {
+			var r = table.querySelector( '.tpte-useful-files-row' );
+			var clone = r.cloneNode( true );
+			clone.querySelectorAll( 'input' ).forEach( function ( input ) {
+				input.value = '';
+			} );
+			return clone;
+		}
+		wrap.addEventListener( 'click', function ( e ) {
+			if ( e.target.classList.contains( 'tpte-useful-files-add' ) ) {
+				e.preventDefault();
+				table.appendChild( rowHtml() );
+			}
+			if ( e.target.classList.contains( 'tpte-useful-files-remove' ) ) {
+				e.preventDefault();
+				var rows = table.querySelectorAll( '.tpte-useful-files-row' );
+				if ( rows.length > 1 ) {
+					e.target.closest( '.tpte-useful-files-row' ).remove();
+				} else {
+					rows[0].querySelectorAll( 'input' ).forEach( function ( input ) {
+						input.value = '';
+					} );
+				}
+			}
+		} );
+	} )();
+	</script>
+	<?php
+}
+
+/**
+ * Save the useful-files meta box.
+ *
+ * @param int $post_id Post ID.
+ */
+function tpte_save_useful_files_meta( $post_id ) {
+	if ( ! isset( $_POST['tpte_useful_files_nonce_field'] ) || ! wp_verify_nonce( sanitize_key( $_POST['tpte_useful_files_nonce_field'] ), 'tpte_useful_files_nonce' ) ) {
+		return;
+	}
+
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_page', $post_id ) ) {
+		return;
+	}
+
+	$labels = isset( $_POST['tpte_useful_files_label'] ) ? (array) wp_unslash( $_POST['tpte_useful_files_label'] ) : array();
+	$urls   = isset( $_POST['tpte_useful_files_url'] ) ? (array) wp_unslash( $_POST['tpte_useful_files_url'] ) : array();
+
+	$files = array();
+	$count = max( count( $labels ), count( $urls ) );
+	for ( $i = 0; $i < $count; $i++ ) {
+		$label = isset( $labels[ $i ] ) ? sanitize_text_field( $labels[ $i ] ) : '';
+		$url   = isset( $urls[ $i ] ) ? esc_url_raw( $urls[ $i ] ) : '';
+
+		// Skip rows that are completely empty or missing a URL.
+		if ( '' === $url ) {
+			continue;
+		}
+
+		$files[] = array(
+			'label' => '' !== $label ? $label : $url,
+			'url'   => $url,
+		);
+	}
+
+	if ( empty( $files ) ) {
+		delete_post_meta( $post_id, 'tpte_useful_files' );
+	} else {
+		update_post_meta( $post_id, 'tpte_useful_files', $files );
+	}
+}
+add_action( 'save_post_page', 'tpte_save_useful_files_meta' );
+
+/**
  * Flush rewrite rules on theme switch.
  */
 function tpte_flush_rewrite_rules() {

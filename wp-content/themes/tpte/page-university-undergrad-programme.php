@@ -206,19 +206,19 @@ while ( have_posts() ) :
 
 	// Tabs (top-level navigation).
 	$tabs = array(
+        array(
+                'id'     => 'tab-mathimata',
+                'label'  => __( 'Μαθήματα εξαμήνων', 'tpte' ),
+                'active' => true,
+        ),
 		array(
 			'id'     => 'tab-kanonismos',
 			'label'  => __( 'Κανονισμός Δηλώσεων Μαθημάτων', 'tpte' ),
-			'active' => true,
-		),
-		array(
-			'id'     => 'tab-mathimata',
-			'label'  => __( 'Μαθήματα εξαμήνων', 'tpte' ),
 			'active' => false,
 		),
 		array(
 			'id'     => 'tab-prereq',
-			'label'  => __( 'Αλληλοεξαρτήσεις μαθημάτων', 'tpte' ),
+			'label'  => __( 'Αλληλοεξαρτήσεις', 'tpte' ),
 			'active' => false,
 		),
 	);
@@ -275,7 +275,7 @@ while ( have_posts() ) :
 
 	<!-- Programme breadcrumb start -->
 	<section class="tp-breadcrumb__area pt-160 pb-150 p-relative z-index-1 fix">
-		<div class="tp-breadcrumb__bg overlay" data-background="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/breadcrumb/campus-breadcrumb.jpg"></div>
+		<div class="tp-breadcrumb__bg overlay" data-background="<?php echo esc_url( $tp_theme_uri ); ?>/assets/img/breadcrumb/campus-amphi-2.png"></div>
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-sm-12">
@@ -284,11 +284,12 @@ while ( have_posts() ) :
 							<span class="white"><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path fill-rule="evenodd" clip-rule="evenodd" d="M8.07207 0C8.19331 0 8.31107 0.0404348 8.40664 0.114882L16.1539 6.14233L15.4847 6.98713L14.5385 6.25079V12.8994C14.538 13.1843 14.4243 13.4574 14.2225 13.6589C14.0206 13.8604 13.747 13.9738 13.4616 13.9743H2.69231C2.40688 13.9737 2.13329 13.8603 1.93146 13.6588C1.72962 13.4573 1.61597 13.1843 1.61539 12.8994V6.2459L0.669148 6.98235L0 6.1376L7.7375 0.114882C7.83308 0.0404348 7.95083 0 8.07207 0ZM8.07694 1.22084L2.69231 5.40777V12.8994H13.4616V5.41341L8.07694 1.22084Z" fill="currentColor"/>
 							</svg></a></span>
-							<span class="white"><?php esc_html_e( 'Σπουδές', 'tpte' ); ?></span>
+							<span class="white"><?php esc_html_e( 'Προπτυχιακές Σπουδές', 'tpte' ); ?></span>
 							<span class="white"><?php the_title(); ?></span>
 						</div>
 						<h3 class="tp-breadcrumb__title color"><?php the_title(); ?></h3>
 					</div>
+
 				</div>
 			</div>
 		</div>
@@ -317,16 +318,9 @@ while ( have_posts() ) :
 						<div class="tab-content" id="programmeTabContent">
 
 							<!-- Tab 1: Κανονισμός Δηλώσεων Μαθημάτων -->
-							<div class="tab-pane fade show active" id="tab-kanonismos" role="tabpanel" aria-labelledby="tab-kanonismos-tab">
+							<div class="tab-pane fade " id="tab-kanonismos" role="tabpanel" aria-labelledby="tab-kanonismos-tab">
 								<div class="tp-programme-intro">
-									<h4>
-										<a class="tp-programme-pdf-link" href="<?php echo esc_url( $endeiktiko_pdf ); ?>" target="_blank" rel="noopener">
-											<?php esc_html_e( 'Ενδεικτικό Πρόγραμμα σπουδών ακαδημαϊκού έτους 2025-26', 'tpte' ); ?>
-											<?php echo $extlink_icon; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- Trusted static inline SVG. ?>
-										</a>
-									</h4>
-
-									<p><?php esc_html_e( 'Το πρόγραμμα σπουδών του Τμήματος Πολιτισμικής Τεχνολογίας και Επικοινωνίας (Τ.Π.Τ.Ε.) έχει δομηθεί με βάση τα διεθνή πρότυπα προγραμμάτων σπουδών στο διεπιστημονικό πεδίο της Πολιτισμικής Πληροφορικής. Καθώς οι επιστημονικοί τομείς που καλύπτει το Τμήμα εξελίσσονται συνεχώς, επιδιώκεται συνεχώς η ανανέωση του περιεχομένου των μαθημάτων που διδάσκονται, αλλά και η εισαγωγή νέων, ώστε το Τμήμα να διασφαλίσει τόσο την άρτια και υψηλού επιπέδου εκπαιδευτική διαδικασία, όσο και την επιστημονική έρευνα. Σ’ αυτό το πνεύμα ολοκληρώθηκε η αναμόρφωση του προγράμματος σπουδών του Τμήματος, το 2013, το οποίο ισχύει από το ακαδημαϊκό έτος 2013-2014.', 'tpte' ); ?></p>
+									<h3 class="tp-programme-section-title"><?php esc_html_e( 'Κανονισμός Δηλώσεων', 'tpte' ); ?></h3>
 
 									<p><strong><?php esc_html_e( 'Η δήλωση των μαθημάτων ανά εξάμηνο γίνεται ως εξής:', 'tpte' ); ?></strong></p>
 
@@ -351,10 +345,23 @@ while ( have_posts() ) :
 
 									<p><?php esc_html_e( 'Οι φοιτητές και οι φοιτήτριες του Τ.Π.Τ.Ε. που θα επιλέξουν να δηλώσουν από την ειδική κατηγορία μαθημάτων που προσφέρονται από τμήματα της Σχολής των Κοινωνικών Επιστημών και εντάσσονται στο πρόγραμμα σπουδών του ΤΠΤΕ, θα πρέπει να είναι πολύ προσεχτικοί στην επιλογή των συγκεκριμένων μαθημάτων, ώστε τόσο οι διδακτικές μονάδες (ΔΜ), όσο και οι πιστωτικές μονάδες (ΠΜ - ECTS) των μαθημάτων αυτών να επαρκούν ώστε να συμπληρωθεί ο απαραίτητος αριθμός διδακτικών (ΔΜ) και πιστωτικών μονάδων (ΠΜ - ECTS) που απαιτούνται για τη λήψη του πτυχίου του Τ.Π.Τ.Ε., δηλαδή τουλάχιστον 132 ΔΜ και τουλάχιστον 240 ΠΜ (ECTS).', 'tpte' ); ?></p>
 								</div>
+                                <div class="tp-programme-lab">
+                                    <h4 class="tp-programme-lab-title"><?php esc_html_e( 'Υποχρεωτική παρακολούθηση εργαστηριακών μαθημάτων Πληροφορικής', 'tpte' ); ?></h4>
+                                    <p><?php esc_html_e( 'Επίσης, για την επιτυχή ολοκλήρωση των παρακάτω μαθημάτων απαιτείται επιπλέον των κριτηρίων αξιολόγησης που τίθενται από τους/τις διδάσκοντες/σουσες στην αρχή του εξαμήνου και η υποχρεωτική παρακολούθηση του εργαστηριακού μέρους από τους/τις φοιτητές/τριες. Τα μαθήματα αυτά είναι τα εξής:', 'tpte' ); ?></p>
+                                    <ul>
+                                        <?php foreach ( $lab_courses as $lab_course ) : ?>
+                                            <li><?php echo esc_html( $lab_course ); ?></li>
+                                        <?php endforeach; ?>
+                                    </ul>
+                                    <p><?php esc_html_e( 'Οι φοιτητές/φοιτήτριες που δεν έχουν εξεταστεί επιτυχώς -τουλάχιστον μία φορά- και δηλώνουν εκ νέου τα ανωτέρω μαθήματα, σε περίπτωση που δεν έχουν συμπληρώσει τον απαιτούμενο αριθμό παρουσιών στα εργαστήρια, υποχρεούνται- επιπλέον των κριτηρίων αξιολόγησης που τίθενται από τους/τις διδάσκοντες/σουσες - για να έχουν δικαίωμα συμμετοχής στις τελικές εξετάσεις να επιτύχουν σε συμπληρωματική εξέταση του εργαστηριακού μέρους, η οποία θα πραγματοποιείται κατά την τελευταία εβδομάδα του εξαμήνου διδασκαλίας των μαθημάτων.', 'tpte' ); ?></p>
+                                </div>
 							</div>
 
 							<!-- Tab 2: Μαθήματα εξαμήνων -->
-							<div class="tab-pane fade" id="tab-mathimata" role="tabpanel" aria-labelledby="tab-mathimata-tab">
+							<div class="tab-pane fade show active" id="tab-mathimata" role="tabpanel" aria-labelledby="tab-mathimata-tab">
+                                <h2 class="tp-programme-section-title">Πρόγραμμα Μαθημάτων ανά εξάμηνο</h2>
+                                <br/>
+                                <p><?php esc_html_e( 'Το πρόγραμμα σπουδών του Τ.Π.Τ.Ε. έχει δομηθεί με βάση τα διεθνή πρότυπα προγραμμάτων σπουδών στο διεπιστημονικό πεδίο της Πολιτισμικής Πληροφορικής. Καθώς οι επιστημονικοί τομείς που καλύπτει το Τμήμα εξελίσσονται συνεχώς, επιδιώκεται συνεχώς η ανανέωση του περιεχομένου των μαθημάτων που διδάσκονται, αλλά και η εισαγωγή νέων, ώστε το Τμήμα να διασφαλίσει τόσο την άρτια και υψηλού επιπέδου εκπαιδευτική διαδικασία, όσο και την επιστημονική έρευνα.', 'tpte' ); ?></p>
 								<div class="accordion tp-programme-accordion" id="semestersAccordion">
 									<?php
 									foreach ( $semesters as $index => $semester ) :
@@ -423,23 +430,27 @@ while ( have_posts() ) :
 								?>
 								<p class="mt-15"><em><?php esc_html_e( '*Ισχύει από το ακ. έτος 2025-26', 'tpte' ); ?></em></p>
 
-								<div class="tp-programme-lab">
-									<h4 class="tp-programme-lab-title"><?php esc_html_e( 'Υποχρεωτική παρακολούθηση εργαστηριακών μαθημάτων Πληροφορικής', 'tpte' ); ?></h4>
-									<p><?php esc_html_e( 'Επίσης, για την επιτυχή ολοκλήρωση των παρακάτω μαθημάτων απαιτείται επιπλέον των κριτηρίων αξιολόγησης που τίθενται από τους/τις διδάσκοντες/σουσες στην αρχή του εξαμήνου και η υποχρεωτική παρακολούθηση του εργαστηριακού μέρους από τους/τις φοιτητές/τριες. Τα μαθήματα αυτά είναι τα εξής:', 'tpte' ); ?></p>
-									<ul>
-										<?php foreach ( $lab_courses as $lab_course ) : ?>
-											<li><?php echo esc_html( $lab_course ); ?></li>
-										<?php endforeach; ?>
-									</ul>
-									<p><?php esc_html_e( 'Οι φοιτητές/φοιτήτριες που δεν έχουν εξεταστεί επιτυχώς -τουλάχιστον μία φορά- και δηλώνουν εκ νέου τα ανωτέρω μαθήματα, σε περίπτωση που δεν έχουν συμπληρώσει τον απαιτούμενο αριθμό παρουσιών στα εργαστήρια, υποχρεούνται- επιπλέον των κριτηρίων αξιολόγησης που τίθενται από τους/τις διδάσκοντες/σουσες - για να έχουν δικαίωμα συμμετοχής στις τελικές εξετάσεις να επιτύχουν σε συμπληρωματική εξέταση του εργαστηριακού μέρους, η οποία θα πραγματοποιείται κατά την τελευταία εβδομάδα του εξαμήνου διδασκαλίας των μαθημάτων.', 'tpte' ); ?></p>
-								</div>
+
 							</div>
 
 						</div>
 					</div>
 				</div>
 				<div class="col-lg-3">
-					<?php get_template_part( 'template-parts/sidebar', 'undergrad' ); ?>
+					<?php
+					get_template_part(
+						'template-parts/sidebar',
+						'undergrad',
+						array(
+							'useful_files' => array(
+								array(
+									'label' => __( 'Ενδεικτικό Πρόγραμμα σπουδών 2025-26', 'tpte' ),
+									'url'   => $endeiktiko_pdf,
+								),
+							),
+						)
+					);
+					?>
 				</div>
 			</div>
 		</div>

@@ -220,9 +220,11 @@ function tpte_scripts() {
 	}
 
 	// Undergrad Programme page template — tab bar + course/prerequisite tables.
+	// Also loaded on the reusable Undergrad Section template, which reuses the
+	// undergrad sidebar nav styles (.tp-undergrad-nav, .current-page, etc.).
 	// Versioned by the file's own mtime so edits always bust the browser cache
 	// (TPTE_VERSION tracks functions.php, not the stylesheet).
-	if ( is_page_template( 'page-university-undergrad-programme.php' ) ) {
+	if ( is_page_template( 'page-university-undergrad-programme.php' ) || is_page_template( 'page-undergrad-section.php' ) ) {
 		$tpte_programme_css = get_template_directory() . '/assets/css/programme.css';
 		$tpte_programme_ver = file_exists( $tpte_programme_css ) ? filemtime( $tpte_programme_css ) : TPTE_VERSION;
 		wp_enqueue_style( 'tpte-programme', get_template_directory_uri() . '/assets/css/programme.css', array( 'tpte-main' ), $tpte_programme_ver );
@@ -235,6 +237,22 @@ function tpte_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'tpte_scripts' );
+
+/**
+ * Reusable "Πρόγραμμα Μαθημάτων ανά εξάμηνο" content styles.
+ *
+ * Styles core Details + Table blocks placed inside a .tp-programme-content
+ * container so the semester-accordion look from the Undergrad Programme page
+ * can be authored in the block editor. Hooked on enqueue_block_assets so it
+ * loads both on the front end and inside the editor canvas; scoped under the
+ * container class so it never affects other content. Versioned by file mtime.
+ */
+function tpte_programme_content_styles() {
+	$css_path = get_template_directory() . '/assets/css/programme-content.css';
+	$css_ver  = file_exists( $css_path ) ? filemtime( $css_path ) : TPTE_VERSION;
+	wp_enqueue_style( 'tpte-programme-content', get_template_directory_uri() . '/assets/css/programme-content.css', array(), $css_ver );
+}
+add_action( 'enqueue_block_assets', 'tpte_programme_content_styles' );
 
 /**
  * Default social links fallback.
