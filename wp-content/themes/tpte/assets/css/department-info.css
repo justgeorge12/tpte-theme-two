@@ -342,3 +342,10 @@ body.tpte-dept-info .header-area.tp-header-transparent {
         font-size: 15px;
     }
 }
+
+/* --- University About: history "year" band ----------------------------- */
+/* Overrides the global .tp-about-year-background fill (main.css #0a53be).
+   This file loads after main.css, so the equal-specificity rule wins. */
+.tp-about-year-area {
+    background: rgb(62 112 230 / 96%);
+}

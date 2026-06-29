@@ -27,9 +27,7 @@ $cat_name   = ! empty( $categories ) ? $categories[0]->name : '';
             <h3 class="tp-postbox-item-list-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h3>
             <p><?php echo esc_html( wp_trim_words( get_the_excerpt(), 25, ' [...]' ) ); ?></p>
             <div class="tp-postbox-btn">
-                <a href="<?php the_permalink(); ?>"><?php esc_html_e( 'Διαβάστε περισσότερα', 'tpte' ); ?> <span><svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.5 11L6.5 6L1.5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
-                </svg></span></a>
+                <a href="<?php the_permalink(); ?>"><?php esc_html_e( 'Διαβάστε περισσότερα', 'tpte' ); ?></a>
             </div>
         </div>
     </div>

@@ -541,3 +541,39 @@
 .tp-header-top.theme-bg{
     background-color: rgb(62 112 230 / 80%);
 }
+#primary-menu > li.top-level-item > a:hover{
+    color: var(--tp-theme-primary) !important;
+}
+
+/*---------------------------------
+    Scrollbar
+---------------------------------*/
+// Theme blue, a tone lighter for the track-thumb; full theme blue on hover.
+$scrollbar-thumb: rgba(0, 35, 119, 0.8);
+
+// Firefox
+html {
+    scrollbar-width: thin;
+    scrollbar-color: $scrollbar-thumb transparent;
+}
+
+// WebKit (Chrome, Edge, Safari)
+::-webkit-scrollbar {
+    width: 13px;
+    height: 13px;
+}
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+::-webkit-scrollbar-thumb {
+    background-color: $scrollbar-thumb;
+    border-radius: 10px;
+    transition: background-color .3s ease;
+    &:hover {
+        background-color: $theme-primary;
+    }
+}
+.back-to-top-btn{
+    background-color: var(--tp-theme-primary);
+}
+

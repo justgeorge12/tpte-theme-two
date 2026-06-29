@@ -255,6 +255,24 @@ function tpte_scripts() {
 		wp_enqueue_style( 'tpte-university-labs', get_template_directory_uri() . '/assets/css/university-labs.css', array( 'tpte-main' ), $tpte_labs_ver );
 	}
 
+	// Student Portal page template — categorised link/text/FAQ sections.
+	// Self-contained stylesheet; FAQ uses the global Bootstrap accordion, so no
+	// extra JS. Versioned by file mtime so edits always bust the browser cache.
+	if ( is_page_template( 'page-student-portal.php' ) ) {
+		$portal_css = get_template_directory() . '/assets/css/student-portal.css';
+		$portal_ver = file_exists( $portal_css ) ? filemtime( $portal_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-student-portal', get_template_directory_uri() . '/assets/css/student-portal.css', array( 'tpte-main' ), $portal_ver );
+	}
+
+	// Erasmus+ page template — readability spacing + theme-blue link hover
+	// (main.css defaults .tp-course-requrement link hover to red). Versioned
+	// by file mtime so edits always bust the browser cache.
+	if ( is_page_template( 'page-erasmus.php' ) ) {
+		$erasmus_css = get_template_directory() . '/assets/css/erasmus.css';
+		$erasmus_ver = file_exists( $erasmus_css ) ? filemtime( $erasmus_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-erasmus', get_template_directory_uri() . '/assets/css/erasmus.css', array( 'tpte-main' ), $erasmus_ver );
+	}
+
 	// Postgraduate Programmes page template — hover-reveal master's cards.
 	// Versioned by the file's own mtime so edits always bust the browser cache.
 	if ( is_page_template( 'page-postgrad-programmes.php' ) ) {
@@ -312,6 +330,14 @@ function tpte_scripts() {
 		$ann_css  = get_template_directory() . '/assets/css/announcements.css';
 		$ann_cssv = file_exists( $ann_css ) ? filemtime( $ann_css ) : TPTE_VERSION;
 		wp_enqueue_style( 'tpte-announcements', get_template_directory_uri() . '/assets/css/announcements.css', array( 'tpte-main' ), $ann_cssv );
+	}
+
+	// 404 error page — self-contained styles for the error hero/body.
+	// Versioned by file mtime so edits always bust the browser cache.
+	if ( is_404() ) {
+		$tpte_404_css = get_template_directory() . '/assets/css/404.css';
+		$tpte_404_ver = file_exists( $tpte_404_css ) ? filemtime( $tpte_404_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-404', get_template_directory_uri() . '/assets/css/404.css', array( 'tpte-main' ), $tpte_404_ver );
 	}
 
 	// Quality Assurance page template — ApexCharts for line chart.

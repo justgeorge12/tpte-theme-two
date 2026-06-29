@@ -9,6 +9,18 @@
     color: var(--tp-common-white, #fff);
 }
 
+/* News list/archive body — soft tint behind the post list + sidebar. */
+.tp-blog-standard-area {
+    background-color: #F5F5FF;
+}
+
+/* Sidebar search — white field so it stays distinct from the tinted
+   (#F5F5FF) archive body; main.css fills it #F3F4F9, which blends in. */
+.tp-blog-standard-area .tp-sidebar-search input {
+    background: var(--tp-common-white, #fff);
+    border-color: rgba(22, 22, 19, 0.12);
+}
+
 /* Category pills — one consistent blue everywhere news appears: the list/related cards
    (.tp-blog-stories-tag-wrap a) and the sidebar "Τελευταία νέα" label (.tp-recent-post-span).
    main.css ships these in purple (#EFE9FE) and green (#DFF9F0) respectively. */

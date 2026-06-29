@@ -1,0 +1,178 @@
+/* =========================================
+   404 / Error Page Template
+   Self-contained; scoped under tp-error-*.
+   Pairs with 404.php. Reuses the theme's
+   breadcrumb hero (.tp-breadcrumb__*) for the
+   header; only the body below is styled here.
+   ========================================= */
+
+.tp-error-area {
+	background: #f5f5ff;
+}
+
+.tp-error-content {
+	max-width: 720px;
+	margin: 0 auto;
+}
+
+/* --- Big watermark code ------------------------------------------------ */
+.tp-error-code {
+	font-size: clamp(110px, 22vw, 200px);
+	font-weight: 800;
+	line-height: 1;
+	letter-spacing: -4px;
+	margin-bottom: 10px;
+	background: linear-gradient(135deg, var(--tp-theme-secondary, #1a73e8), #6b9bf0);
+	-webkit-background-clip: text;
+	background-clip: text;
+	-webkit-text-fill-color: transparent;
+	color: var(--tp-theme-secondary, #1a73e8);
+}
+
+.tp-error-title {
+	font-size: 30px;
+	font-weight: 600;
+	line-height: 1.25;
+	letter-spacing: -0.4px;
+	color: var(--tp-heading-primary, #161613);
+	margin-bottom: 16px;
+}
+
+.tp-error-text {
+	font-size: 16px;
+	line-height: 1.75;
+	color: #57595f;
+	margin: 0 auto 32px;
+	max-width: 560px;
+}
+
+/* --- Search ------------------------------------------------------------ */
+.tp-error-search {
+	max-width: 480px;
+	margin: 0 auto 40px;
+}
+
+.tp-error-search .search-form {
+	position: relative;
+	display: flex;
+}
+
+.tp-error-search .search-form label {
+	flex: 1 1 auto;
+	margin: 0;
+	width: 100%;
+}
+
+.tp-error-search .search-field {
+	width: 100%;
+	height: 56px;
+	padding: 0 60px 0 22px;
+	border: 1px solid rgba(22, 22, 19, 0.12);
+	border-radius: 10px;
+	background: var(--tp-common-white, #fff);
+	font-size: 15px;
+	color: var(--tp-heading-primary, #161613);
+	transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+.tp-error-search .search-field:focus {
+	outline: none;
+	border-color: var(--tp-theme-secondary, #1a73e8);
+	box-shadow: 0 0 0 3px rgba(26, 115, 232, 0.12);
+}
+
+.tp-error-search .search-submit {
+	position: absolute;
+	top: 0;
+	right: 0;
+	height: 56px;
+	width: 56px;
+	border: none;
+	border-radius: 0 10px 10px 0;
+	background: var(--tp-theme-secondary, #1a73e8);
+	color: #fff;
+	font-size: 0;
+	cursor: pointer;
+	transition: background 0.25s ease;
+}
+
+.tp-error-search .search-submit::before {
+	content: "\f002"; /* Font Awesome magnifying glass */
+	font-family: "Font Awesome 6 Pro", "Font Awesome 5 Pro";
+	font-weight: 300;
+	font-size: 16px;
+}
+
+.tp-error-search .search-submit:hover {
+	background: var(--tp-heading-primary, #161613);
+}
+
+/* --- Quick links ------------------------------------------------------- */
+.tp-error-links {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 14px;
+	margin-bottom: 40px;
+}
+
+.tp-error-link {
+	display: inline-flex;
+	align-items: center;
+	gap: 10px;
+	padding: 12px 20px;
+	border-radius: 10px;
+	border: 1px solid rgba(22, 22, 19, 0.1);
+	background: var(--tp-common-white, #fff);
+	text-decoration: none;
+	transition: box-shadow 0.3s ease, transform 0.3s ease, border-color 0.3s ease;
+}
+
+.tp-error-link:hover {
+	border-color: transparent;
+	box-shadow: 0 16px 34px rgba(1, 15, 28, 0.1);
+	transform: translateY(-3px);
+}
+
+.tp-error-link-icon {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 38px;
+	height: 38px;
+	border-radius: 9px;
+	background: var(--tp-blue-1, #f1f3f9);
+	color: var(--tp-theme-secondary, #1a73e8);
+	flex: 0 0 auto;
+}
+
+.tp-error-link-icon i {
+	font-size: 17px;
+}
+
+.tp-error-link-label {
+	font-size: 15px;
+	font-weight: 600;
+	color: var(--tp-heading-primary, #161613);
+}
+
+/* --- Action button ----------------------------------------------------- */
+.tp-error-actions {
+	display: flex;
+	justify-content: center;
+}
+
+.tp-error-btn {
+	padding: 12px 34px;
+}
+
+/* --- Responsive -------------------------------------------------------- */
+@media (max-width: 767px) {
+	.tp-error-title {
+		font-size: 24px;
+	}
+
+	.tp-error-link {
+		padding: 10px 16px;
+	}
+}

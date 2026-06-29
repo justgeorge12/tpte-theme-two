@@ -1,0 +1,72 @@
+/*
+ * Erasmus+ page (page-erasmus.php).
+ *
+ * Two jobs:
+ *  1. Link hover → theme blue. main.css globally hovers .tp-course-requrement
+ *     links to red (--tp-red-3); the blue override normally lives in
+ *     programme.css, which isn't loaded here. We re-assert it (higher
+ *     specificity, enqueued after main.css) for the body copy and the sidebar.
+ *  2. Make the migrated body copy comfortable to read on the web: generous
+ *     line-height, paragraph rhythm, clear headings and list spacing.
+ */
+
+/* ---------- body copy ---------- */
+.tp-erasmus {
+	color: var(--tp-text-body, #5d5d5b);
+	font-size: 17px;
+	line-height: 1.85;
+}
+
+.tp-erasmus p {
+	margin-bottom: 18px;
+}
+
+.tp-erasmus-title {
+	margin: 0 0 26px;
+	font-size: 34px;
+	line-height: 1.2;
+	color: var(--tp-heading-primary, #161613);
+}
+
+.tp-erasmus-subtitle {
+	margin: 38px 0 14px;
+	font-size: 22px;
+	line-height: 1.3;
+	color: var(--tp-heading-primary, #161613);
+}
+
+.tp-erasmus-list {
+	margin: 0 0 18px;
+	padding-left: 22px;
+	list-style: disc;
+}
+
+.tp-erasmus-list li {
+	margin-bottom: 10px;
+	line-height: 1.7;
+}
+
+.tp-erasmus-note {
+	margin-top: 30px;
+	padding: 16px 20px;
+	background: #fff;
+	border-left: 3px solid var(--tp-theme-primary, #488ecc);
+	border-radius: 4px;
+}
+
+/* ---------- links: theme blue, not the global red hover ---------- */
+.tp-erasmus a {
+	color: var(--tp-theme-primary, #488ecc);
+	text-decoration: underline;
+	text-underline-offset: 2px;
+	transition: color 0.2s ease;
+}
+
+.tp-erasmus a:hover {
+	color: var(--tp-theme-secondary, #1a73e8);
+}
+
+/* Sidebar widget links (Χρήσιμα Αρχεία / Υπεύθυνη). */
+.tp-course-requrement-area .tp-undergrad-files .tp-course-requrement-widget-content a:hover {
+	color: var(--tp-theme-primary, #488ecc);
+}

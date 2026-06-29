@@ -38,9 +38,7 @@ $is_past = $start_date && strtotime( $start_date ) < strtotime( 'today' );
         <div class="tp-event-inner-btn-box d-flex align-items-center justify-content-between">
 
             <div class="tp-event-inner-btn">
-                <a href="<?php the_permalink(); ?>"><?php esc_html_e( 'Δείτε λεπτομέρειες', 'tpte' ); ?> <span><svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M1.5 11L6.5 6L1.5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg></span></a>
+                <a href="<?php the_permalink(); ?>"><?php esc_html_e( 'Δείτε λεπτομέρειες', 'tpte' ); ?></a>
             </div>
         </div>
     </div>

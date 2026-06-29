@@ -102,13 +102,7 @@ while ( have_posts() ) :
 	?>
 	<section class="tp-labs-area grey-bg pt-90 pb-120">
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">
-					<div class="tp-labs-heading text-center mb-50 wow fadeInUp" data-wow-delay=".3s">
-						<h3 class="tp-labs-title"><?php esc_html_e( 'Εργαστήρια', 'tpte' ); ?></h3>
-					</div>
-				</div>
-			</div>
+
 			<div class="row">
 				<?php foreach ( $labs as $lab ) : ?>
 					<div class="col-lg-4 col-md-6 mb-30 wow fadeInUp" data-wow-delay=".3s">

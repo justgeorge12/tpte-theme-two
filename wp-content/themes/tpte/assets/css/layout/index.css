@@ -28284,7 +28284,7 @@ span.common-pale-purple {
 }
 
 .tp-testimonial-wrapper {
-  background-color: f5f5ff;
+  background-color: #f5f5ff;
 }
 
 /*---------------------------------
@@ -29028,6 +29028,40 @@ span.common-pale-purple {
   background-color: rgba(62, 112, 230, 0.8);
 }
 
+#primary-menu > li.top-level-item > a:hover {
+  color: var(--tp-theme-primary) !important;
+}
+
+/*---------------------------------
+    Scrollbar
+---------------------------------*/
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0, 35, 119, 0.8) transparent;
+}
+
+::-webkit-scrollbar {
+  width: 13px;
+  height: 13px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 35, 119, 0.8);
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: #488ecc;
+}
+
+.back-to-top-btn {
+  background-color: var(--tp-theme-primary);
+}
+
 /*---------------------------------
     1.2 about Classes
 ---------------------------------*/
@@ -29180,6 +29214,10 @@ span.common-pale-purple {
 
 .tp-admission-overview-area {
   border-bottom: 1px solid #e5e5e5;
+}
+
+.tp-portal-quick-icon {
+  background-color: #f5f5ff !important;
 }
 
 /*---------------------------------
