@@ -67,10 +67,10 @@
 				</svg>
 			</button>
 		</div>
-		<div class="container">
+		<div class="container tp-search-container">
 			<div class="row">
 				<div class="tp-search-wrapper">
-					<div class="col-lg-9">
+					<div class="col-12">
 						<div class="tp-search-content">
 							<?php get_search_form(); ?>
 						</div>
