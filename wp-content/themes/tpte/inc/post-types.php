@@ -311,6 +311,33 @@ function tpte_save_useful_files_meta( $post_id ) {
 add_action( 'save_post_page', 'tpte_save_useful_files_meta' );
 
 /**
+ * Order the Event archive by event start date instead of post date.
+ *
+ * The archive (archive-tpte_event.php) renders every event in one page so the
+ * client-side Προσεχείς/Παλαιότερες filter (assets/js/event-filter.js) can toggle
+ * them without a reload — hence posts_per_page = -1 and no server pagination. A
+ * department's event volume is modest, so this is intentional. Events are sorted
+ * by _event_start_date ascending (soonest first); the Παλαιότερες tab re-orders
+ * past events most-recent-first client-side.
+ *
+ * @param WP_Query $query The query object.
+ */
+function tpte_order_event_archive( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	if ( $query->is_post_type_archive( 'tpte_event' ) ) {
+		$query->set( 'posts_per_page', -1 );
+		$query->set( 'meta_key', '_event_start_date' );
+		$query->set( 'orderby', 'meta_value' );
+		$query->set( 'meta_type', 'DATE' );
+		$query->set( 'order', 'ASC' );
+	}
+}
+add_action( 'pre_get_posts', 'tpte_order_event_archive' );
+
+/**
  * Flush rewrite rules on theme switch.
  */
 function tpte_flush_rewrite_rules() {

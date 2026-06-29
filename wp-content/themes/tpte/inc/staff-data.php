@@ -607,22 +607,6 @@ function tpte_all_staff() {
 		// ── Διοικητικό Προσωπικό ─────────────────────────────────────────────
 		'admin-staff' => array(
 
-			// Sorted alphabetically by last name
-			'dimopoulou' => array(
-				'slug'           => 'dimopoulou',
-				'name'           => 'Δημοπούλου Έφη',
-				'role'           => 'Θέματα Διδακτορικών Σπουδών',
-				'specialization' => '',
-				'short_bio'      => 'Η Έφη Δημοπούλου είναι μέλος του Διοικητικού Προσωπικού του Τμήματος Πολιτισμικής Τεχνολογίας και Επικοινωνίας του Πανεπιστημίου Αιγαίου. Είναι υπεύθυνη για θέματα που αφορούν τα Διδακτορικά Προγράμματα Σπουδών του Τμήματος.',
-				'phone'          => '2251036606',
-				'email'          => 'e.dimopoulou@aegean.gr',
-				'cv_url'         => '',
-				'links'          => array(),
-				'photo_thumb'    => $uri . '/assets/img/admin/dimopoulou.jpg',
-				'photo_hero'     => '',
-				'photo_alt'      => 'Δημοπούλου Έφη',
-				'initials'       => 'ΔΕ',
-			),
 			'kaitatzis' => array(
 				'slug'           => 'kaitatzis',
 				'name'           => 'Κάιτατζης Φάνης',
@@ -637,6 +621,21 @@ function tpte_all_staff() {
 				'photo_hero'     => '',
 				'photo_alt'      => 'Κάιτατζης Φάνης',
 				'initials'       => 'ΚΦ',
+			),
+			'dimopoulou' => array(
+				'slug'           => 'dimopoulou',
+				'name'           => 'Δημοπούλου Έφη',
+				'role'           => 'Θέματα Διδακτορικών Σπουδών',
+				'specialization' => '',
+				'short_bio'      => 'Η Έφη Δημοπούλου είναι μέλος του Διοικητικού Προσωπικού του Τμήματος Πολιτισμικής Τεχνολογίας και Επικοινωνίας του Πανεπιστημίου Αιγαίου. Είναι υπεύθυνη για θέματα που αφορούν τα Διδακτορικά Προγράμματα Σπουδών του Τμήματος.',
+				'phone'          => '2251036606',
+				'email'          => 'e.dimopoulou@aegean.gr',
+				'cv_url'         => '',
+				'links'          => array(),
+				'photo_thumb'    => $uri . '/assets/img/admin/dimopoulou.jpg',
+				'photo_hero'     => '',
+				'photo_alt'      => 'Δημοπούλου Έφη',
+				'initials'       => 'ΔΕ',
 			),
 			'karavia' => array(
 				'slug'           => 'karavia',

@@ -9,6 +9,9 @@ $start_date = get_post_meta( get_the_ID(), '_event_start_date', true );
 $location   = get_post_meta( get_the_ID(), '_event_location', true );
 
 $formatted_date = $start_date ? date_i18n( 'd F, Y', strtotime( $start_date ) ) : '';
+
+// Past events get a badge so they read clearly when the "Όλες" tab is active.
+$is_past = $start_date && strtotime( $start_date ) < strtotime( 'today' );
 ?>
 <div class="tp-event-inner-item mb-30">
     <div class="tp-event-inner-thumb">
@@ -17,6 +20,9 @@ $formatted_date = $start_date ? date_i18n( 'd F, Y', strtotime( $start_date ) ) 
                 <?php the_post_thumbnail( 'tpte-event-card', array( 'alt' => get_the_title() ) ); ?>
             <?php endif; ?>
         </a>
+        <?php if ( $is_past ) : ?>
+            <span class="tp-event-inner-status"><?php esc_html_e( 'Ολοκληρώθηκε', 'tpte' ); ?></span>
+        <?php endif; ?>
     </div>
     <div class="tp-event-inner-content">
         <?php if ( $formatted_date ) : ?>
@@ -32,7 +38,7 @@ $formatted_date = $start_date ? date_i18n( 'd F, Y', strtotime( $start_date ) ) 
         <div class="tp-event-inner-btn-box d-flex align-items-center justify-content-between">
 
             <div class="tp-event-inner-btn">
-                <a href="<?php the_permalink(); ?>"><?php esc_html_e( 'View Details', 'tpte' ); ?> <span><svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <a href="<?php the_permalink(); ?>"><?php esc_html_e( 'Δείτε λεπτομέρειες', 'tpte' ); ?> <span><svg width="8" height="12" viewBox="0 0 8 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M1.5 11L6.5 6L1.5 1" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg></span></a>
             </div>

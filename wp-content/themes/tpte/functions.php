@@ -252,6 +252,31 @@ function tpte_scripts() {
 		wp_enqueue_style( 'tpte-masters', get_template_directory_uri() . '/assets/css/masters.css', array( 'tpte-main' ), $tpte_masters_ver );
 	}
 
+	// Events archive (archive-tpte_event.php) — breadcrumb hero, tab bar styling and
+	// the standalone Προσεχείς/Παλαιότερες client-side filter. Gated on the archive
+	// (not a page template). Versioned by each file's own mtime, like phd.css/phd-filter.js.
+	if ( is_post_type_archive( 'tpte_event' ) ) {
+		$events_css  = get_template_directory() . '/assets/css/events.css';
+		$events_cssv = file_exists( $events_css ) ? filemtime( $events_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-events', get_template_directory_uri() . '/assets/css/events.css', array( 'tpte-main' ), $events_cssv );
+
+		$events_js  = get_template_directory() . '/assets/js/event-filter.js';
+		$events_jsv = file_exists( $events_js ) ? filemtime( $events_js ) : TPTE_VERSION;
+		wp_enqueue_script( 'tpte-event-filter', get_template_directory_uri() . '/assets/js/event-filter.js', array( 'jquery' ), $events_jsv, true );
+	}
+
+	// Single news post — copy-to-clipboard share button + breadcrumb meta tweaks.
+	// Standalone CSS/JS, versioned by file mtime like the other page-specific assets.
+	if ( is_singular( 'post' ) ) {
+		$blog_css  = get_template_directory() . '/assets/css/blog.css';
+		$blog_cssv = file_exists( $blog_css ) ? filemtime( $blog_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-blog', get_template_directory_uri() . '/assets/css/blog.css', array( 'tpte-main' ), $blog_cssv );
+
+		$blog_js  = get_template_directory() . '/assets/js/blog-single.js';
+		$blog_jsv = file_exists( $blog_js ) ? filemtime( $blog_js ) : TPTE_VERSION;
+		wp_enqueue_script( 'tpte-blog-single', get_template_directory_uri() . '/assets/js/blog-single.js', array(), $blog_jsv, true );
+	}
+
 	// Quality Assurance page template — ApexCharts for line chart.
 	if ( is_page_template( 'page-quality-assurance.php' ) ) {
 		wp_enqueue_style( 'tpte-apexcharts', get_template_directory_uri() . '/assets/css/apexcharts.css', array(), TPTE_VERSION );

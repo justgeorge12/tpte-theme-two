@@ -1,0 +1,20 @@
+/* =========================================
+   News single post — small tweaks on top of main.css
+   (enqueued conditionally on is_singular('post')).
+   ========================================= */
+
+/* Breadcrumb hero meta: keep the date white like the rest of the hero text
+   (overrides the muted .tp-blog-stories-tag-wrap span colour). */
+.tp-breadcrumb__meta span {
+    color: var(--tp-common-white, #fff);
+}
+
+/* Copy-link share button + "copied" confirmation state. */
+.tp-postbox-copy-link {
+    cursor: pointer;
+}
+
+.tp-postbox-copy-link.is-copied {
+    color: #2bb673;
+    border-color: #2bb673;
+}

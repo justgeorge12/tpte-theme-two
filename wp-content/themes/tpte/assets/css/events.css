@@ -1,0 +1,101 @@
+/* =========================================
+   Events archive (archive-tpte_event.php)
+   Tab filter bar + past-event badge. The breadcrumb hero and the
+   .tp-event-inner-* cards are already styled in main.css; this file only
+   adds what the Προσεχείς/Παλαιότερες filter UI needs.
+   ========================================= */
+
+/* --- Filter toolbar ------------------------------------------- */
+.tp-event-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px 18px;
+    margin-bottom: 40px;
+}
+
+.tp-event-filter-tabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.tp-event-filter-btn {
+    padding: 10px 26px;
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--tp-heading-primary, #161613);
+    background: #fff;
+    border: 1px solid rgba(22, 22, 19, 0.15);
+    border-radius: 30px;
+    cursor: pointer;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.tp-event-filter-btn:hover {
+    color: var(--tp-theme-primary, #488ecc);
+    border-color: var(--tp-theme-primary, #488ecc);
+}
+
+.tp-event-filter-btn.active {
+    color: #fff;
+    background: var(--tp-theme-primary, #488ecc);
+    border-color: var(--tp-theme-primary, #488ecc);
+}
+
+/* Results count */
+.tp-event-count {
+    margin: 0;
+    font-size: 15px;
+    color: rgba(87, 89, 95, 0.85);
+}
+
+.tp-event-count strong {
+    color: var(--tp-theme-secondary, #1a73e8);
+    font-weight: 700;
+}
+
+/* --- Past-event badge (on the card thumbnail) ----------------- */
+.tp-event-inner-thumb {
+    position: relative;
+}
+
+.tp-event-inner-status {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 5px 14px;
+    font-size: 13px;
+    font-weight: 600;
+    line-height: 1.2;
+    color: #fff;
+    background: rgba(22, 22, 19, 0.78);
+    border-radius: 4px;
+}
+
+/* --- Filter states -------------------------------------------- */
+.tp-event-filter-item.is-hidden,
+.tp-event-noresults.is-hidden {
+    display: none;
+}
+
+.tp-event-noresults {
+    margin: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: rgba(87, 89, 95, 0.9);
+}
+
+/* --- Responsive ----------------------------------------------- */
+@media only screen and (max-width: 575px) {
+    .tp-event-filters {
+        justify-content: flex-start;
+    }
+
+    .tp-event-filter-btn {
+        padding: 9px 20px;
+        font-size: 15px;
+    }
+}

@@ -20,7 +20,9 @@ while ( have_posts() ) :
     $cover_topics = get_post_meta( get_the_ID(), '_event_cover_topics', true );
     $video_url    = get_post_meta( get_the_ID(), '_event_video_url', true );
 
-    $thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'full' );
+    // Generic hero background for every event (the event's own image now lives in
+    // the body, as the first element before the description).
+    $hero_bg = get_template_directory_uri() . '/assets/img/breadcrumb/campus-event.png';
 
     // Build countdown date string.
     $countdown_date = '';
@@ -42,9 +44,7 @@ while ( have_posts() ) :
 
     <!-- event details breadcrumb start -->
     <section class="tp-event-details-breadcrumb-bg pb-110 p-relative z-index-1 fix"
-        <?php if ( $thumb_url ) : ?>
-            data-background="<?php echo esc_url( $thumb_url ); ?>"
-        <?php endif; ?>>
+        data-background="<?php echo esc_url( $hero_bg ); ?>">
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-sm-12">
@@ -82,6 +82,12 @@ while ( have_posts() ) :
             <div class="row">
                 <div class="col-lg-8">
                     <div class="tp-event-details-wrapper">
+                        <?php if ( has_post_thumbnail() ) : ?>
+                            <div class="tp-event-details-thumb mb-40">
+                                <?php the_post_thumbnail( 'large', array( 'class' => 'img-fluid', 'alt' => get_the_title() ) ); ?>
+                            </div>
+                        <?php endif; ?>
+
                         <?php if ( $about ) : ?>
                             <div class="tp-event-details-about">
                                 <h3 class="tp-event-details-title"><?php esc_html_e( 'Περιγραφή', 'tpte' ); ?></h3>
