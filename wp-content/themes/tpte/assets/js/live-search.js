@@ -14,8 +14,8 @@
  * backdrop-click close, and arrow-key navigation. Open/close class toggling and
  * the dim backdrop are handled by main.js (reused, not duplicated).
  *
- * Enter with no highlighted result falls through to the native form → the
- * standard search.php results page.
+ * Enter activates the highlighted (or first) result; it does not submit to the
+ * native search.php page (which would also list the event/announcement CPTs).
  *
  * Standalone script, enqueued sitewide in functions.php (not part of main.js).
  *
@@ -155,6 +155,8 @@
 			}
 
 			$results.html(html).addClass('is-visible');
+			// Highlight the first result so Enter has a sensible default target.
+			$results.find('.tp-search-result a').first().addClass('is-active');
 		}
 
 		// Keyboard navigation across all visible result links.
@@ -214,13 +216,20 @@
 			} else if (e.key === 'ArrowUp') {
 				e.preventDefault();
 				moveSelection(-1);
-			} else if (e.key === 'Enter') {
-				var $active = $results.find('.tp-search-result a.is-active');
-				if ($active.length) {
-					e.preventDefault();
-					window.location.href = $active.attr('href');
-				}
-				// otherwise: let the form submit to search.php (native behavior).
+			}
+		});
+
+		// Enter activates the highlighted (or first) result instead of submitting
+		// to the native search.php page, which would also list the event /
+		// announcement post types. If there are no results, do nothing.
+		$area.find('form').on('submit', function (e) {
+			e.preventDefault();
+			var $target = $results.find('.tp-search-result a.is-active');
+			if (!$target.length) {
+				$target = $results.find('.tp-search-result a').first();
+			}
+			if ($target.length) {
+				window.location.href = $target.attr('href');
 			}
 		});
 	}
