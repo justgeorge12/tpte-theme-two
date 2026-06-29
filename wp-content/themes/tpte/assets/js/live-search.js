@@ -1,15 +1,21 @@
 /**
- * Header live search.
+ * Header live search — command palette (⌘K-style modal).
  *
- * Web-app-style search inside the header overlay (.tp-search-area). On the first
- * time the overlay opens it fetches a prebuilt JSON index of every content type
- * (Events, News, Announcements, People, Pages) once via admin-ajax, then filters
- * it entirely client-side on each (debounced) keystroke. Results are grouped by
- * type with a Font Awesome icon. Matching is accent-insensitive so Greek can be
- * typed without diacritics (same normalize() approach as phd-filter.js).
+ * The header search button opens a centered modal (.tp-search-area.tp-cmdk, see
+ * header.php) wired open/closed by the theme's main.js. On first open it fetches
+ * a prebuilt JSON index of every content type (Events, News, Announcements,
+ * People, Pages) once via admin-ajax, then filters it entirely client-side on
+ * each (debounced) keystroke. Results render grouped by type with a Font Awesome
+ * icon, in a single scrolling column below the pinned input. Matching is
+ * accent-insensitive so Greek can be typed without diacritics (same normalize()
+ * approach as phd-filter.js).
  *
- * Enter / submit is left untouched — it falls through to the native form, taking
- * the user to the standard search.php results page.
+ * This script adds: index fetch + filtering, auto-focus on open, Esc /
+ * backdrop-click close, and arrow-key navigation. Open/close class toggling and
+ * the dim backdrop are handled by main.js (reused, not duplicated).
+ *
+ * Enter with no highlighted result falls through to the native form → the
+ * standard search.php results page.
  *
  * Standalone script, enqueued sitewide in functions.php (not part of main.js).
  *
@@ -36,8 +42,7 @@
 		}
 
 		var $input = $area.find('.search-input');
-		var $results = $('<div class="tp-search-results" aria-live="polite"></div>');
-		$area.find('.tp-search-content').append($results);
+		var $results = $area.find('.tp-search-results');
 
 		var index = null;     // cached index once fetched.
 		var loading = false;
@@ -169,9 +174,33 @@
 			$links.eq(idx).addClass('is-active');
 		}
 
-		// Fetch the index as soon as the overlay opens (search button or any key).
-		$('.tp-search-open-btn').on('click', fetchIndex);
+		function closeModal() {
+			$area.removeClass('opened');
+			$('.body-overlay').removeClass('opened');
+		}
+
+		// Open: main.js adds .opened to .tp-search-area + .body-overlay. We just
+		// fetch the index and move focus into the input once it's visible.
+		$('.tp-search-open-btn').on('click', function () {
+			fetchIndex();
+			setTimeout(function () { $input.trigger('focus'); }, 60);
+		});
 		$input.on('focus', fetchIndex);
+
+		// Close on backdrop click (the transparent .tp-search-area outside the
+		// panel — the dim .body-overlay sits beneath it so it never gets the click).
+		$area.on('click', function (e) {
+			if (e.target === $area[0]) {
+				closeModal();
+			}
+		});
+
+		// Close on Esc.
+		$(document).on('keydown', function (e) {
+			if (e.key === 'Escape' && $area.hasClass('opened')) {
+				closeModal();
+			}
+		});
 
 		$input.on('input', function () {
 			clearTimeout(debounceId);

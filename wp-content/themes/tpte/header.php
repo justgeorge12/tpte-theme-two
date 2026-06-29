@@ -56,31 +56,21 @@
 </div>
 <!-- back to top end -->
 
-<!-- search area start -->
-<div class="tp-search-area">
-	<div class="tp-search-inner p-relative">
-		<div class="tp-search-close">
-			<button class="tp-search-close-btn">
-				<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-					<path class="path-1" d="M11 1L1 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-					<path class="path-2" d="M1 1L11 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-				</svg>
-			</button>
-		</div>
-		<div class="container tp-search-container">
-			<div class="row">
-				<div class="tp-search-wrapper">
-					<div class="col-12">
-						<div class="tp-search-content">
-							<?php get_search_form(); ?>
-						</div>
-					</div>
-				</div>
-			</div>
+<!-- search area (command palette) start -->
+<div class="tp-search-area tp-cmdk">
+	<div class="tp-search-inner tp-cmdk-panel">
+		<form role="search" method="get" action="<?php echo esc_url( home_url( '/' ) ); ?>" class="tp-cmdk-head">
+			<i class="fa-solid fa-magnifying-glass tp-cmdk-icon" aria-hidden="true"></i>
+			<input type="search" name="s" class="search-input tp-cmdk-input" autocomplete="off"
+				placeholder="<?php esc_attr_e( 'Αναζήτηση…', 'tpte' ); ?>" aria-label="<?php esc_attr_e( 'Αναζήτηση', 'tpte' ); ?>" />
+			<button type="button" class="tp-search-close-btn tp-cmdk-esc" aria-label="<?php esc_attr_e( 'Κλείσιμο', 'tpte' ); ?>">Esc</button>
+		</form>
+		<div class="tp-cmdk-body">
+			<div class="tp-search-results" aria-live="polite"></div>
 		</div>
 	</div>
 </div>
-<!-- search area end -->
+<!-- search area (command palette) end -->
 
 <!-- header-area-start -->
 <header id="masthead" class="header-area tp-header-transparent p-relative site-header">
