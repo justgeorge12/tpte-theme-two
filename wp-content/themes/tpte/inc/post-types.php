@@ -376,6 +376,45 @@ function tpte_register_announcement_cpt() {
 add_action( 'init', 'tpte_register_announcement_cpt' );
 
 /**
+ * Register the Announcement category taxonomy.
+ *
+ * A hierarchical taxonomy (like core categories) dedicated to announcements, so it
+ * stays separate from the news categories. New announcements with no category fall
+ * back to the «Γενικές» default term (not «Uncategorized»).
+ */
+function tpte_register_announcement_taxonomy() {
+	$labels = array(
+		'name'              => _x( 'Κατηγορίες', 'taxonomy general name', 'tpte' ),
+		'singular_name'     => _x( 'Κατηγορία', 'taxonomy singular name', 'tpte' ),
+		'menu_name'         => __( 'Κατηγορίες', 'tpte' ),
+		'all_items'         => __( 'Όλες οι κατηγορίες', 'tpte' ),
+		'edit_item'         => __( 'Επεξεργασία κατηγορίας', 'tpte' ),
+		'view_item'         => __( 'Προβολή κατηγορίας', 'tpte' ),
+		'update_item'       => __( 'Ενημέρωση κατηγορίας', 'tpte' ),
+		'add_new_item'      => __( 'Προσθήκη νέας κατηγορίας', 'tpte' ),
+		'new_item_name'     => __( 'Όνομα νέας κατηγορίας', 'tpte' ),
+		'search_items'      => __( 'Αναζήτηση κατηγοριών', 'tpte' ),
+		'not_found'         => __( 'Δεν βρέθηκαν κατηγορίες.', 'tpte' ),
+	);
+
+	$args = array(
+		'labels'            => $labels,
+		'hierarchical'      => true,
+		'public'            => true,
+		'show_in_rest'      => true,
+		'show_admin_column' => true,
+		'rewrite'           => array( 'slug' => 'announcement-category' ),
+		'default_term'      => array(
+			'name' => __( 'Γενικές', 'tpte' ),
+			'slug' => 'genikes',
+		),
+	);
+
+	register_taxonomy( 'tpte_announcement_cat', 'tpte_announcement', $args );
+}
+add_action( 'init', 'tpte_register_announcement_taxonomy' );
+
+/**
  * Add the PDF meta box for Announcements.
  */
 function tpte_announcement_meta_boxes() {
@@ -460,7 +499,7 @@ function tpte_order_announcement_archive( $query ) {
 		return;
 	}
 
-	if ( $query->is_post_type_archive( 'tpte_announcement' ) ) {
+	if ( $query->is_post_type_archive( 'tpte_announcement' ) || $query->is_tax( 'tpte_announcement_cat' ) ) {
 		$query->set( 'posts_per_page', 9 );
 	}
 }
@@ -491,6 +530,7 @@ add_action( 'template_redirect', 'tpte_announcement_redirect' );
 function tpte_flush_rewrite_rules() {
 	tpte_register_event_cpt();
 	tpte_register_announcement_cpt();
+	tpte_register_announcement_taxonomy();
 	flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'tpte_flush_rewrite_rules' );

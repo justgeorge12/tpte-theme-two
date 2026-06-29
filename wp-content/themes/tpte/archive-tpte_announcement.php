@@ -28,7 +28,7 @@ $tp_theme_uri = get_template_directory_uri();
 						</svg></a></span>
 						<span class="white"><?php esc_html_e( 'Ανακοινώσεις', 'tpte' ); ?></span>
 					</div>
-					<h3 class="tp-breadcrumb__title color"><?php esc_html_e( 'Ανακοινώσεις', 'tpte' ); ?></h3>
+					<h3 class="tp-breadcrumb__title color"><?php esc_html_e( 'Ανακοινώσεις Προπτυχιακού', 'tpte' ); ?></h3>
 				</div>
 			</div>
 		</div>

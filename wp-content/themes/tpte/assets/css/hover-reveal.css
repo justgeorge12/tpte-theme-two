@@ -30,7 +30,7 @@
 
 .tp-img-reveal .tp-img-reveal-wrapper {
 	position: fixed;
-	width: 370px;
+	width: 384px;
 	height: 240px;
 	top: 0%;
 	right: 0%;
@@ -59,7 +59,7 @@
 	.tp-img-reveal .tp-img-reveal-wrapper {
 		transform: translate(-50px , 0px) rotate(0deg);
 		width: 280px;
-		height: 220px;
+		height: 175px;
 		object-fit: cover;
 	}
 }
@@ -70,6 +70,14 @@
 	height: 100%;
 	position: relative;
 	border-radius: 14px;
+}
+/* The image is applied as an inline background-image by hover-reveal.js, so it
+   needs an explicit cover/centre or it renders at the file's natural size and
+   only the top-left corner shows inside the reveal box. */
+.tp-img-reveal-wrapper__img {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 .tp-img-reveal-wrapper__deco {
 	width: 100%;

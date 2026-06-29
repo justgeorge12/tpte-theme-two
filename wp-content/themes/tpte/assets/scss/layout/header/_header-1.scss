@@ -1836,4 +1836,7 @@ body.admin-bar .site-header {
 }
 .tp-header-sticky.tp-header-1 #primary-menu> li a{
     color: #161613;
+    &hover{
+        color: var(--tp-theme-primary);
+    }
 }

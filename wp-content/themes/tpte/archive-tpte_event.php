@@ -38,7 +38,7 @@ $today_ts     = strtotime( 'today' );
 <!-- event breadcrumb end -->
 
 <!-- event area start -->
-<section class="tp-event-inner-area tp-event-inner-p pt-100 pb-100">
+<section class="tp-event-inner-area tp-event-inner-p pt-100 pb-100 bg-gray">
 	<div class="container">
 		<?php if ( have_posts() ) : ?>
 			<div class="row">

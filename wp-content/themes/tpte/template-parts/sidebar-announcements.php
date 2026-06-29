@@ -42,4 +42,34 @@ $masters_announcements = array(
 			<?php endforeach; ?>
 		</div>
 	</div>
+
+	<?php
+	// Κατηγορίες — announcement categories with counts (same widget as the news archive).
+	// Rendered only when at least one non-empty category exists.
+	$ann_cats = get_terms( array(
+		'taxonomy'   => 'tpte_announcement_cat',
+		'hide_empty' => true,
+	) );
+
+	if ( ! empty( $ann_cats ) && ! is_wp_error( $ann_cats ) ) :
+		$current_term_id = ( is_tax( 'tpte_announcement_cat' ) ) ? get_queried_object_id() : 0;
+		?>
+		<div class="tp-sidebar-widget mb-30">
+			<div class="tp-sidebar-content">
+				<h5 class="tp-sidebar-widget-title"><?php esc_html_e( 'Κατηγορίες', 'tpte' ); ?></h5>
+				<ul>
+					<?php foreach ( $ann_cats as $ann_cat ) : ?>
+						<li<?php echo ( (int) $ann_cat->term_id === (int) $current_term_id ) ? ' class="current-cat"' : ''; ?>>
+							<a href="<?php echo esc_url( get_term_link( $ann_cat ) ); ?>">
+								<?php echo esc_html( $ann_cat->name ); ?>
+								<span>(<?php echo esc_html( $ann_cat->count ); ?>)</span>
+							</a>
+						</li>
+					<?php endforeach; ?>
+				</ul>
+			</div>
+		</div>
+		<?php
+	endif;
+	?>
 </div>

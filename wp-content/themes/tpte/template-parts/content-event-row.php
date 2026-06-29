@@ -29,6 +29,11 @@ $thumb_url = get_the_post_thumbnail_url( get_the_ID(), 'tpte-event-card' );
         </div>
         <div class="col-md-9">
             <div class="tp-event-content">
+                <?php if ( $thumb_url ) : ?>
+                    <div class="tp-event-mobile-thumb">
+                        <a href="<?php the_permalink(); ?>"><img src="<?php echo esc_url( $thumb_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>"></a>
+                    </div>
+                <?php endif; ?>
                 <h3 class="tp-event-title"><a class="tp-img-reveal tp-img-reveal-item" href="<?php the_permalink(); ?>" data-img="<?php echo esc_url( $thumb_url ); ?>" data-fx="1"><?php the_title(); ?></a></h3>
                 <div class="tp-event-info">
                     <?php if ( $time_range ) : ?>

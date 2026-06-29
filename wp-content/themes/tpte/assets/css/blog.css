@@ -9,6 +9,21 @@
     color: var(--tp-common-white, #fff);
 }
 
+/* Category pills — one consistent blue everywhere news appears: the list/related cards
+   (.tp-blog-stories-tag-wrap a) and the sidebar "Τελευταία νέα" label (.tp-recent-post-span).
+   main.css ships these in purple (#EFE9FE) and green (#DFF9F0) respectively. */
+.tp-blog-stories-tag-wrap a,
+.tp-recent-post-span {
+    background-color: #E7F0FB;
+    color: var(--tp-theme-primary, #488ecc);
+}
+
+/* But not the white breadcrumb-hero category link, which sits on the dark hero. */
+.tp-breadcrumb__meta.tp-blog-stories-tag-wrap a {
+    background-color: rgba(255, 255, 255, 0.15);
+    color: var(--tp-common-white, #fff);
+}
+
 /* Copy-link share button + "copied" confirmation state. */
 .tp-postbox-copy-link {
     cursor: pointer;

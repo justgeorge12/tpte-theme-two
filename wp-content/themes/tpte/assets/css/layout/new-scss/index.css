@@ -2662,6 +2662,10 @@
   color: var(--tp-common-white);
 }
 
+.tp-testimonial-wrapper {
+  background-color: #f5f5ff;
+}
+
 /*---------------------------------
     1.2 Common Classes
 ---------------------------------*/

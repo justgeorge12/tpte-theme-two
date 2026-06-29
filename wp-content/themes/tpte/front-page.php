@@ -446,7 +446,7 @@ foreach ($programs as $program) :
                 </div>
             </div>
             <div class="col-lg-6">
-                <div class="tp-testimonial-wrapper wow fadeInRight" data-wow-delay=".3s">
+                <div class="tp-testimonial-wrapper wow fadeInRight " data-wow-delay=".3s">
                     <div class="tp-section mb-40">
                         <h5 class="tp-section-subtitle"><?php esc_html_e('ΤΙ ΕΧΟΥΝ ΠΕΙ ΓΙΑ ΤΟ ΤΜΗΜΑ', 'tpte'); ?></h5>
                         <h3 class="tp-section-title"><?php esc_html_e('Η Απόφοιτοι μας έχουν αναφέρει...', 'tpte'); ?></h3>

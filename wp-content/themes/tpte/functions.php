@@ -166,7 +166,9 @@ function tpte_scripts() {
 	wp_enqueue_style( 'tpte-animate', get_template_directory_uri() . '/assets/css/animate.css', array(), TPTE_VERSION );
 	wp_enqueue_style( 'tpte-slick', get_template_directory_uri() . '/assets/css/slick.css', array(), TPTE_VERSION );
 	wp_enqueue_style( 'tpte-swiper', get_template_directory_uri() . '/assets/css/swiper-bundle.css', array(), TPTE_VERSION );
-	wp_enqueue_style( 'tpte-hover-reveal', get_template_directory_uri() . '/assets/css/hover-reveal.css', array(), TPTE_VERSION );
+	$hover_reveal_css  = get_template_directory() . '/assets/css/hover-reveal.css';
+	$hover_reveal_cssv = file_exists( $hover_reveal_css ) ? filemtime( $hover_reveal_css ) : TPTE_VERSION;
+	wp_enqueue_style( 'tpte-hover-reveal', get_template_directory_uri() . '/assets/css/hover-reveal.css', array(), $hover_reveal_cssv );
 	wp_enqueue_style( 'tpte-magnific-popup', get_template_directory_uri() . '/assets/css/magnific-popup.css', array(), TPTE_VERSION );
 	wp_enqueue_style( 'tpte-font-awesome', get_template_directory_uri() . '/assets/css/font-awesome-pro.css', array(), TPTE_VERSION );
 	wp_enqueue_style( 'tpte-spacing', get_template_directory_uri() . '/assets/css/spacing.css', array(), TPTE_VERSION );
@@ -244,6 +246,15 @@ function tpte_scripts() {
 		wp_enqueue_script( 'tpte-phd-filter', get_template_directory_uri() . '/assets/js/phd-filter.js', array( 'jquery', 'tpte-nice-select' ), $tpte_phd_jsv, true );
 	}
 
+	// University Labs page template — tabbed labs section (reuses the
+	// tp-campus-student-* component styled in main.css; tabs are pure Bootstrap).
+	// Only adds small card tweaks (director line + logo sizing).
+	if ( is_page_template( 'page-university-labs.php' ) ) {
+		$tpte_labs_css = get_template_directory() . '/assets/css/university-labs.css';
+		$tpte_labs_ver = file_exists( $tpte_labs_css ) ? filemtime( $tpte_labs_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-university-labs', get_template_directory_uri() . '/assets/css/university-labs.css', array( 'tpte-main' ), $tpte_labs_ver );
+	}
+
 	// Postgraduate Programmes page template — hover-reveal master's cards.
 	// Versioned by the file's own mtime so edits always bust the browser cache.
 	if ( is_page_template( 'page-postgrad-programmes.php' ) ) {
@@ -253,25 +264,43 @@ function tpte_scripts() {
 	}
 
 	// Events archive (archive-tpte_event.php) — breadcrumb hero, tab bar styling and
-	// the standalone Προσεχείς/Παλαιότερες client-side filter. Gated on the archive
-	// (not a page template). Versioned by each file's own mtime, like phd.css/phd-filter.js.
-	if ( is_post_type_archive( 'tpte_event' ) ) {
+	// the standalone Προσεχείς/Παλαιότερες client-side filter. The single event template
+	// (single-tpte_event.php) reuses the same stylesheet for its description wrapper.
+	// Versioned by each file's own mtime, like phd.css/phd-filter.js.
+	if ( is_post_type_archive( 'tpte_event' ) || is_singular( 'tpte_event' ) ) {
 		$events_css  = get_template_directory() . '/assets/css/events.css';
 		$events_cssv = file_exists( $events_css ) ? filemtime( $events_css ) : TPTE_VERSION;
 		wp_enqueue_style( 'tpte-events', get_template_directory_uri() . '/assets/css/events.css', array( 'tpte-main' ), $events_cssv );
+	}
 
+	// Archive-only: the standalone Προσεχείς/Παλαιότερες client-side filter.
+	if ( is_post_type_archive( 'tpte_event' ) ) {
 		$events_js  = get_template_directory() . '/assets/js/event-filter.js';
 		$events_jsv = file_exists( $events_js ) ? filemtime( $events_js ) : TPTE_VERSION;
 		wp_enqueue_script( 'tpte-event-filter', get_template_directory_uri() . '/assets/js/event-filter.js', array( 'jquery' ), $events_jsv, true );
 	}
 
-	// Single news post — copy-to-clipboard share button + breadcrumb meta tweaks.
-	// Standalone CSS/JS, versioned by file mtime like the other page-specific assets.
-	if ( is_singular( 'post' ) ) {
+	// Single event only: the live countdown to the event's end date. The
+	// markup ([data-countdown]) is only emitted when an end date exists, so
+	// the script is a no-op otherwise.
+	if ( is_singular( 'tpte_event' ) ) {
+		$countdown_js  = get_template_directory() . '/assets/js/countdown.js';
+		$countdown_jsv = file_exists( $countdown_js ) ? filemtime( $countdown_js ) : TPTE_VERSION;
+		wp_enqueue_script( 'tpte-countdown', get_template_directory_uri() . '/assets/js/countdown.js', array( 'jquery' ), $countdown_jsv, true );
+	}
+
+	// News contexts (posts page, category/tag/date/author archives, search, single post)
+	// — shared blog.css tweaks (consistent category-pill colour, breadcrumb meta, etc.).
+	// Versioned by file mtime like the other page-specific assets.
+	$tpte_is_news = is_home() || is_singular( 'post' ) || is_search() || is_category() || is_tag() || is_tax() || is_date() || is_author();
+	if ( $tpte_is_news ) {
 		$blog_css  = get_template_directory() . '/assets/css/blog.css';
 		$blog_cssv = file_exists( $blog_css ) ? filemtime( $blog_css ) : TPTE_VERSION;
 		wp_enqueue_style( 'tpte-blog', get_template_directory_uri() . '/assets/css/blog.css', array( 'tpte-main' ), $blog_cssv );
+	}
 
+	// Single news post only — copy-to-clipboard share button.
+	if ( is_singular( 'post' ) ) {
 		$blog_js  = get_template_directory() . '/assets/js/blog-single.js';
 		$blog_jsv = file_exists( $blog_js ) ? filemtime( $blog_js ) : TPTE_VERSION;
 		wp_enqueue_script( 'tpte-blog-single', get_template_directory_uri() . '/assets/js/blog-single.js', array(), $blog_jsv, true );
@@ -279,7 +308,7 @@ function tpte_scripts() {
 
 	// Announcements archive (archive-tpte_announcement.php) — list rows + download button.
 	// Standalone CSS leaning on existing .tp-postbox-* / .tp-btn rules. Versioned by mtime.
-	if ( is_post_type_archive( 'tpte_announcement' ) ) {
+	if ( is_post_type_archive( 'tpte_announcement' ) || is_tax( 'tpte_announcement_cat' ) ) {
 		$ann_css  = get_template_directory() . '/assets/css/announcements.css';
 		$ann_cssv = file_exists( $ann_css ) ? filemtime( $ann_css ) : TPTE_VERSION;
 		wp_enqueue_style( 'tpte-announcements', get_template_directory_uri() . '/assets/css/announcements.css', array( 'tpte-main' ), $ann_cssv );
@@ -388,7 +417,7 @@ require get_template_directory() . '/inc/post-types.php';
  * Custom image sizes for events and blog.
  */
 function tpte_custom_image_sizes() {
-	add_image_size( 'tpte-event-card', 410, 280, true );
+	add_image_size( 'tpte-event-card', 1200, 750, true );
 	add_image_size( 'tpte-blog-list', 350, 260, true );
 	add_image_size( 'tpte-blog-card', 555, 340, true );
 }

@@ -1686,6 +1686,9 @@ body.admin-bar .site-header {
 .tp-header-sticky.tp-header-1 #primary-menu > li a {
   color: #161613;
 }
+.tp-header-sticky.tp-header-1 #primary-menu > li ahover {
+  color: var(--tp-theme-primary);
+}
 
 /*----------------------------------------*/
 /*  4.1 Main menu css
@@ -28278,6 +28281,10 @@ span.common-pale-purple {
 }
 .tp-cta-13-btn-wrap .tp-btn-border.orange-bg:hover {
   color: var(--tp-common-white);
+}
+
+.tp-testimonial-wrapper {
+  background-color: f5f5ff;
 }
 
 /*---------------------------------

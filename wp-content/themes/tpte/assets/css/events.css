@@ -5,6 +5,25 @@
    adds what the Προσεχείς/Παλαιότερες filter UI needs.
    ========================================= */
 
+/* Gray section background for the archive (matches the announcements tone). */
+.bg-gray {
+    background-color: #f5f5ff;
+}
+
+/* --- Event card thumbnail: lock to the 1200x750 (1.6) image ratio ---
+   the card is built around so every card is the same height regardless of
+   the source image's own proportions. */
+.tp-event-inner-thumb {
+    aspect-ratio: 1200 / 750;
+}
+
+.tp-event-inner-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
 /* --- Filter toolbar ------------------------------------------- */
 .tp-event-filters {
     display: flex;
@@ -86,6 +105,13 @@
     padding: 10px 0;
     font-size: 16px;
     color: rgba(87, 89, 95, 0.9);
+}
+
+/* --- Single event: description wrapper ------------------------ */
+.tp-event-details-about-text,
+.tp-event-details-about-text p,
+.tp-event-details-about-text li {
+    font-size: 17px;
 }
 
 /* --- Responsive ----------------------------------------------- */

@@ -86,6 +86,43 @@ Based on the Acadia HTML template design.
 	z-index: 100000;
 }
 
+/* Home event rows: the hover-reveal image can't trigger on touch devices, so
+   on mobile show the event thumbnail inline instead — below the date, above the
+   title. Locked to the same 1200x750 (1.6) ratio as the reveal/card images.
+   Hidden on desktop, where the hover reveal is used. */
+.tp-event-mobile-thumb {
+	display: none;
+}
+
+@media only screen and (max-width: 767px) {
+	.tp-event-mobile-thumb {
+		display: block;
+		margin-bottom: 16px;
+	}
+
+	.tp-event-mobile-thumb img {
+		width: 100%;
+		aspect-ratio: 1200 / 750;
+		object-fit: cover;
+		border-radius: 12px;
+		display: block;
+	}
+}
+
+/* Sticky header + WordPress admin bar on mobile. main.css offsets the header
+   below the admin bar with `body.admin-bar #header-sticky { top: 46px }` inside
+   a (max-width: 782px) query. That is right on desktop (the bar stays fixed),
+   but at <=782px WP makes #wpadminbar position:absolute so it scrolls away with
+   the page — leaving an empty 46px gap above the fixed sticky header. Pin the
+   *sticky* header flush to the top on mobile (the static .site-header keeps its
+   offset so the hero still clears the bar on the first screen). The extra
+   .tp-header-sticky class outscores the main.css rule. */
+@media screen and (max-width: 782px) {
+	body.admin-bar #header-sticky.tp-header-sticky {
+		top: 0;
+	}
+}
+
 /* Offcanvas mobile menu */
 .tp-main-menu-mobile {
 	width: 100%;

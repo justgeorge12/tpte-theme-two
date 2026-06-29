@@ -24,26 +24,28 @@ while ( have_posts() ) :
     // the body, as the first element before the description).
     $hero_bg = get_template_directory_uri() . '/assets/img/breadcrumb/campus-event.png';
 
-    // Build countdown date string.
+    // Build the countdown target from the event END date/time. The countdown
+    // only renders when an end date exists (see the [data-countdown] markup
+    // below); without one it is omitted entirely.
     $countdown_date = '';
-    if ( $start_date ) {
-        $dt = DateTime::createFromFormat( 'Y-m-d', $start_date );
+    if ( $end_date ) {
+        $dt = DateTime::createFromFormat( 'Y-m-d', $end_date );
         if ( $dt ) {
             $countdown_date = $dt->format( 'F d Y' );
-            if ( $start_time ) {
-                $countdown_date .= ' ' . $start_time . ':00';
+            if ( $end_time ) {
+                $countdown_date .= ' ' . $end_time . ':00';
             }
         }
     }
 
     $formatted_start_date = $start_date ? date_i18n( 'd M Y', strtotime( $start_date ) ) : '';
-    $formatted_start_time = $start_time ? date_i18n( 'h:i A', strtotime( $start_time ) ) : '';
+    $formatted_start_time = $start_time ? date_i18n( 'H:i', strtotime( $start_time ) ) : '';
     $formatted_end_date   = $end_date ? date_i18n( 'd M Y', strtotime( $end_date ) ) : '';
-    $formatted_end_time   = $end_time ? date_i18n( 'h:i A', strtotime( $end_time ) ) : '';
+    $formatted_end_time   = $end_time ? date_i18n( 'H:i', strtotime( $end_time ) ) : '';
     ?>
 
     <!-- event details breadcrumb start -->
-    <section class="tp-event-details-breadcrumb-bg pb-110 p-relative z-index-1 fix"
+    <section class="tp-event-details-breadcrumb-bg pt-160 pb-110 p-relative z-index-1 fix"
         data-background="<?php echo esc_url( $hero_bg ); ?>">
         <div class="container">
             <div class="row align-items-center">
@@ -52,7 +54,7 @@ while ( have_posts() ) :
                         <span><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><svg width="17" height="14" viewBox="0 0 17 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd" d="M8.07207 0C8.19331 0 8.31107 0.0404348 8.40664 0.114882L16.1539 6.14233L15.4847 6.98713L14.5385 6.25079V12.8994C14.538 13.1843 14.4243 13.4574 14.2225 13.6589C14.0206 13.8604 13.747 13.9738 13.4616 13.9743H2.69231C2.40688 13.9737 2.13329 13.8603 1.93146 13.6588C1.72962 13.4573 1.61597 13.1843 1.61539 12.8994V6.2459L0.669148 6.98235L0 6.1376L7.7375 0.114882C7.83308 0.0404348 7.95083 0 8.07207 0ZM8.07694 1.22084L2.69231 5.40777V12.8994H13.4616V5.41341L8.07694 1.22084Z" fill="currentColor"/>
                         </svg></a></span>
-                        <span><a href="<?php echo esc_url( get_post_type_archive_link( 'tpte_event' ) ); ?>"><?php esc_html_e( 'Events', 'tpte' ); ?></a></span>
+                        <span><a href="<?php echo esc_url( get_post_type_archive_link( 'tpte_event' ) ); ?>"><?php esc_html_e( 'Εκδηλώσεις', 'tpte' ); ?></a></span>
                         <span><?php the_title(); ?></span>
                     </div>
                     <div class="tp-event-details-breadcrumb-content">
@@ -61,10 +63,10 @@ while ( have_posts() ) :
                             <div class="tp-event-details-countdown" data-countdown data-date="<?php echo esc_attr( $countdown_date ); ?>">
                                 <div class="tp-event-details-countdown-inner">
                                     <ul>
-                                        <li><span data-days>0</span> Days</li>
-                                        <li><span data-hours>0</span> Hours</li>
-                                        <li><span data-minutes>0</span> Mins</li>
-                                        <li><span data-seconds>0</span> Secs</li>
+                                        <li><span data-days>0</span> Ημέρες</li>
+                                        <li><span data-hours>0</span> Ώρες</li>
+                                        <li><span data-minutes>0</span> Λεπτά</li>
+                                        <li><span data-seconds>0</span> Δευτ.</li>
                                     </ul>
                                 </div>
                             </div>
@@ -91,7 +93,9 @@ while ( have_posts() ) :
                         <?php if ( $about ) : ?>
                             <div class="tp-event-details-about">
                                 <h3 class="tp-event-details-title"><?php esc_html_e( 'Περιγραφή', 'tpte' ); ?></h3>
-                                <?php echo wp_kses_post( $about ); ?>
+                                <div class="tp-event-details-about-text">
+                                    <?php echo wp_kses_post( $about ); ?>
+                                </div>
                             </div>
                         <?php endif; ?>
 
@@ -154,7 +158,7 @@ while ( have_posts() ) :
                                     <h5><span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M8 3.7998V7.9998L10.8 9.3998" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg></span> <?php esc_html_e( 'Start Time', 'tpte' ); ?></h5>
+                                    </svg></span> <?php esc_html_e( 'Ώρα Έναρξης', 'tpte' ); ?></h5>
                                     <span><?php echo esc_html( $formatted_start_time ); ?></span>
                                 </div>
                             <?php endif; ?>
@@ -172,7 +176,7 @@ while ( have_posts() ) :
                                         <path d="M10.1289 1V3.30355" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M4.47656 1V3.30355" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path fill-rule="evenodd" clip-rule="evenodd" d="M10.2668 2.10547H4.33967C2.28399 2.10547 1 3.25062 1 5.35559V11.6903C1 13.8284 2.28399 15 4.33967 15H10.2603C12.3225 15 13.6 13.8483 13.6 11.7433V5.35559C13.6065 3.25062 12.329 2.10547 10.2668 2.10547Z" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg></span> <?php esc_html_e( 'End Date', 'tpte' ); ?></h5>
+                                    </svg></span> <?php esc_html_e( 'Ημερομηνία Λήξης', 'tpte' ); ?></h5>
                                     <span><?php echo esc_html( $formatted_end_date ); ?></span>
                                 </div>
                             <?php endif; ?>
@@ -182,7 +186,7 @@ while ( have_posts() ) :
                                     <h5><span><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M8 15C11.866 15 15 11.866 15 8C15 4.13401 11.866 1 8 1C4.13401 1 1 4.13401 1 8C1 11.866 4.13401 15 8 15Z" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M8 3.7998V7.9998L10.8 9.3998" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg></span> <?php esc_html_e( 'End Time', 'tpte' ); ?></h5>
+                                    </svg></span> <?php esc_html_e( 'Ώρα Λήξης', 'tpte' ); ?></h5>
                                     <span><?php echo esc_html( $formatted_end_time ); ?></span>
                                 </div>
                             <?php endif; ?>
@@ -192,7 +196,7 @@ while ( have_posts() ) :
                                     <h5><span><svg width="15" height="16" viewBox="0 0 15 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                                         <path d="M13.445 15.0008V13.4452C13.445 12.6201 13.1172 11.8287 12.5337 11.2452C11.9502 10.6618 11.1589 10.334 10.3337 10.334H4.11124C3.28609 10.334 2.49473 10.6618 1.91126 11.2452C1.32779 11.8287 1 12.6201 1 13.4452V15.0008" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
                                         <path d="M7.22257 7.22248C8.94085 7.22248 10.3338 5.82953 10.3338 4.11124C10.3338 2.39295 8.94085 1 7.22257 1C5.50428 1 4.11133 2.39295 4.11133 4.11124C4.11133 5.82953 5.50428 7.22248 7.22257 7.22248Z" stroke="#4F5158" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-                                    </svg></span> <?php esc_html_e( 'Attendees', 'tpte' ); ?></h5>
+                                    </svg></span> <?php esc_html_e( 'Συμμετέχοντες', 'tpte' ); ?></h5>
                                     <span><?php echo esc_html( $attendees ); ?></span>
                                 </div>
                             <?php endif; ?>
