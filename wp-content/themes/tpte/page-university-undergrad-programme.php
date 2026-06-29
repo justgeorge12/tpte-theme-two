@@ -24,6 +24,20 @@ while ( have_posts() ) :
 	// --- Tab 1: indicative programme ------------------------------------.
 	$endeiktiko_pdf = 'https://www.ct.aegean.gr/data/TPTE_ENDEIKTIKO_PPS_2025-26.pdf';
 
+	// Per-page useful files, edited in wp-admin (meta box in inc/post-types.php)
+	// and passed to the shared sidebar alongside the indicative-programme link.
+	$useful_files = get_post_meta( get_the_ID(), 'tpte_useful_files', true );
+	$useful_files = is_array( $useful_files ) ? $useful_files : array();
+	$useful_files = array_merge(
+		array(
+			array(
+				'label' => __( 'Ενδεικτικό Πρόγραμμα σπουδών 2025-26', 'tpte' ),
+				'url'   => $endeiktiko_pdf,
+			),
+		),
+		$useful_files
+	);
+
 	// --- Tab 2: courses per semester (extracted from the legacy site) ----.
 	$semesters = array(
 		array(
@@ -213,7 +227,7 @@ while ( have_posts() ) :
         ),
 		array(
 			'id'     => 'tab-kanonismos',
-			'label'  => __( 'Κανονισμός Δηλώσεων Μαθημάτων', 'tpte' ),
+			'label'  => __( 'Κανονισμός δηλώσεων', 'tpte' ),
 			'active' => false,
 		),
 		array(
@@ -320,7 +334,7 @@ while ( have_posts() ) :
 							<!-- Tab 1: Κανονισμός Δηλώσεων Μαθημάτων -->
 							<div class="tab-pane fade " id="tab-kanonismos" role="tabpanel" aria-labelledby="tab-kanonismos-tab">
 								<div class="tp-programme-intro">
-									<h3 class="tp-programme-section-title"><?php esc_html_e( 'Κανονισμός Δηλώσεων', 'tpte' ); ?></h3>
+									<h3 class="tp-programme-section-title"><?php esc_html_e( 'Κανονισμός Δηλώσεων Μαθημάτων', 'tpte' ); ?></h3>
 
 									<p><strong><?php esc_html_e( 'Η δήλωση των μαθημάτων ανά εξάμηνο γίνεται ως εξής:', 'tpte' ); ?></strong></p>
 
@@ -442,12 +456,7 @@ while ( have_posts() ) :
 						'template-parts/sidebar',
 						'undergrad',
 						array(
-							'useful_files' => array(
-								array(
-									'label' => __( 'Ενδεικτικό Πρόγραμμα σπουδών 2025-26', 'tpte' ),
-									'url'   => $endeiktiko_pdf,
-								),
-							),
+							'useful_files' => $useful_files,
 						)
 					);
 					?>

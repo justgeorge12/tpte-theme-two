@@ -1,0 +1,191 @@
+/* =========================================
+   PhD Programme Page Template
+   (page-phd-programme.php)
+   Builds on programme.css (loaded alongside) for the shared
+   .tp-programme-*, .tp-tution-table and .tp-undergrad-nav styles.
+   ========================================= */
+
+/* --- Intro spacing -------------------------------------------- */
+.tp-phd-intro {
+    margin-bottom: 50px;
+}
+
+/* --- Search / supervisor filter toolbar ----------------------- */
+.tp-phd-filters {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 14px 18px;
+    margin-bottom: 26px;
+}
+
+.tp-phd-filter-field {
+    flex: 1 1 240px;
+    min-width: 0;
+}
+
+.tp-phd-filter-supervisor {
+    flex: 0 1 280px;
+}
+
+.tp-phd-search {
+    width: 100%;
+    height: 50px;
+    padding: 0 18px;
+    font-size: 16px;
+    line-height: 1.4;
+    color: var(--tp-heading-primary, #161613);
+    background: #fff;
+    border: 1px solid rgba(22, 22, 19, 0.15);
+    border-radius: 8px;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.tp-phd-search::placeholder {
+    color: rgba(87, 89, 95, 0.6);
+}
+
+.tp-phd-search:focus {
+    outline: none;
+    border-color: var(--tp-theme-primary, #488ecc);
+    box-shadow: 0 0 0 3px rgba(72, 142, 204, 0.15);
+}
+
+/* Supervisor select — styled both for the native control and for the
+   jquery-nice-select widget the theme renders over every <select>. */
+.tp-phd-filter-supervisor select {
+    width: 100%;
+    height: 50px;
+    padding: 0 18px;
+    font-size: 16px;
+    color: var(--tp-heading-primary, #161613);
+    background: #fff;
+    border: 1px solid rgba(22, 22, 19, 0.15);
+    border-radius: 8px;
+}
+
+.tp-phd-filter-supervisor .nice-select {
+    width: 100%;
+    height: 50px;
+    line-height: 48px;
+    padding-left: 18px;
+    padding-right: 44px;
+    font-size: 16px;
+    background: #fff;
+    border: 1px solid rgba(22, 22, 19, 0.15);
+    border-radius: 8px;
+    float: none;
+}
+
+/* Keep the dropdown arrow off the right edge. */
+.tp-phd-filter-supervisor .nice-select::after {
+    right: 18px;
+}
+
+/* Closed control: truncate a long selected name with an ellipsis so it stays on
+   one line within the padding and never runs under/over the arrow. */
+.tp-phd-filter-supervisor .nice-select .current {
+    display: block;
+    max-width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+/* Native <select> fallback (when nice-select isn't active): room for the arrow. */
+.tp-phd-filter-supervisor select {
+    padding-right: 44px;
+}
+
+.tp-phd-filter-supervisor .nice-select .list {
+    width: 100%;
+    max-height: 320px;
+    overflow-y: auto;
+}
+
+/* Full supervisor names can be long — let options wrap instead of truncating. */
+.tp-phd-filter-supervisor .nice-select .option {
+    line-height: 1.4;
+    min-height: 40px;
+    white-space: normal;
+}
+
+/* Small vertical breathing room on the first supervisor option (after "Όλοι/ες"). */
+.tp-phd-filter-supervisor .nice-select .list .option:nth-child(2) {
+    margin-top: 3px;
+    margin-bottom: 3px;
+}
+
+/* Results count */
+.tp-phd-count {
+    flex: 1 0 100%;
+    margin: 0;
+    font-size: 15px;
+    color: rgba(87, 89, 95, 0.85);
+}
+
+.tp-phd-count strong {
+    color: var(--tp-theme-secondary, #1a73e8);
+    font-weight: 700;
+}
+
+/* --- Graduates table (is-phd variant of .tp-programme-table) --- */
+/* Name (fixed) | Supervisor (fixed) | Thesis title (grow, left-aligned). */
+.tp-programme-table.is-phd .tp-tution-id {
+    flex: 0 0 190px;
+}
+
+.tp-programme-table.is-phd .tp-tution-sub {
+    flex: 0 0 240px;
+}
+
+.tp-programme-table.is-phd .tp-tution-type {
+    flex: 1 1 auto;
+    text-align: left;
+}
+
+/* Let names/supervisors wrap cleanly inside their fixed columns. */
+.tp-programme-table.is-phd .tp-tution-id .tp-tution-inner,
+.tp-programme-table.is-phd .tp-tution-sub .tp-tution-inner {
+    line-height: 1.45;
+}
+
+.tp-phd-thesis {
+    display: block;
+    line-height: 1.5;
+}
+
+/* Annotation under a thesis title (e.g. written in English / co-supervised). */
+.tp-phd-graduate-note {
+    display: block;
+    margin-top: 6px;
+    font-size: 13px;
+    font-style: italic;
+    line-height: 1.4;
+    color: rgba(87, 89, 95, 0.85);
+}
+
+/* --- Filter states -------------------------------------------- */
+.tp-phd-row.is-hidden,
+.tp-phd-noresults.is-hidden {
+    display: none;
+}
+
+.tp-phd-noresults-msg {
+    padding: 6px 0;
+    font-size: 16px;
+    color: rgba(87, 89, 95, 0.9);
+}
+
+/* --- Responsive ----------------------------------------------- */
+@media only screen and (max-width: 991px) {
+    /* Wider min-width than the 2-column programme tables: 3 columns of content. */
+    .tp-programme-table.is-phd ul li {
+        min-width: 760px;
+    }
+
+    .tp-phd-filter-field,
+    .tp-phd-filter-supervisor {
+        flex: 1 1 100%;
+    }
+}

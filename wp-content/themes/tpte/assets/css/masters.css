@@ -1,0 +1,180 @@
+/**
+ * Postgraduate Programmes page template (page-postgrad-programmes.php).
+ *
+ * One full-height hero built on the Acadia .tp-plan-4-wrap section: the page
+ * title sits top-left, the programme boxes sit below to the right, and the
+ * hero's full-bleed background is the picture that swaps as you hover a box
+ * (driven by the stock .tp-plan-4-item hover JS). No separate breadcrumb.
+ */
+
+.page-template-page-postgrad-programmes .tp-masters-hero {
+	min-height: 100vh;
+	display: flex;
+	align-items: center;
+	/* Clear the fixed site header. */
+	padding-top: 220px;
+	padding-bottom: 120px;
+	/* The stock .tp-plan-4-wrap sets z-index:2, the same as the transparent
+	   site header. As the first section (no breadcrumb), it would otherwise
+	   paint over the menu — keep it below the header (header is z-index:2 when
+	   transparent, 99 when sticky). */
+	z-index: 1;
+}
+
+.page-template-page-postgrad-programmes .tp-masters-hero .container {
+	width: 100%;
+}
+
+/* Title block, top-left. */
+.page-template-page-postgrad-programmes .tp-masters-hero-heading {
+	margin-bottom: 60px;
+}
+
+/* Let the long page title breathe as a hero headline. */
+.page-template-page-postgrad-programmes .tp-masters-hero .tp-plan-4-section-title {
+	max-width: 14ch;
+}
+
+/* --- Programme link -----------------------------------------------------
+ * Desktop (mouse): the card is no longer one big <a>; instead this link
+ * stretches over the whole box via ::after so "click anywhere" still works,
+ * while the visible label only fades in on hover (matching the old hint).
+ * On touch the stretch is removed and this becomes an explicit button — the
+ * only tap target — so a stray tap on the photo/title doesn't navigate.
+ * --------------------------------------------------------------------- */
+.page-template-page-postgrad-programmes .tp-masters-link {
+	display: inline-block;
+	margin-top: 8px;
+	color: var(--tp-common-white);
+	font-size: 15px;
+	font-weight: 600;
+	opacity: 0;
+	transition: opacity 0.3s ease-out;
+}
+
+/* Stretched-link overlay: covers the .tp-plan-4-content (its positioned
+   ancestor) so the whole box is clickable with a mouse. */
+.page-template-page-postgrad-programmes .tp-masters-link::after {
+	content: "";
+	position: absolute;
+	inset: 0;
+	z-index: 3;
+}
+
+.page-template-page-postgrad-programmes .tp-plan-4-content:hover .tp-masters-link {
+	opacity: 1;
+}
+
+@media (max-width: 991px) {
+	.page-template-page-postgrad-programmes .tp-masters-hero {
+		min-height: auto;
+		padding-top: 160px;
+		padding-bottom: 80px;
+	}
+	.page-template-page-postgrad-programmes .tp-masters-hero .tp-plan-4-section-title {
+		max-width: none;
+	}
+	.page-template-page-postgrad-programmes .tp-masters-hero-heading {
+		margin-bottom: 40px;
+	}
+}
+
+/* -------------------------------------------------------------------------
+ * Touch / no-hover fallback.
+ *
+ * The desktop interaction (hover a box -> swap the single full-bleed hero
+ * background, reveal the box text) is driven only by `mouseenter` and `:hover`,
+ * so it is dead on touch devices. Here we degrade to a stacked grid of
+ * self-contained image cards: each box shows ITS OWN picture permanently, with
+ * the number + visit hint always visible, and a scrim to keep text legible.
+ * Tapping the card navigates. Keyed off pointer type, not width, so touch
+ * laptops degrade too while desktop mice are untouched.
+ * ---------------------------------------------------------------------- */
+@media (hover: none) {
+	/* Make each box its own positioning context so its .tp-plan-4-bg fills the
+	   card instead of the shared .tp-plan-4-wrap. `isolation:isolate` creates a
+	   stacking context so the bg image (z-index:-2) paints ABOVE the card's own
+	   fallback background-color — otherwise the solid colour hides the photo
+	   (the "all black on mobile" bug). */
+	.page-template-page-postgrad-programmes .tp-plan-4-item {
+		position: relative;
+		isolation: isolate;
+		overflow: hidden;
+		border-radius: 10px;
+		background-color: #1b1b18;
+	}
+
+	/* Reveal every card's own picture (override the opacity:0 default and the
+	   .active scale so all cards render uniformly). */
+	.page-template-page-postgrad-programmes .tp-plan-4-item .tp-plan-4-bg {
+		opacity: 1;
+		visibility: visible;
+		transform: none;
+	}
+
+	/* Dark scrim so white text stays legible over any photo (the theme's hover
+	   ::before scrim never fires without hover). */
+	.page-template-page-postgrad-programmes .tp-plan-4-item .tp-plan-4-bg::after {
+		content: "";
+		position: absolute;
+		inset: 0;
+		background: linear-gradient(180deg, rgba(22, 22, 19, 0.35) 0%, rgba(22, 22, 19, 0.7) 100%);
+	}
+
+	/* Show the number without hovering. */
+	.page-template-page-postgrad-programmes .tp-plan-4-content span {
+		opacity: 1;
+	}
+
+	/* Kill the sticky tap-triggered "hover" state: on touch, :hover latches
+	   after a tap and shows the stock blue (var(--tp-theme-4)) inset overlay.
+	   Reset the hover ::before back to its plain bordered base. */
+	.page-template-page-postgrad-programmes .tp-plan-4-content:hover::before {
+		background-color: transparent;
+		border-color: hsla(0, 0%, 100%, 0.7);
+		top: 0;
+		bottom: auto;
+		height: 100%;
+	}
+
+	/* Drop the stretched overlay so the card is NOT a tap target — only the
+	   explicit button below navigates, which prevents mis-taps. */
+	.page-template-page-postgrad-programmes .tp-masters-link::after {
+		content: none;
+	}
+
+	/* Turn the link into a clear, always-visible button. */
+	.page-template-page-postgrad-programmes .tp-masters-link {
+		position: relative;
+		z-index: 4;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		margin-top: 16px;
+		padding: 11px 22px;
+		min-height: 44px; /* comfortable touch target */
+		background-color: var(--tp-theme-primary);
+		color: var(--tp-common-white);
+		border-radius: 6px;
+		opacity: 1;
+		line-height: 1.2;
+	}
+
+	/* No empty full-viewport band before the cards. */
+	.page-template-page-postgrad-programmes .tp-masters-hero {
+		min-height: auto;
+	}
+
+	/* Stacked cards need breathing room between rows (column gutters only space
+	   them horizontally). */
+	.page-template-page-postgrad-programmes .tp-plan-4-wrapper .col-md-4 {
+		margin-bottom: 24px;
+	}
+}
+
+/* On phones, give each stacked photo card a consistent presence. */
+@media (max-width: 767px) {
+	.page-template-page-postgrad-programmes .tp-plan-4-content {
+		min-height: 260px;
+	}
+}

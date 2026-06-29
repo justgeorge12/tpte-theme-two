@@ -220,14 +220,36 @@ function tpte_scripts() {
 	}
 
 	// Undergrad Programme page template — tab bar + course/prerequisite tables.
-	// Also loaded on the reusable Undergrad Section template, which reuses the
-	// undergrad sidebar nav styles (.tp-undergrad-nav, .current-page, etc.).
+	// Also loaded on the reusable Undergrad Section template and the PhD Programme
+	// template, which reuse the shared .tp-programme-* table/section styles and the
+	// sidebar nav styles (.tp-undergrad-nav, .current-page, etc.).
 	// Versioned by the file's own mtime so edits always bust the browser cache
 	// (TPTE_VERSION tracks functions.php, not the stylesheet).
-	if ( is_page_template( 'page-university-undergrad-programme.php' ) || is_page_template( 'page-undergrad-section.php' ) ) {
+	if ( is_page_template( 'page-university-undergrad-programme.php' ) || is_page_template( 'page-undergrad-section.php' ) || is_page_template( 'page-phd-programme.php' ) ) {
 		$tpte_programme_css = get_template_directory() . '/assets/css/programme.css';
 		$tpte_programme_ver = file_exists( $tpte_programme_css ) ? filemtime( $tpte_programme_css ) : TPTE_VERSION;
 		wp_enqueue_style( 'tpte-programme', get_template_directory_uri() . '/assets/css/programme.css', array( 'tpte-main' ), $tpte_programme_ver );
+	}
+
+	// PhD Programme page template — graduates table (is-phd variant) + search/filter
+	// toolbar. Builds on tpte-programme (loaded above) for the shared table styles.
+	// The filter JS is a small standalone script (not part of the main bundle).
+	if ( is_page_template( 'page-phd-programme.php' ) ) {
+		$tpte_phd_css = get_template_directory() . '/assets/css/phd.css';
+		$tpte_phd_ver = file_exists( $tpte_phd_css ) ? filemtime( $tpte_phd_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-phd', get_template_directory_uri() . '/assets/css/phd.css', array( 'tpte-main', 'tpte-programme' ), $tpte_phd_ver );
+
+		$tpte_phd_js  = get_template_directory() . '/assets/js/phd-filter.js';
+		$tpte_phd_jsv = file_exists( $tpte_phd_js ) ? filemtime( $tpte_phd_js ) : TPTE_VERSION;
+		wp_enqueue_script( 'tpte-phd-filter', get_template_directory_uri() . '/assets/js/phd-filter.js', array( 'jquery', 'tpte-nice-select' ), $tpte_phd_jsv, true );
+	}
+
+	// Postgraduate Programmes page template — hover-reveal master's cards.
+	// Versioned by the file's own mtime so edits always bust the browser cache.
+	if ( is_page_template( 'page-postgrad-programmes.php' ) ) {
+		$tpte_masters_css = get_template_directory() . '/assets/css/masters.css';
+		$tpte_masters_ver = file_exists( $tpte_masters_css ) ? filemtime( $tpte_masters_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-masters', get_template_directory_uri() . '/assets/css/masters.css', array( 'tpte-main' ), $tpte_masters_ver );
 	}
 
 	// Quality Assurance page template — ApexCharts for line chart.

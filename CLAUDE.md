@@ -36,9 +36,24 @@ npm run lint:js    # eslint JS
 SCSS source → `assets/scss/` (main entry: `assets/scss/main.scss`)  
 Compiled CSS → `assets/css/main.css`  
 JS source → `assets/js/src/`  
-Compiled JS → `assets/js/main.min.js` (via webpack)
+Compiled JS (webpack output) → `assets/js/main.min.js`
 
-Page-specific CSS files (`programme.css`, `department-info.css`, etc.) are hand-authored directly in `assets/css/` — they are **not** compiled from SCSS.
+> ⚠️ **The site does NOT load the webpack output.** `functions.php` enqueues
+> `assets/js/main.js` — a separate, hand-maintained bundle that has **diverged**
+> from `assets/js/src/main.js`. `main.js` contains logic that is **not** in the
+> `src/` source (e.g. the `.tp-plan-4-item` hover-image swap used by
+> `page-postgrad-programmes.php`, custom-cursor effects, etc.). Consequences:
+> - Editing `src/main.js` + `npm run build` has **no effect on the live site** — the
+>   build writes `main.min.js`, which nothing enqueues.
+> - **Do NOT "fix" this by re-pointing the enqueue to `main.min.js`** — that silently
+>   drops the extra logic only present in `main.js` and breaks pages (this exact
+>   mistake broke the postgrad hover swap once).
+> - To add page-specific JS, write a **standalone script** and enqueue it
+>   conditionally per template (see `assets/js/phd-filter.js` / `department-info.js`),
+>   rather than touching the main bundle. Reconciling `main.js` ↔ `src/main.js` is a
+>   known piece of debt — only attempt it deliberately, not as a side effect.
+
+Page-specific CSS files (`programme.css`, `department-info.css`, etc.) are hand-authored directly in `assets/css/` — they are **not** compiled from SCSS. Page-specific JS (`department-info.js`, `phd-filter.js`) is likewise hand-authored in `assets/js/` and enqueued conditionally per template.
 
 ## PHP Linting
 

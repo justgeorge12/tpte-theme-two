@@ -157,12 +157,16 @@ function tpte_save_event_meta( $post_id ) {
 add_action( 'save_post_tpte_event', 'tpte_save_event_meta' );
 
 /**
- * Template that the "Χρήσιμα Αρχεία" (useful files) meta box is bound to.
+ * Templates that the "Χρήσιμα Αρχεία" (useful files) meta box is bound to.
  */
-const TPTE_USEFUL_FILES_TEMPLATE = 'page-undergrad-section.php';
+const TPTE_USEFUL_FILES_TEMPLATES = array(
+	'page-undergrad-section.php',
+	'page-university-undergrad-programme.php',
+	'page-phd-programme.php',
+);
 
 /**
- * Register the "Χρήσιμα Αρχεία" meta box on pages using the Undergrad Section template.
+ * Register the "Χρήσιμα Αρχεία" meta box on pages using a supported template.
  *
  * @param string  $post_type Current post type.
  * @param WP_Post $post      Current post object.
@@ -172,8 +176,8 @@ function tpte_useful_files_meta_box( $post_type, $post ) {
 		return;
 	}
 
-	// Only show for pages that use the Undergrad Section template.
-	if ( TPTE_USEFUL_FILES_TEMPLATE !== get_post_meta( $post->ID, '_wp_page_template', true ) ) {
+	// Only show for pages that use one of the supported templates.
+	if ( ! in_array( get_post_meta( $post->ID, '_wp_page_template', true ), TPTE_USEFUL_FILES_TEMPLATES, true ) ) {
 		return;
 	}
 

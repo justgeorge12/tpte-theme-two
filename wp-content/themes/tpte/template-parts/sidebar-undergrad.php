@@ -15,24 +15,37 @@ $tp_theme_uri = get_template_directory_uri();
 // the full section structure is always visible. The current page is highlighted.
 $undergrad_nav = array(
 	array(
-		'slug'  => 'undergrad-programme',
-		'label' => __( 'Πρόγραμμα Προπτυχιακών Σπουδών', 'tpte' ),
+		'slug'  => 'undergraduate-programme',
+		'label' => __( 'Πρόγραμμα Σπουδών & Μαθήματα', 'tpte' ),
 	),
 	array(
-		'slug'  => 'undergrad-completion-requirements',
-		'label' => __( 'Προϋποθέσεις ολοκλήρωσης σπουδών', 'tpte' ),
+		'slug'  => 'proipotheseis-oloklirosis',
+		'label' => __( 'Προϋποθέσεις Ολοκλήρωσης Σπουδών', 'tpte' ),
 	),
 	array(
-		'slug'  => 'undergrad-pedagogical-competency',
-		'label' => __( 'Παιδαγωγική επάρκεια', 'tpte' ),
+		'slug'  => 'paidagogiki-eparkeia',
+		'label' => __( 'Παιδαγωγική Επάρκεια', 'tpte' ),
 	),
 	array(
-		'slug'  => 'undergrad-thesis',
-		'label' => __( 'Πτυχιακή εργασία', 'tpte' ),
+		'slug'  => 'ptuxiaki-ergasia',
+		'label' => __( 'Πτυχιακή Εργασία', 'tpte' ),
 	),
 	array(
-		'slug'  => 'undergrad-internship',
-		'label' => __( 'Πρακτική άσκηση', 'tpte' ),
+		'slug'  => 'praktiki',
+		'label' => __( 'Πρακτική Άσκηση', 'tpte' ),
+	),
+);
+
+// Cross-link to the postgraduate & doctoral study levels (same two items as the
+// PhD sidebar). Resolved by slug; the current page is highlighted if it matches.
+$postgrad_nav = array(
+	array(
+		'slug'  => 'masters-programmes',
+		'label' => __( 'Μεταπτυχιακά Προγράμματα Σπουδών', 'tpte' ),
+	),
+	array(
+		'slug'  => 'phd-programme',
+		'label' => __( 'Διδακτορικό Δίπλωμα', 'tpte' ),
 	),
 );
 $current_page_id = get_queried_object_id();
@@ -49,6 +62,28 @@ $useful_files = ( isset( $args['useful_files'] ) && is_array( $args['useful_file
 				$nav_page    = get_page_by_path( $nav_item['slug'] );
 				$nav_url     = $nav_page ? get_permalink( $nav_page ) : '';
 				$is_current  = $nav_page && (int) $nav_page->ID === (int) $current_page_id;
+
+				if ( $is_current ) :
+					?>
+					<a class="current-page" aria-current="page" href="<?php echo esc_url( $nav_url ); ?>"><?php echo esc_html( $nav_item['label'] ); ?></a>
+				<?php elseif ( $nav_url ) : ?>
+					<a href="<?php echo esc_url( $nav_url ); ?>"><?php echo esc_html( $nav_item['label'] ); ?></a>
+				<?php else : ?>
+					<span class="is-disabled"><?php echo esc_html( $nav_item['label'] ); ?></span>
+					<?php
+				endif;
+			endforeach;
+			?>
+		</div>
+	</div>
+	<div class="tp-course-requrement-widget tp-undergrad-nav mb-30">
+		<div class="tp-course-requrement-widget-content">
+			<h4 class="tp-undergrad-nav-title"><?php esc_html_e( 'Μεταπτυχιακές & Διδακτορικό', 'tpte' ); ?></h4>
+			<?php
+			foreach ( $postgrad_nav as $nav_item ) :
+				$nav_page   = get_page_by_path( $nav_item['slug'] );
+				$nav_url    = $nav_page ? get_permalink( $nav_page ) : '';
+				$is_current = $nav_page && (int) $nav_page->ID === (int) $current_page_id;
 
 				if ( $is_current ) :
 					?>
