@@ -3,11 +3,15 @@
  *
  * Two jobs:
  *  1. Override the theme's default search overlay geometry (.tp-search-area is a
- *     fixed 190px bar in main.css — too short for a results panel). main.css is
+ *     fixed 190px bar in main.css — too short for a results panel) and its red
+ *     focus state (a leftover from the original template). main.css is
  *     SCSS-compiled, so these overrides live here and load after it.
  *  2. Style the .tp-search-results dropdown injected by live-search.js: result
- *     groups laid out as cards in a responsive grid so the full-width overlay is
- *     actually used.
+ *     groups laid out as centered cards in a responsive grid that stays balanced
+ *     no matter which categories are present.
+ *
+ * Colors follow the theme cues: --tp-theme-primary (#488ecc) at rest,
+ * --tp-theme-secondary (#1A73E8) on hover/active — same as .tp-btn.
  *
  * Hand-authored (not SCSS-compiled), enqueued sitewide in functions.php.
  */
@@ -30,22 +34,35 @@
 	padding-top: 70px;
 }
 
-/* ── Search input: larger, friendlier ────────────────────────────────────── */
+/* ── Search input: larger, theme-blue focus (was red) ────────────────────── */
 .tp-search-content .search {
 	margin-bottom: 28px;
 }
 
 .tp-search-content input {
+	width: 100%;
 	height: 62px;
 	font-size: 20px;
 	padding: 0 56px;
+}
+
+.tp-search-content input:focus {
+	border-color: rgba(26, 115, 232, 0.5);
+	box-shadow: 0 1px 2px rgba(26, 115, 232, 0.06),
+		0 4px 10px rgba(26, 115, 232, 0.06),
+		0 0 0 3px rgba(26, 115, 232, 0.2);
 }
 
 .tp-search-content .tp-search-icon {
 	left: 22px;
 }
 
-/* ── Results: responsive grid of grouped cards ───────────────────────────── */
+.tp-search-content input:focus ~ .tp-search-icon,
+.tp-search-content .search:hover .tp-search-icon {
+	color: var(--tp-theme-secondary);
+}
+
+/* ── Results: responsive grid of grouped cards, always centered ──────────── */
 .tp-search-results {
 	display: none;
 	margin-top: 8px;
@@ -53,7 +70,8 @@
 
 .tp-search-results.is-visible {
 	display: grid;
-	grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+	grid-template-columns: repeat(auto-fit, minmax(300px, 400px));
+	justify-content: center;
 	gap: 20px;
 	align-items: start;
 }
@@ -62,16 +80,16 @@
 .tp-search-noresults {
 	grid-column: 1 / -1;
 	padding: 24px 4px;
-	color: #6a6a6a;
+	color: var(--tp-text-body);
 	font-size: 16px;
 	text-align: center;
 }
 
 .tp-search-group {
-	border: 1px solid #eceef0;
+	border: 1px solid #e6e8f0;
 	border-radius: 12px;
 	padding: 16px 18px;
-	background: #fff;
+	background: var(--tp-common-white);
 }
 
 .tp-search-group-title {
@@ -80,12 +98,12 @@
 	gap: 9px;
 	margin-bottom: 10px;
 	padding-bottom: 10px;
-	border-bottom: 1px solid #eceef0;
+	border-bottom: 1px solid #e6e8f0;
 	font-size: 13px;
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: .04em;
-	color: #0071dc;
+	color: var(--tp-theme-secondary);
 }
 
 .tp-search-group-list {
@@ -98,17 +116,17 @@
 	display: flex;
 	align-items: center;
 	gap: 12px;
-	padding: 10px 10px;
+	padding: 10px;
 	border-radius: 8px;
-	color: #222;
+	color: var(--tp-heading-primary);
 	text-decoration: none;
 	transition: background-color .15s ease, color .15s ease;
 }
 
 .tp-search-result a:hover,
 .tp-search-result a.is-active {
-	background-color: #f1f6fd;
-	color: #0071dc;
+	background-color: rgba(72, 142, 204, 0.1);
+	color: var(--tp-theme-secondary);
 }
 
 .tp-search-result-icon {
@@ -119,15 +137,15 @@
 	align-items: center;
 	justify-content: center;
 	border-radius: 50%;
-	background: #eef3fb;
-	color: #0071dc;
+	background: rgba(72, 142, 204, 0.12);
+	color: var(--tp-theme-primary);
 	font-size: 15px;
 }
 
 .tp-search-result a:hover .tp-search-result-icon,
 .tp-search-result a.is-active .tp-search-result-icon {
-	background: #0071dc;
-	color: #fff;
+	background: var(--tp-theme-secondary);
+	color: var(--tp-common-white);
 }
 
 .tp-search-result-text {
@@ -146,17 +164,28 @@
 
 .tp-search-result-sub {
 	font-size: 13px;
-	color: #777;
+	color: var(--tp-text-body);
 	white-space: nowrap;
 	overflow: hidden;
 	text-overflow: ellipsis;
 }
 
-@media (max-width: 575px) {
+/* ── Mobile: keep the search bar pinned while results scroll ──────────────── */
+@media (max-width: 767px) {
+	.tp-search-content .search {
+		position: sticky;
+		top: 0;
+		z-index: 5;
+		margin-bottom: 18px;
+		padding: 12px 0;
+		background: var(--tp-common-white);
+	}
+
 	.tp-search-content input {
 		height: 54px;
 		font-size: 17px;
 	}
+
 	.tp-search-results.is-visible {
 		grid-template-columns: 1fr;
 	}
