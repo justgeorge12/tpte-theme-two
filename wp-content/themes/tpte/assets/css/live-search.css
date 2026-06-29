@@ -1,0 +1,116 @@
+/**
+ * Header live-search results dropdown.
+ *
+ * Styles the .tp-search-results container injected by live-search.js inside the
+ * header search overlay (.tp-search-area). Hand-authored (not SCSS-compiled),
+ * enqueued sitewide in functions.php.
+ */
+
+.tp-search-results {
+	display: none;
+	margin-top: 24px;
+	max-height: 60vh;
+	overflow-y: auto;
+	text-align: left;
+}
+
+.tp-search-results.is-visible {
+	display: block;
+}
+
+.tp-search-loading,
+.tp-search-noresults {
+	padding: 18px 4px;
+	color: #6a6a6a;
+	font-size: 15px;
+}
+
+.tp-search-group {
+	margin-bottom: 22px;
+}
+
+.tp-search-group:last-child {
+	margin-bottom: 0;
+}
+
+.tp-search-group-title {
+	display: flex;
+	align-items: center;
+	gap: 8px;
+	margin-bottom: 8px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid #e6e6e6;
+	font-size: 13px;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: .04em;
+	color: #0071dc;
+}
+
+.tp-search-group-title i {
+	font-size: 13px;
+}
+
+.tp-search-group-list {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+.tp-search-result a {
+	display: flex;
+	align-items: center;
+	gap: 12px;
+	padding: 10px 12px;
+	border-radius: 6px;
+	color: #222;
+	text-decoration: none;
+	transition: background-color .15s ease, color .15s ease;
+}
+
+.tp-search-result a:hover,
+.tp-search-result a.is-active {
+	background-color: #f1f6fd;
+	color: #0071dc;
+}
+
+.tp-search-result-icon {
+	flex: 0 0 auto;
+	width: 34px;
+	height: 34px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	background: #eef3fb;
+	color: #0071dc;
+	font-size: 14px;
+}
+
+.tp-search-result a:hover .tp-search-result-icon,
+.tp-search-result a.is-active .tp-search-result-icon {
+	background: #0071dc;
+	color: #fff;
+}
+
+.tp-search-result-text {
+	display: flex;
+	flex-direction: column;
+	min-width: 0;
+}
+
+.tp-search-result-title {
+	font-size: 15px;
+	font-weight: 500;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+
+.tp-search-result-sub {
+	font-size: 13px;
+	color: #777;
+	white-space: nowrap;
+	overflow: hidden;
+	text-overflow: ellipsis;
+}

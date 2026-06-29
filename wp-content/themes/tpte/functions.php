@@ -215,6 +215,25 @@ function tpte_scripts() {
 			'nonce'    => wp_create_nonce( 'tpte_nonce' ),
 		)
 	);
+
+	// Header live search — standalone script + dropdown styles, loaded sitewide.
+	// Fetches a cached JSON index once and filters it client-side (see
+	// inc/search-index.php and assets/js/live-search.js). Versioned by file mtime.
+	$live_search_css  = get_template_directory() . '/assets/css/live-search.css';
+	$live_search_cssv = file_exists( $live_search_css ) ? filemtime( $live_search_css ) : TPTE_VERSION;
+	wp_enqueue_style( 'tpte-live-search', get_template_directory_uri() . '/assets/css/live-search.css', array( 'tpte-main' ), $live_search_cssv );
+
+	$live_search_js  = get_template_directory() . '/assets/js/live-search.js';
+	$live_search_jsv = file_exists( $live_search_js ) ? filemtime( $live_search_js ) : TPTE_VERSION;
+	wp_enqueue_script( 'tpte-live-search', get_template_directory_uri() . '/assets/js/live-search.js', array( 'jquery' ), $live_search_jsv, true );
+	wp_localize_script(
+		'tpte-live-search',
+		'tpte_live_search',
+		array(
+			'ajax_url' => admin_url( 'admin-ajax.php' ),
+			'nonce'    => wp_create_nonce( 'tpte_live_search' ),
+		)
+	);
 	// Department Info page template assets (also used on University About for collapsible mission items).
 	if ( is_page_template( 'page-department-info.php' ) || is_page_template( 'page-university-about.php' ) || is_page_template( 'page-eep.php' ) || is_page_template( 'page-eep-single.php' ) || is_page_template( 'page-edip.php' ) || is_page_template( 'page-etep.php' ) || is_page_template( 'page-ppe.php' ) || is_page_template( 'page-person-single.php' ) ) {
 		wp_enqueue_style( 'tpte-department-info', get_template_directory_uri() . '/assets/css/department-info.css', array( 'tpte-main' ), TPTE_VERSION );
@@ -438,6 +457,11 @@ require_once get_template_directory() . '/inc/class-mega-menu-walker.php';
  * Custom post types and meta boxes.
  */
 require get_template_directory() . '/inc/post-types.php';
+
+/**
+ * Live search index + AJAX endpoint.
+ */
+require get_template_directory() . '/inc/search-index.php';
 
 /**
  * Custom image sizes for events and blog.
