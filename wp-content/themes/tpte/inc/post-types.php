@@ -338,10 +338,159 @@ function tpte_order_event_archive( $query ) {
 add_action( 'pre_get_posts', 'tpte_order_event_archive' );
 
 /**
+ * Register Announcement custom post type.
+ *
+ * Undergraduate announcements. Each one is essentially a PDF: a title, an optional
+ * short description (the native excerpt) and an attached PDF (the _announcement_pdf_id
+ * meta). The archive (archive-tpte_announcement.php) lists them with a direct download
+ * button; single views redirect straight to the PDF (see tpte_announcement_redirect).
+ */
+function tpte_register_announcement_cpt() {
+	$labels = array(
+		'name'               => _x( 'Ανακοινώσεις', 'post type general name', 'tpte' ),
+		'singular_name'      => _x( 'Ανακοίνωση', 'post type singular name', 'tpte' ),
+		'menu_name'          => _x( 'Ανακοινώσεις', 'admin menu', 'tpte' ),
+		'add_new'            => _x( 'Προσθήκη νέας', 'announcement', 'tpte' ),
+		'add_new_item'       => __( 'Προσθήκη νέας ανακοίνωσης', 'tpte' ),
+		'new_item'           => __( 'Νέα ανακοίνωση', 'tpte' ),
+		'edit_item'          => __( 'Επεξεργασία ανακοίνωσης', 'tpte' ),
+		'view_item'          => __( 'Προβολή ανακοίνωσης', 'tpte' ),
+		'all_items'          => __( 'Όλες οι ανακοινώσεις', 'tpte' ),
+		'search_items'       => __( 'Αναζήτηση ανακοινώσεων', 'tpte' ),
+		'not_found'          => __( 'Δεν βρέθηκαν ανακοινώσεις.', 'tpte' ),
+		'not_found_in_trash' => __( 'Δεν βρέθηκαν ανακοινώσεις στον κάδο.', 'tpte' ),
+	);
+
+	$args = array(
+		'labels'       => $labels,
+		'public'       => true,
+		'has_archive'  => true,
+		'show_in_rest' => true,
+		'supports'     => array( 'title', 'excerpt' ),
+		'rewrite'      => array( 'slug' => 'announcements' ),
+		'menu_icon'    => 'dashicons-megaphone',
+	);
+
+	register_post_type( 'tpte_announcement', $args );
+}
+add_action( 'init', 'tpte_register_announcement_cpt' );
+
+/**
+ * Add the PDF meta box for Announcements.
+ */
+function tpte_announcement_meta_boxes() {
+	add_meta_box(
+		'tpte_announcement_details',
+		__( 'Αρχείο PDF', 'tpte' ),
+		'tpte_announcement_meta_box_html',
+		'tpte_announcement',
+		'normal',
+		'high'
+	);
+}
+add_action( 'add_meta_boxes', 'tpte_announcement_meta_boxes' );
+
+/**
+ * Render the Announcement PDF picker meta box.
+ *
+ * Stores a single attachment ID in _announcement_pdf_id. The "Επιλογή PDF" button
+ * opens the WordPress Media Library (wired up in assets/js/admin-announcement-media.js);
+ * the chosen file's name is shown and can be cleared with "Αφαίρεση".
+ *
+ * @param WP_Post $post Current post object.
+ */
+function tpte_announcement_meta_box_html( $post ) {
+	wp_nonce_field( 'tpte_announcement_meta_nonce', 'tpte_announcement_nonce' );
+
+	$pdf_id   = (int) get_post_meta( $post->ID, '_announcement_pdf_id', true );
+	$pdf_name = $pdf_id ? get_the_title( $pdf_id ) : '';
+	$pdf_url  = $pdf_id ? wp_get_attachment_url( $pdf_id ) : '';
+	?>
+	<div class="tpte-announcement-pdf">
+		<p class="description"><?php esc_html_e( 'Επιλέξτε ή ανεβάστε το αρχείο PDF της ανακοίνωσης από τη Βιβλιοθήκη Πολυμέσων.', 'tpte' ); ?></p>
+		<input type="hidden" id="tpte_announcement_pdf_id" name="_announcement_pdf_id" value="<?php echo esc_attr( $pdf_id ); ?>">
+		<p class="tpte-announcement-pdf-name" style="margin:8px 0;">
+			<?php if ( $pdf_url ) : ?>
+				<a href="<?php echo esc_url( $pdf_url ); ?>" target="_blank" rel="noopener"><?php echo esc_html( $pdf_name ); ?></a>
+			<?php else : ?>
+				<em><?php esc_html_e( 'Δεν έχει επιλεγεί αρχείο.', 'tpte' ); ?></em>
+			<?php endif; ?>
+		</p>
+		<button type="button" class="button button-secondary tpte-announcement-pdf-select"><?php esc_html_e( 'Επιλογή PDF', 'tpte' ); ?></button>
+		<button type="button" class="button tpte-announcement-pdf-remove"<?php echo $pdf_id ? '' : ' style="display:none;"'; ?>><?php esc_html_e( 'Αφαίρεση', 'tpte' ); ?></button>
+	</div>
+	<?php
+}
+
+/**
+ * Save the Announcement PDF meta.
+ *
+ * @param int $post_id Post ID.
+ */
+function tpte_save_announcement_meta( $post_id ) {
+	if ( ! isset( $_POST['tpte_announcement_nonce'] ) || ! wp_verify_nonce( sanitize_key( $_POST['tpte_announcement_nonce'] ), 'tpte_announcement_meta_nonce' ) ) {
+		return;
+	}
+
+	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
+		return;
+	}
+
+	if ( ! current_user_can( 'edit_post', $post_id ) ) {
+		return;
+	}
+
+	$pdf_id = isset( $_POST['_announcement_pdf_id'] ) ? absint( $_POST['_announcement_pdf_id'] ) : 0;
+
+	if ( $pdf_id ) {
+		update_post_meta( $post_id, '_announcement_pdf_id', $pdf_id );
+	} else {
+		delete_post_meta( $post_id, '_announcement_pdf_id' );
+	}
+}
+add_action( 'save_post_tpte_announcement', 'tpte_save_announcement_meta' );
+
+/**
+ * Show 9 announcements per page on the archive, newest first (default date order).
+ *
+ * @param WP_Query $query The query object.
+ */
+function tpte_order_announcement_archive( $query ) {
+	if ( is_admin() || ! $query->is_main_query() ) {
+		return;
+	}
+
+	if ( $query->is_post_type_archive( 'tpte_announcement' ) ) {
+		$query->set( 'posts_per_page', 9 );
+	}
+}
+add_action( 'pre_get_posts', 'tpte_order_announcement_archive' );
+
+/**
+ * Announcements have no single view — send single URLs straight to the PDF.
+ *
+ * Titles in the archive link directly to the PDF, so the single permalink is never
+ * surfaced; this just makes direct access graceful (PDF if attached, else the archive).
+ */
+function tpte_announcement_redirect() {
+	if ( ! is_singular( 'tpte_announcement' ) ) {
+		return;
+	}
+
+	$pdf_id  = (int) get_post_meta( get_queried_object_id(), '_announcement_pdf_id', true );
+	$pdf_url = $pdf_id ? wp_get_attachment_url( $pdf_id ) : '';
+
+	wp_safe_redirect( $pdf_url ? $pdf_url : get_post_type_archive_link( 'tpte_announcement' ) );
+	exit;
+}
+add_action( 'template_redirect', 'tpte_announcement_redirect' );
+
+/**
  * Flush rewrite rules on theme switch.
  */
 function tpte_flush_rewrite_rules() {
 	tpte_register_event_cpt();
+	tpte_register_announcement_cpt();
 	flush_rewrite_rules();
 }
 add_action( 'after_switch_theme', 'tpte_flush_rewrite_rules' );

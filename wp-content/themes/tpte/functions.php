@@ -277,6 +277,14 @@ function tpte_scripts() {
 		wp_enqueue_script( 'tpte-blog-single', get_template_directory_uri() . '/assets/js/blog-single.js', array(), $blog_jsv, true );
 	}
 
+	// Announcements archive (archive-tpte_announcement.php) — list rows + download button.
+	// Standalone CSS leaning on existing .tp-postbox-* / .tp-btn rules. Versioned by mtime.
+	if ( is_post_type_archive( 'tpte_announcement' ) ) {
+		$ann_css  = get_template_directory() . '/assets/css/announcements.css';
+		$ann_cssv = file_exists( $ann_css ) ? filemtime( $ann_css ) : TPTE_VERSION;
+		wp_enqueue_style( 'tpte-announcements', get_template_directory_uri() . '/assets/css/announcements.css', array( 'tpte-main' ), $ann_cssv );
+	}
+
 	// Quality Assurance page template — ApexCharts for line chart.
 	if ( is_page_template( 'page-quality-assurance.php' ) ) {
 		wp_enqueue_style( 'tpte-apexcharts', get_template_directory_uri() . '/assets/css/apexcharts.css', array(), TPTE_VERSION );
@@ -284,6 +292,32 @@ function tpte_scripts() {
 	}
 }
 add_action( 'wp_enqueue_scripts', 'tpte_scripts' );
+
+/**
+ * Admin assets for the Announcement PDF picker.
+ *
+ * Loads the Media Library + the small wp.media wiring, only on the announcement
+ * add/edit screen. Versioned by file mtime like the front-end page assets.
+ *
+ * @param string $hook Current admin page hook suffix.
+ */
+function tpte_admin_announcement_scripts( $hook ) {
+	if ( 'post.php' !== $hook && 'post-new.php' !== $hook ) {
+		return;
+	}
+
+	$screen = get_current_screen();
+	if ( ! $screen || 'tpte_announcement' !== $screen->post_type ) {
+		return;
+	}
+
+	wp_enqueue_media();
+
+	$js  = get_template_directory() . '/assets/js/admin-announcement-media.js';
+	$jsv = file_exists( $js ) ? filemtime( $js ) : TPTE_VERSION;
+	wp_enqueue_script( 'tpte-admin-announcement-media', get_template_directory_uri() . '/assets/js/admin-announcement-media.js', array(), $jsv, true );
+}
+add_action( 'admin_enqueue_scripts', 'tpte_admin_announcement_scripts' );
 
 /**
  * Reusable "Πρόγραμμα Μαθημάτων ανά εξάμηνο" content styles.
