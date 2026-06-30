@@ -169,7 +169,7 @@ if ( ! $member ) :
 
 							<!-- Βιογραφικό Σημείωμα -->
 							<?php if ( ! empty( $member['short_bio'] ) ) : ?>
-								<h3 class="tp-profile-title">Βιογραφικό Σημείωμα</h3>
+								<h3 class="tp-profile-title">Σύντομο Βιογραφικό</h3>
 								<?php
 								$bio_paragraphs = array_filter( array_map( 'trim', explode( "\n", $member['short_bio'] ) ) );
 								foreach ( $bio_paragraphs as $p ) : ?>
@@ -178,42 +178,42 @@ if ( ! $member ) :
 							<?php endif; ?>
 
 							<!-- Επικοινωνία -->
-							<?php if ( ! empty( $member['email'] ) || ! empty( $member['phone'] ) ) : ?>
-								<div style="margin-top:28px;">
-									<strong style="color:#333;font-size:15px;">Επικοινωνία</strong>
-									<ul style="list-style:none;padding:0;margin:10px 0 0;display:flex;gap:24px;flex-wrap:wrap;">
-										<?php if ( ! empty( $member['email'] ) ) : ?>
-											<li>
-												<i class="fa-light fa-envelope" style="color:#0071DC;margin-right:6px;"></i>
-												<a href="mailto:<?php echo esc_attr( $member['email'] ); ?>" style="color:#555;"><?php echo esc_html( $member['email'] ); ?></a>
-											</li>
-										<?php endif; ?>
-										<?php if ( ! empty( $member['phone'] ) ) : ?>
-											<li>
-												<i class="fa-light fa-phone" style="color:#0071DC;margin-right:6px;"></i>
-												<a href="tel:<?php echo esc_attr( $member['phone'] ); ?>" style="color:#555;"><?php echo esc_html( $member['phone'] ); ?></a>
-											</li>
-										<?php endif; ?>
-									</ul>
-								</div>
-							<?php endif; ?>
-
-							<!-- Ακαδημαϊκά Προφίλ -->
-							<?php if ( ! empty( $member['links'] ) ) : ?>
-								<div style="margin-top:20px;">
-									<strong style="color:#333;font-size:15px;">Ακαδημαϊκά Προφίλ</strong>
-									<ul style="list-style:none;padding:0;margin:10px 0 0;display:flex;gap:16px;flex-wrap:wrap;">
-										<?php foreach ( $member['links'] as $link ) : ?>
-											<li>
-												<a href="<?php echo esc_url( $link['url'] ); ?>" target="_blank" rel="noopener noreferrer" style="color:#0071DC;font-size:14px;">
-													<span style="margin-right:5px;"><?php echo tpte_link_icon( $link ); ?></span>
-													<?php echo esc_html( $link['label'] ); ?>
-												</a>
-											</li>
-										<?php endforeach; ?>
-									</ul>
-								</div>
-							<?php endif; ?>
+<!--							--><?php //if ( ! empty( $member['email'] ) || ! empty( $member['phone'] ) ) : ?>
+<!--								<div style="margin-top:28px;">-->
+<!--									<strong style="color:#333;font-size:15px;">Επικοινωνία</strong>-->
+<!--									<ul style="list-style:none;padding:0;margin:10px 0 0;display:flex;gap:24px;flex-wrap:wrap;">-->
+<!--										--><?php //if ( ! empty( $member['email'] ) ) : ?>
+<!--											<li>-->
+<!--												<i class="fa-light fa-envelope" style="color:#0071DC;margin-right:6px;"></i>-->
+<!--												<a href="mailto:--><?php //echo esc_attr( $member['email'] ); ?><!--" style="color:#555;">--><?php //echo esc_html( $member['email'] ); ?><!--</a>-->
+<!--											</li>-->
+<!--										--><?php //endif; ?>
+<!--										--><?php //if ( ! empty( $member['phone'] ) ) : ?>
+<!--											<li>-->
+<!--												<i class="fa-light fa-phone" style="color:#0071DC;margin-right:6px;"></i>-->
+<!--												<a href="tel:--><?php //echo esc_attr( $member['phone'] ); ?><!--" style="color:#555;">--><?php //echo esc_html( $member['phone'] ); ?><!--</a>-->
+<!--											</li>-->
+<!--										--><?php //endif; ?>
+<!--									</ul>-->
+<!--								</div>-->
+<!--							--><?php //endif; ?>
+<!---->
+<!--						 Ακαδημαϊκά Προφίλ -->
+<!--							--><?php //if ( ! empty( $member['links'] ) ) : ?>
+<!--								<div style="margin-top:20px;">-->
+<!--									<strong style="color:#333;font-size:15px;">Ακαδημαϊκά Προφίλ</strong>-->
+<!--									<ul style="list-style:none;padding:0;margin:10px 0 0;display:flex;gap:16px;flex-wrap:wrap;">-->
+<!--										--><?php //foreach ( $member['links'] as $link ) : ?>
+<!--											<li>-->
+<!--												<a href="--><?php //echo esc_url( $link['url'] ); ?><!--" target="_blank" rel="noopener noreferrer" style="color:#0071DC;font-size:14px;">-->
+<!--													<span style="margin-right:5px;">--><?php //echo tpte_link_icon( $link ); ?><!--</span>-->
+<!--													--><?php //echo esc_html( $link['label'] ); ?>
+<!--												</a>-->
+<!--											</li>-->
+<!--										--><?php //endforeach; ?>
+<!--									</ul>-->
+<!--								</div>-->
+<!--							--><?php //endif; ?>
 
 							<!-- CV button -->
 							<?php if ( ! empty( $member['cv_url'] ) ) : ?>
